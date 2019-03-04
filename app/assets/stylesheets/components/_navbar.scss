@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +9,16 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
 }
+
+// Search icon
+.search{
+  margin-right: 20px;
+}
+
+.fa-searchengin{
+  font-size: 32px;
+}
+
+//
