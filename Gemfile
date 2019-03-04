@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem "geocoder"
+gem 'searchkick', '~> 3.0'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
