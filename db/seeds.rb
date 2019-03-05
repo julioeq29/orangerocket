@@ -8,10 +8,16 @@
 
 require 'faker'
 
+puts "---------------------------------------------------------"
 puts "---------------Starting seeding process------------------"
 puts "---------------------------------------------------------"
-
-
+puts "destroying tags"
+Tag.destroy_all
+# -----------------  QUESTIONS  --------------------
+puts "---------------------------------------------------------"
+puts "destroying questions"
+Question.destroy_all
+puts "creating questions"
 # ---------------------  USERS  ---------------------
 puts "---------------------------------------------------------"
 puts "destroying users"
@@ -52,17 +58,72 @@ puts "---------------------------------------------------------"
 puts "destroying categories"
 Category.destroy_all
 puts "creating categories"
-Category.create!(name: "Food & Cooking")
-Category.create!(name: "Travel & Commute")
-Category.create!(name: "Energy")
-Category.create!(name: "Waste & Recycling")
-Category.create!(name: "Politics")
-Category.create!(name: "Technology")
-Category.create!(name: "Shopping & Fashion")
-Category.create!(name: "House & Building")
-Category.create!(name: "Lifestyle")
-Category.create!(name: "Activism")
-Category.create!(name: "Climate Change")
+category = Category.create!(
+  name: "Food & Cooking"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Travel & Commute"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/1453960/pexels-photo-1453960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Energy"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/243053/pexels-photo-243053.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Waste & Recycling"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/1933386/pexels-photo-1933386.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Politics"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/919109/pexels-photo-919109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Technology"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Shopping & Fashion"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/1345082/pexels-photo-1345082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "House & Building"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/302186/pexels-photo-302186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Lifestyle"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/310983/pexels-photo-310983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Activism"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/1799249/pexels-photo-1799249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
+category = Category.create!(
+  name: "Climate Change"
+  )
+category.remote_photo_url = "https://images.pexels.com/photos/221012/pexels-photo-221012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+category.save
+
 puts "categories created"
 puts "---------------------------------------------------------"
 
@@ -70,8 +131,7 @@ puts "---------------------------------------------------------"
 
 # ---------------------  TAGS  ----------------------
 puts "---------------------------------------------------------"
-puts "destroying tags"
-Tag.destroy_all
+
 puts "creating tags"
 
 # ----------  TAGS: Food & Cooking -------------
@@ -179,11 +239,7 @@ puts "---------------------------------------------------------"
 
 
 
-# -----------------  QUESTIONS  --------------------
-puts "---------------------------------------------------------"
-puts "destroying questions"
-Question.destroy_all
-puts "creating questions"
+
 
 
 # ----------  QUESTION: Food & Cooking -------------
