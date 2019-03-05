@@ -1,0 +1,6 @@
+<h1><%= @question.content %></h1>
+<%= link_to "edit it", edit_question_path %>
+<%= link_to "delete it", question_path(@question),
+  method: :delete,
+  date: {confirm: "are you sure?"} %>
+
