@@ -35,6 +35,8 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:id])
+
 
   end
 
