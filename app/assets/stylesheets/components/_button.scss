@@ -1,0 +1,24 @@
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid $brand-secondary;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  font-size: 10px;
+}
+
+.btn-ghost:hover {
+  opacity: 0.5;
+  background-color: $brand-secondary;
+
+}
+
+.btn-tags{
+  padding: 10px;
+  height: 55px;
+}
+
+.btn-answer{
+  height: 35px;
+}
