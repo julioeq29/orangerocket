@@ -35,12 +35,13 @@
 </div>
 
   <div class="container-category">
-      <div class="cards card-home">
-        <% @categories.each do |category| %>
-          <div class="card-category card-category-home text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-          <%= link_to category.name, category_path(category) %>
-          </div>
-        <% end %>
+    <div class="cards card-home">
+      <% @categories.each do |category| %>
+      <div >
+        <%= cl_image_tag category.photo, height: 300, width: 400, crop: :fill, class: "card-category card-category-home" %>
+        <%= link_to category.name, category_path(category) %>
+      </div>
+    <% end %>
     </div>
   </div>
 
