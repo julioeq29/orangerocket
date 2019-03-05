@@ -37,7 +37,7 @@
   <div class="container-category">
       <div class="cards card-home">
         <% @categories.each do |category| %>
-          <div class="card-category card-category-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+          <div class="card-category card-category-home text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
           <%= link_to category.name, category_path(category) %>
           </div>
         <% end %>
