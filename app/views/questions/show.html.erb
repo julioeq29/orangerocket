@@ -1,4 +1,13 @@
 <h1><%= @question.content %></h1>
+<%= simple_form_for [@question, @answer] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "send", class: "btn btn-primary" %>
+
+<% end %>
+s
+<% @answers.each do |answer| %>
+<h2><%= answer.content %></h2>
+<% end %>
 <%= link_to "edit it", edit_question_path %>
 <%= link_to "delete it", question_path(@question),
   method: :delete,

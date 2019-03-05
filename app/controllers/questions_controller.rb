@@ -1,18 +1,18 @@
 class QuestionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  def index
-    if params[:query].present?
-      @questions = policy_scope(Question).where(category_id: params[:query])
-    else
-      @questions = policy_scope(Question)
-    end
-
-
-  end
+  # def index
+  #   if params[:query].present?
+  #     @questions = policy_scope(Question).where(category_id: params[:query])
+  #   else
+  #     @questions = policy_scope(Question)
+  #   end
+  # end
 
   def show
     @question = Question.find(params[:id])
+    @answers = Answer.all.where(question: @question)
+    @answer = Answer.new
     authorize @question
   end
 
