@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 # --------- Here the GEMs installed, not part of the minimal template ---------
+gem "pundit"
 gem "geocoder"
 gem 'searchkick', '~> 3.0'
 gem 'cloudinary', '~> 1.9.1'
