@@ -217,13 +217,13 @@ Question.create!(
 # ---------  QUESTION: Energy ----------------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 3,
   content: "How convenient is to install solar panels on my roof (I live in South Spain)?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 3,
   content: "Can you recommenend Renewable Energy suppliers in London?",
   upvote: (0..100).to_a.sample
   )
@@ -231,13 +231,13 @@ Question.create!(
 # ---------  QUESTION: Waste & Recycling -------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 4,
   content: "What does the different numbers under the plastic bottles mean?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 4,
   content: "I live in London, does it really help if I sort the trash out before putting it on the bin?",
   upvote: (0..100).to_a.sample
   )
@@ -245,13 +245,13 @@ Question.create!(
 # ---------  QUESTION: Politics -------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 5,
   content: "What is the New Green Deal that is being pushed by the Democrats in the US?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 5,
   content: "Which EU political party has the greenest credentials ahead of the EU 2019 elections?",
   upvote: (0..100).to_a.sample
   )
@@ -259,13 +259,13 @@ Question.create!(
 # ---------  QUESTION: Technology ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 6,
   content: "What is the energy consumption of a single blockchain transaction?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 6,
   content: "Where does all the eWaste end up?",
   upvote: (0..100).to_a.sample
   )
@@ -273,13 +273,13 @@ Question.create!(
 # ---------  QUESTION: Shopping & Fashion ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 7,
   content: "How many liters of water are used to produce a single cotton t-shirt?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 7,
   content: "Where in London can I donate clothes and make sure will be used and not resold?",
   upvote: (0..100).to_a.sample
   )
@@ -287,13 +287,13 @@ Question.create!(
 # ---------  QUESTION: House & Building ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 8,
   content: "Is the Nest thermostat a real money-saver? Or will I end up paying +£200 on a gadget?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 8,
   content: "Does installing a heat pump saves much money? I live in South Italy and the investment seems quite high",
   upvote: (0..100).to_a.sample
   )
@@ -301,13 +301,13 @@ Question.create!(
 # ---------  QUESTION: Lifestyle ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 9,
   content: "Any good tips on Green Living books?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 9,
   content: "Is buying an electric vehicle a game changer? I am worried about the autonomy (range in km)",
   upvote: (0..100).to_a.sample
   )
@@ -315,13 +315,13 @@ Question.create!(
 # ---------  QUESTION: Activism ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 10,
   content: "Can someone please explain the Youth Strikes for Climate movement and why pupils are striking from school?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 10,
   content: "Any recommendations like Climate Change Vs Capitalism by Naomi Klein books?",
   upvote: (0..100).to_a.sample
   )
@@ -329,13 +329,13 @@ Question.create!(
 # ---------  QUESTION: Climate Change ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 11,
   content: "What are the consequences of not not staying within the 2deg Celcius?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category_id: 11,
   content: "What are the 5 main sources of CO2 emissions globally?",
   upvote: (0..100).to_a.sample
   )

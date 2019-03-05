@@ -7,5 +7,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @tags = Tag.all
     authorize @category
+    @questions = Question.all.where(category: @category)
   end
 end

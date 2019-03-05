@@ -6,3 +6,10 @@
   <%= tag.name %>
 <% end %>
 
+
+
+<h1><% @questions.each do |question|%></h1>
+<%= question.content %>
+<% end  %>
+
+<%= link_to "ask a question", new_user_question_path(current_user) %>
