@@ -1,16 +1,40 @@
-<h1><%= @category.name %></h1>
-
+<div class="back">
 <%= link_to "Back to categories", root_path %>
+</div>
 
+<div class="title-category">
+<h1><%= @category.name %></h1>
+</div>
+
+<div class="container tag-show">
 <% @category.tags.each do |tag| %>
-  <%= tag.name %>
+  <div class="btn-tags">
+  <a class="btn btn-ghost btn-tag" href="#"><%= tag.name %></a>
+  </div>
 <% end %>
+</div>
 
 
+<div class="container d-flex">
 
-<h1><% @questions.each do |question|%></h1>
-<%= question.content %>
-<% end  %>
+  <div class="container articles">
 
+  </div>
 
-<%= link_to "ask a question", new_question_path %>
+  <div class="container questions">
+    <div class="answer d-flex justify-content-between">
+      <h2>Community Q&A</h2>
+
+     <%= link_to "ask a question", new_question_path, class: "btn btn-ghost btn-answer" %>
+
+    </div>
+
+    <h1><% @questions.each do |question|%></h1>
+    <div class="container card-question">
+      <%= question.content %>
+
+    </div>
+    <% end  %>
+  </div>
+
+</div>
