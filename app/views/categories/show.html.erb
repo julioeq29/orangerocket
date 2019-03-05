@@ -1,1 +1,8 @@
-show.html.erb
+<h1><%= @category.name %></h1>
+
+<%= link_to "Back to categories", root_path %>
+
+<% @category.tags.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+
