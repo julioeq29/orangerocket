@@ -6,5 +6,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @tags = Tag.all
   end
 end
