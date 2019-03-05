@@ -399,6 +399,13 @@ Question.create!(
 puts "questions created"
 puts "---------------------------------------------------------"
 
+Answer.create!(
+  user_id: (1..4).to_a.sample,
+  question_id: 1,
+  content: "The 5 main sources of CO2 emissions globally",
+  upvote: (0..100).to_a.sample
+  )
+
 
 puts "---------------------------------------------------------"
 puts "-----------Seeding process done, play Now!---------------"
