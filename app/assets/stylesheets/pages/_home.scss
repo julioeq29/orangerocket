@@ -2,6 +2,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
+.scroll-down{
+  height: 30px;
+  font-size: 30px;
+  position: relative;
+  top: 550px;
+  right: 610px;
+}
+
 .container-banner{
   margin:10px;
 }
@@ -12,8 +20,15 @@ h1, h2, h3, h4, h5, h6 {
 .img-banner{
   background-size: cover;
   background-position: center;
-  width: 80%;
+  width: 65%;
   padding: 0 !important;
+  height: 500px;
+}
+
+.img-banner img{
+    width: 630px;
+    height: 500px;
+    padding: 50px 0px 0px 150px;
 }
 
 .text-banner{
@@ -95,17 +110,4 @@ h1, h2, h3, h4, h5, h6 {
   color: #999;
 }
 
-/*
- * Footer
- */
-.blog-footer {
-  padding: 2.5rem 0;
-  color: #999;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
-}
-.blog-footer p:last-child {
-  margin-bottom: 0;
-}
 

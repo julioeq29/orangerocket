@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  margin: 0px 56px 0px 56px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,6 +12,23 @@
 .navbar-lewagon .navbar-brand img {
   width: 50px;
 }
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo h1{
+  font-size: 20px;
+  position: relative;
+  top: 10px;
+  height: 30px;
+}
+
+.logo a{
+  margin-right: 0px !important;
+}
+
 
 // Search icon
 .search{
