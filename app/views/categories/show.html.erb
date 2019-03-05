@@ -31,7 +31,7 @@
 
     <h1><% @questions.each do |question|%></h1>
     <div class="container card-question">
-      <%= question.content %>
+      <%= link_to question.content, question_path(question) %>
 
     </div>
     <% end  %>
