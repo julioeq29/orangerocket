@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+# --------- Here the GEMs installed, not part of the minimal template ---------
 gem "geocoder"
 gem 'searchkick', '~> 3.0'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 gem 'bootsnap', require: false
 gem 'devise'
