@@ -1,0 +1,37 @@
+
+<div class="title-category">
+  <h1>My dashboard</h1>
+  <div class="container d-flex">
+    <div class="container dashboard-infos">
+      <p><%= @user.first_name %></p>
+    </div>
+    <div class="container dashboard-description">
+      <p>Here a description</p>
+    </div>
+    <div class="container dashboard-ranking">
+      <p>Here a ranking</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container d-flex">
+
+  <div class="container articles-dashboard">
+    <h2>Liked articles</h2>
+  </div>
+
+  <div class="container questions-dashboard">
+    <h2>My questions</h2>
+      <% @user.questions.each do |question| %>
+      <div class="container card-question">
+        <%= question.content %>
+      </div>
+      <% end %>
+  </div>
+
+  <div class="container answers-dashboard">
+    <h2>My answers</h2>
+  </div>
+
+</div>
