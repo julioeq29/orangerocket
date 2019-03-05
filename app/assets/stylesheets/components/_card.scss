@@ -26,6 +26,10 @@
   margin-left: 56px;
 }
 
+.card-category-home a{
+  color: white !important;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {
