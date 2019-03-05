@@ -13,11 +13,21 @@ class QuestionPolicy < ApplicationPolicy
     true
   end
 
-  def show
+  def show?
+    true
+  end
+
+  def edit?
     true
   end
 
   def update?
-    @record.user == @user
+    record.user == user
   end
+
+
+  def destroy?
+    record.user == user
+  end
+
 end

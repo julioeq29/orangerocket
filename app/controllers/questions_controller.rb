@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
       @questions = policy_scope(Question)
     end
 
+
   end
 
   def show
@@ -36,12 +37,28 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    authorize @question
+  end
 
+  def update
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    @question.user = current_user
+    @question.category_id = params[:question][:category_id]
+    authorize @question
+    if @question.save
+      redirect_to category_path(@question.category)
+    else
+      render :edit
+    end
 
   end
 
-  def delete
-
+  def destroy
+    question = Question.find(params[:id])
+    authorize question
+    question.destroy
+    redirect_to root_path
   end
 
   private
