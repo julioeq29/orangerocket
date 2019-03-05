@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def index
     @categories = Category.all
   end
@@ -7,5 +6,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @tags = Tag.all
+    authorize @category
   end
 end
