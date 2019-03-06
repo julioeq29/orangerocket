@@ -7,7 +7,13 @@ class QuestionsController < ApplicationController
   #   else
   #     @questions = policy_scope(Question)
   #   end
+
+
+
+  end
+=======
   # end
+
 
   def show
     @question = Question.find(params[:id])
