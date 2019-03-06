@@ -1,10 +1,12 @@
 <h1><%= @question.content %></h1>
 
 <% if policy(@question).edit?  %>
-<%= link_to "edit question", edit_question_path %>
+  <% if @answers.any? == false %>
+    <%= link_to "edit question", edit_question_path %>
+  <% end %>
   <%= link_to "delete question", question_path(@question),
   method: :delete,
-  date: {confirm: "are you sure?"} %>
+  data: {confirm: "are you sure?"} %>
 <% end %>
 
 <%= simple_form_for [@question, @answer] do |f| %>
@@ -23,7 +25,7 @@
     <%= link_to "edit answer", edit_answer_path(answer) %>
     <%= link_to "delete answer", answer_path(answer),
     method: :delete,
-    date: {confirm: "are you sure?"} %>
+    data: {confirm: "are you sure?"} %>
   <% end %>
 <% end %>
 
