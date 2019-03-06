@@ -12,7 +12,6 @@ class AnswersController < ApplicationController
     @answer.content = params[:answer][:content]
     @answer.question_id = params[:question_id]
     authorize @answer
-    @answer.save
     if @answer.save
       redirect_to question_path(params[:question_id])
     else
@@ -47,10 +46,22 @@ class AnswersController < ApplicationController
     redirect_to question_path(redirection_id)
   end
 
+  def upvote
+    # raise
+    @answer = Answer.find(params[:id])
+    @answer.liked_by current_user
+    authorize @answer
+    redirect_to question_path(@answer.question_id)
+
+    # update the relevant ansnwer
+    # redirect back to the question page
+    # answer.user.upvotes += 1
+    # asnwer.user.save
+  end
+
 private
 
   def answer_params
     params.require(:answer).permit(:content, :question_id)
   end
-
 end

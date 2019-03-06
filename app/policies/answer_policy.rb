@@ -18,7 +18,7 @@ class AnswerPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    record.user == user
   end
 
   def update?
@@ -27,5 +27,9 @@ class AnswerPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
+  end
+
+  def upvote?
+    true
   end
 end

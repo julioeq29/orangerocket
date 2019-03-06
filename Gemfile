@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 # --------- Here the GEMs installed, not part of the minimal template ---------
+gem 'acts_as_votable', '~> 0.12.0'
 gem "pundit"
 gem "geocoder"
 gem 'searchkick', '~> 3.0'

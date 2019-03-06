@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   #   end
   # end
 
+
   def show
     @question = Question.find(params[:id])
     @answers = Answer.all.where(question: @question)
@@ -65,5 +66,4 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:content, :category_id)
   end
-
 end

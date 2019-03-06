@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="logo">
   <%= link_to root_path, class: "navbar-brand logo-navbar" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "logo.png", width: 80 %>
   <% end %>
 
   </div>
@@ -29,9 +29,14 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+      <div class="d-flex">
+        <div class="nav-item login-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link navbar-log btn btn-ghost" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link navbar-log btn btn-ghost" %>
+        </div>
+      </div>
       <% end %>
     </ul>
   </div>
