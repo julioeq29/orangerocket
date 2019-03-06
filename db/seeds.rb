@@ -28,24 +28,29 @@ User.create!(
   first_name: "lily",
   email: "l@l",
   password: "123456",
+  location:"hoxton"
   )
 
 User.create!(
   first_name: "gina",
   email: "g@g",
   password: "123456",
+  location:"Peckham"
   )
 
 User.create!(
   first_name: "edoardo",
   email: "e@e",
   password: "123456",
+  location:"Boston"
   )
 
 User.create!(
   first_name: "hector",
   email: "h@h",
   password: "123456",
+  location:"Stratford"
+
   )
 
 puts "users created"
