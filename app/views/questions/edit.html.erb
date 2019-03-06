@@ -1,6 +1,5 @@
 <%= simple_form_for [@question] do |f| %>
   <%= f.input :content %>
   <%= f.association :category, collection: Category.all %>
-  <%= f.submit "update your question here", class: "btn btn-primary" %>
-
+  <%= f.submit "update the question", class: "btn btn-primary" %>
 <% end %>

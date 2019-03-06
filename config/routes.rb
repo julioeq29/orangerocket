@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :questions, except: [:destroy] do
-    resources :answers, except: [:destroy]
+    resources :answers, except: [:edit, :update, :destroy]
   end
 
   resources :categories
   resources :articles, only: [:read, :update]
   resources :questions, only: [:destroy]
-  resources :answers, only: [:destroy]
+  resources :answers, only: [:edit, :update, :destroy]
 end
