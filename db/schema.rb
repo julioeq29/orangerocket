@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2019_03_06_131826) do
+
 ActiveRecord::Schema.define(version: 2019_03_06_151819) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_03_06_151819) do
     t.integer "upvote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["category_id"], name: "index_questions_on_category_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
@@ -86,7 +92,12 @@ ActiveRecord::Schema.define(version: 2019_03_06_151819) do
     t.string "last_name"
     t.string "location"
     t.text "bio"
+
+    t.float "latitude"
+    t.float "longitude"
+
     t.integer "upvote"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
