@@ -4,24 +4,31 @@
 }
 
 .card-category-home {
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center !important;
+  // background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) !important;
   height: 216px;
   width: 207px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.card-category-home:hover{
+  height: 250px;
+  width: 220px;
+  transition: opacity 0.3s ease;
 }
 
 .container-category{
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 80px;
   margin-right: 56px;
   margin-left: 56px;
 }
