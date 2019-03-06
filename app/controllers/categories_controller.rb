@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @tags = Tag.all
     authorize @category
-    @questions = Question.all.where(category: @category)
+    @questions = Question.all.where(category: @category).order(created_at: :desc)
     @articles = Article.all.where(category: @category)
   end
 end

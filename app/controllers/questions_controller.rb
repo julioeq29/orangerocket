@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @answers = Answer.all.where(question: @question)
+    @answers = Answer.all.where(question: @question).order(created_at: :desc)
     @answer = Answer.new
     authorize @question
   end
