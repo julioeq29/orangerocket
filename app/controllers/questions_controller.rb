@@ -7,11 +7,6 @@ class QuestionsController < ApplicationController
   #   else
   #     @questions = policy_scope(Question)
   #   end
-
-
-
-  end
-=======
   # end
 
 
