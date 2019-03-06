@@ -1,15 +1,20 @@
 <h1><%= @question.content %></h1>
+<%= link_to "edit question", edit_question_path %>
+<%= link_to "delete question", question_path(@question),
+  method: :delete,
+  date: {confirm: "are you sure?"} %>
+
 <%= simple_form_for [@question, @answer] do |f| %>
   <%= f.input :content %>
   <%= f.submit "send", class: "btn btn-primary" %>
+<% end %>
 
-<% end %>
-s
 <% @answers.each do |answer| %>
-<h2><%= answer.content %></h2>
-<% end %>
-<%= link_to "edit it", edit_question_path %>
-<%= link_to "delete it", question_path(@question),
+<p><%= answer.content %></p>
+<%= link_to "edit answer", edit_answer_path(answer) %>
+<%= link_to "delete answer", answer_path(answer),
   method: :delete,
   date: {confirm: "are you sure?"} %>
+<% end %>
+
 
