@@ -9,5 +9,6 @@ class CategoriesController < ApplicationController
     @tags = Tag.all
     authorize @category
     @questions = Question.all.where(category: @category)
+    @articles = Article.all.where(category: @category)
   end
 end
