@@ -9,10 +9,16 @@ class QuestionsController < ApplicationController
   #   end
 
 
+
   end
+=======
+  # end
+
 
   def show
     @question = Question.find(params[:id])
+    @answers = Answer.all.where(question: @question)
+    @answer = Answer.new
     authorize @question
   end
 
@@ -51,7 +57,6 @@ class QuestionsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy

@@ -399,6 +399,36 @@ Question.create!(
 puts "questions created"
 puts "---------------------------------------------------------"
 
+Answer.create!(
+  user_id: (1..4).to_a.sample,
+  question_id: 1,
+  content: "Changing dietary patterns could save $1 trillion annually by preventing health care costs and lost productivity. That figure balloons to as much as $30 trillion annually when also considering the economic value of lost life. And that doesn’t even include the economic benefits of avoiding devastating extreme weather events that could result from climate change.",
+  upvote: (0..100).to_a.sample
+  )
+
+Answer.create!(
+  user_id: (1..4).to_a.sample,
+  question_id: 1,
+  content: "Placing a dollar value on the benefits of the vegetarian diet could play a significant role in public policy on these issues, according Springmann. Policymakers often conduct cost-benefit analyses before implementing new rules and the new research could provide them with a starting point for accounting for the economic benefits of policies to wean the world off meat.",
+  upvote: (0..100).to_a.sample
+  )
+
+Answer.create!(
+  user_id: (1..4).to_a.sample,
+  question_id: 1,
+  content: "The environmental impacts of a dietary shift could be just as dramatic, according to the researchers. Livestock alone account for more than 14% of global greenhouse gas emissions, and by 2050 the food sector could account for half if cuts are implemented in other sectors along the lines that countries have committed to doing. A vegan or vegetarian diet could cut those emissions by 70% and 63%, respectively.",
+  upvote: (0..100).to_a.sample
+  )
+
+Answer.create!(
+  user_id: (1..4).to_a.sample,
+  question_id: 1,
+  content: "Scientists at Loma Linda University found out that vegan diets contribute 47% less to the greenhouse emissions than other diets. This happens for two main reasons: First, in order to feed farm animals, we need to grow cereals and create pastures. 66% of deforestation in Central and South America is destined to animal feed crops and pastures, and more than 70% of grain grown in Canada are used to feed livestock. A reduction in the consumption of animal food could have a great impact in reducing deforestation, not to mention that the land currently destined to growing crops for animal feed could grow food for human consumption, contributing to a reduction of world hunger as well.",
+  upvote: (0..100).to_a.sample
+  )
+
+puts "answers created"
+puts "---------------------------------------------------------"
 
 puts "---------------------------------------------------------"
 puts "-----------Seeding process done, play Now!---------------"
