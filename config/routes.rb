@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   resources :articles, only: [:read, :update]
   resources :questions, only: [:destroy]
   resources :answers, only: [:edit, :update, :destroy]
+
+  resources :answers do
+  member do
+    get "like", to: "answers#upvote"
+  end
+end
 end

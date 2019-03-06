@@ -2,15 +2,12 @@
   justify-content: space-between;
   background: white;
   margin: 0px 56px 0px 56px;
+  max-height: 80px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 50px;
 }
 
 .logo {
@@ -29,14 +26,26 @@
   margin-right: 0px !important;
 }
 
+.navbar-log{
+  color: black !important;
+  padding: 8px 24px;
+  border-radius: 10px !important;
+  font-weight: lighter;
+  width: 100px;
+  font-size: 14px !important;
+  letter-spacing: 2px;
+}
 
+.login-item{
+  margin-right: 20px
+}
 // Search icon
 .search{
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .fa-searchengin{
-  font-size: 32px;
+  font-size: 26px;
 }
 
 //
