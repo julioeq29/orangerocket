@@ -19,6 +19,11 @@
 
   <div class="container articles">
     <h2>Articles</h2>
+    <% @articles.each do |article| %>
+    <div class="container card-question">
+      <p><%= article.title %></p>
+    </div>
+    <% end %>
   </div>
 
   <div class="container questions">

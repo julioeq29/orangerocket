@@ -11,17 +11,31 @@ require 'faker'
 puts "---------------------------------------------------------"
 puts "---------------Starting seeding process------------------"
 puts "---------------------------------------------------------"
+
+puts "---------------------------------------------------------"
+puts "-------------------DESTYROYING STUFF---------------------"
+puts "---------------------------------------------------------"
+
+
 puts "destroying tags"
 Tag.destroy_all
-# -----------------  QUESTIONS  --------------------
-puts "---------------------------------------------------------"
+
 puts "destroying questions"
 Question.destroy_all
-puts "creating questions"
-# ---------------------  USERS  ---------------------
-puts "---------------------------------------------------------"
+
 puts "destroying users"
 User.destroy_all
+
+puts "destroying categories"
+Category.destroy_all
+
+puts "destroying answers"
+Answer.destroy_all
+
+
+
+# ---------------------  USERS  ---------------------
+puts "---------------------------------------------------------"
 puts "creating users"
 
 User.create!(
@@ -60,9 +74,8 @@ puts "---------------------------------------------------------"
 
 # -----------------  CATEGORIES  --------------------
 puts "---------------------------------------------------------"
-puts "destroying categories"
-Category.destroy_all
 puts "creating categories"
+
 category = Category.create!(
   name: "Food & Cooking"
   )
@@ -136,7 +149,6 @@ puts "---------------------------------------------------------"
 
 # ---------------------  TAGS  ----------------------
 puts "---------------------------------------------------------"
-
 puts "creating tags"
 
 # ----------  TAGS: Food & Cooking -------------
@@ -238,13 +250,14 @@ array.each do |item|
     )
 end
 
-
 puts "tags created"
 puts "---------------------------------------------------------"
 
 
 
-
+# -----------------  QUESTIONS  --------------------
+puts "---------------------------------------------------------"
+puts "creating questions"
 
 
 # ----------  QUESTION: Food & Cooking -------------
@@ -401,8 +414,11 @@ Question.create!(
   upvote: (0..100).to_a.sample
   )
 
-puts "questions created"
+
+
+# -----------------  ANSWERS  --------------------
 puts "---------------------------------------------------------"
+puts "creating questions"
 
 Answer.create!(
   user_id: (1..4).to_a.sample,
@@ -434,6 +450,7 @@ Answer.create!(
 
 puts "answers created"
 puts "---------------------------------------------------------"
+
 
 puts "---------------------------------------------------------"
 puts "-----------Seeding process done, play Now!---------------"
