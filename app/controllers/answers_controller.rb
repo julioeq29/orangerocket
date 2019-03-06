@@ -12,7 +12,6 @@ class AnswersController < ApplicationController
     @answer.content = params[:answer][:content]
     @answer.question_id = params[:question_id]
     authorize @answer
-    @answer.save
     if @answer.save
       redirect_to question_path(params[:question_id])
     else
