@@ -19,9 +19,10 @@
 
   <div class="container articles">
     <h2>Articles</h2>
-    <% @articles.each do |article| %>
+    <% @articles.sample(10).each do |article| %>
     <div class="container card-question">
-      <p><%= article.title %></p>
+      <p><%= link_to article.title, article.url, target: :_blank %></p>
+      <p><%= article.source %></p>
     </div>
     <% end %>
   </div>

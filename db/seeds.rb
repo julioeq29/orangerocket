@@ -64,7 +64,13 @@ User.create!(
   email: "h@h",
   password: "123456",
   location:"Stratford"
+  )
 
+User.create!(
+  first_name: "nurcan",
+  email: "n@n",
+  password: "123456",
+  location:"San Francisco, US"
   )
 
 puts "users created"
@@ -101,7 +107,7 @@ category.remote_photo_url = "https://images.pexels.com/photos/1933386/pexels-pho
 category.save
 
 category = Category.create!(
-  name: "Politics"
+  name: "Politics & Activism"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/919109/pexels-photo-919109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
@@ -131,12 +137,6 @@ category.remote_photo_url = "https://images.pexels.com/photos/310983/pexels-phot
 category.save
 
 category = Category.create!(
-  name: "Activism"
-  )
-category.remote_photo_url = "https://images.pexels.com/photos/1799249/pexels-photo-1799249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-category.save
-
-category = Category.create!(
   name: "Climate Change"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/221012/pexels-photo-221012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -152,100 +152,101 @@ puts "---------------------------------------------------------"
 puts "creating tags"
 
 # ----------  TAGS: Food & Cooking -------------
+category_for_tag = Category.find_by_name("Food & Cooking")
 array = ["vegan", "sustainable farming", "green agriculture", "healthy", "sustainable fishing", "GMO", "local", "organic", "urban gardening", "diary", "land usage", "fair trade", "co2 emissions", "methane", "fertiliser"]
 array.each do |item|
   Tag.create!(
-    category_id: 1,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Travel & Commute ------------
+category_for_tag = Category.find_by_name("Travel & Commute")
 array = ["fuel", "electric", "maritime", "effiency", "planes", "cars", "hydrogen", "autonomous vehicles", "emissions", "smart cities", "electric bike", "electric scooter", "pollution free", "smart planning"]
 array.each do |item|
   Tag.create!(
-    category_id: 2,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Energy ----------------------
+category_for_tag = Category.find_by_name("Energy")
 array = ["efficiency", "solar", "green", "geothermal", "renewable", "hydro power", "save", "suppliers", "wind", "nuclear", "energy storage", "biofuel", "standby power"]
 array.each do |item|
   Tag.create!(
-    category_id: 3,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Waste & Recycling -------------
+category_for_tag = Category.find_by_name("Waste & Recycling")
 array = ["circular economy", "food waste", "composting", "reuse", "reduce", "packaging", "repair", "single use", "technology", "community projects", "plastics"]
 array.each do |item|
   Tag.create!(
-    category_id: 4,
+    category: category_for_tag,
     name: item
     )
 end
 
-# ---------  TAGS: Politics -------------
-array = ["social economy", "laws", "political party", "environmental regulations", "protection", "public programs", "agreements", "trade", "international organisations", "green tax"]
+# ---------  TAGS: Politics & Activism -------------
+category_for_tag = Category.find_by_name("Politics & Activism")
+array = ["social economy", "laws", "political party", "environmental regulations", "protection", "public programs", "agreements", "trade", "international organisations", "green tax", "eco activism", "social engagement", "pollution", "anthropocene", "man made climate change", "sustainability", "social movement", "anti environmentalism", "wild life reserves"]
 array.each do |item|
   Tag.create!(
-    category_id: 5,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Technology ------------
+category_for_tag = Category.find_by_name("Technology")
 array = ["app", "solar", "battery", "planned obsolescence", "repair", "durability", "green", "blockchain", "supply chain", "internet of things", "smart metering", "geo engineering", "technological breakthrough"]
 array.each do |item|
   Tag.create!(
-    category_id: 6,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Shopping & Fashion ------------
+category_for_tag = Category.find_by_name("Shopping & Fashion")
 array = ["inseason", "used products", "reusable shopping bag", "eco friendly", "container", "impulsive shopping", "shopless", "plastic pollution", "organic materials", "sustainable design", "sustainable clothes", "sustainable brands", "consumerism"]
 array.each do |item|
   Tag.create!(
-    category_id: 7,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: House & Building ------------
+category_for_tag = Category.find_by_name("House & Building")
 array = ["lightning", "led", "recycled material", "solar energy", "heat pumps", "energy efficiency", "VOC", "renewable energy", "concrete", "cement", "co2 emissions", "passive heating", "passive cooling", "pollution"]
 array.each do |item|
   Tag.create!(
-    category_id: 8,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Lifestyle ------------
+category_for_tag = Category.find_by_name("Lifestyle")
 array = ["recycle", "reduce", "reuse", "waste", "plastic", "compost", "public transport", "consumerism", "sustinable", "climate friendly", "biking"]
 array.each do |item|
   Tag.create!(
-    category_id: 9,
-    name: item
-    )
-end
-
-# ---------  TAGS: Activism ------------
-array = ["eco activism", "social engagement", "pollution", "anthropocene", "man made climate change", "sustainability", "social movement", "anti environmentalism", "wild life reserves"]
-array.each do |item|
-  Tag.create!(
-    category_id: 10,
+    category: category_for_tag,
     name: item
     )
 end
 
 # ---------  TAGS: Climate Change ------------
+category_for_tag = Category.find_by_name("Climate Change")
 array = ["greenhouse gases", "climate", "temperature raise", "atmosphere", "co2 concentration", "carbon dioxide", "methane", "carbon emissions", "wind", "pollution", "GHG", "global warming", "over population"]
 array.each do |item|
   Tag.create!(
-    category_id: 11,
+    category: category_for_tag,
     name: item
     )
 end
@@ -261,155 +262,163 @@ puts "creating questions"
 
 
 # ----------  QUESTION: Food & Cooking -------------
+category_for_tag = Category.find_by_name("Food & Cooking")
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 1,
+  category: category_for_tag,
   content: "How is veganism useful to combat climate change?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 1,
+  category: category_for_tag,
   content: "What is the environmental impact of having a cup of coffee?",
   upvote: (0..100).to_a.sample
   )
 
 # ---------  QUESTION: Travel & Commute ------------
+category_for_tag = Category.find_by_name("Travel & Commute")
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category: category_for_tag,
   content: "Route London - South of France, same price, Eurostar or a Plane?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 2,
+  category: category_for_tag,
   content: "Is diesel a really polluting fuel?",
   upvote: (0..100).to_a.sample
   )
 
 # ---------  QUESTION: Energy ----------------------
+category_for_tag = Category.find_by_name("Energy")
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 3,
+  category: category_for_tag,
   content: "How convenient is to install solar panels on my roof (I live in South Spain)?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 3,
+  category: category_for_tag,
   content: "Can you recommenend Renewable Energy suppliers in London?",
   upvote: (0..100).to_a.sample
   )
 
 # ---------  QUESTION: Waste & Recycling -------------
+category_for_tag = Category.find_by_name("Waste & Recycling")
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 4,
+  category: category_for_tag,
   content: "What does the different numbers under the plastic bottles mean?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 4,
+ category: category_for_tag,
   content: "I live in London, does it really help if I sort the trash out before putting it on the bin?",
   upvote: (0..100).to_a.sample
   )
 
 # ---------  QUESTION: Politics -------------
+category_for_tag = Category.find_by_name("Politics & Activism")
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 5,
+  category: category_for_tag,
   content: "What is the New Green Deal that is being pushed by the Democrats in the US?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 5,
+  category: category_for_tag,
   content: "Which EU political party has the greenest credentials ahead of the EU 2019 elections?",
   upvote: (0..100).to_a.sample
   )
-
-# ---------  QUESTION: Technology ------------
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 6,
-  content: "What is the energy consumption of a single blockchain transaction?",
-  upvote: (0..100).to_a.sample
-  )
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 6,
-  content: "Where does all the eWaste end up?",
-  upvote: (0..100).to_a.sample
-  )
-
-# ---------  QUESTION: Shopping & Fashion ------------
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 7,
-  content: "How many liters of water are used to produce a single cotton t-shirt?",
-  upvote: (0..100).to_a.sample
-  )
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 7,
-  content: "Where in London can I donate clothes and make sure will be used and not resold?",
-  upvote: (0..100).to_a.sample
-  )
-
-# ---------  QUESTION: House & Building ------------
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 8,
-  content: "Is the Nest thermostat a real money-saver? Or will I end up paying +£200 on a gadget?",
-  upvote: (0..100).to_a.sample
-  )
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 8,
-  content: "Does installing a heat pump saves much money? I live in South Italy and the investment seems quite high",
-  upvote: (0..100).to_a.sample
-  )
-
-# ---------  QUESTION: Lifestyle ------------
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 9,
-  content: "Any good tips on Green Living books?",
-  upvote: (0..100).to_a.sample
-  )
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 9,
-  content: "Is buying an electric vehicle a game changer? I am worried about the autonomy (range in km)",
-  upvote: (0..100).to_a.sample
-  )
-
-# ---------  QUESTION: Activism ------------
-Question.create!(
-  user_id: (1..4).to_a.sample,
-  category_id: 10,
+  category: category_for_tag,
   content: "Can someone please explain the Youth Strikes for Climate movement and why pupils are striking from school?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 10,
+  category: category_for_tag,
   content: "Any recommendations like Climate Change Vs Capitalism by Naomi Klein books?",
   upvote: (0..100).to_a.sample
   )
 
-# ---------  QUESTION: Climate Change ------------
+# ---------  QUESTION: Technology ------------
+category_for_tag = Category.find_by_name("Technology")
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 11,
+  category: category_for_tag,
+  content: "What is the energy consumption of a single blockchain transaction?",
+  upvote: (0..100).to_a.sample
+  )
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "Where does all the eWaste end up?",
+  upvote: (0..100).to_a.sample
+  )
+
+# ---------  QUESTION: Shopping & Fashion ------------
+category_for_tag = Category.find_by_name("Shopping & Fashion")
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "How many liters of water are used to produce a single cotton t-shirt?",
+  upvote: (0..100).to_a.sample
+  )
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "Where in London can I donate clothes and make sure will be used and not resold?",
+  upvote: (0..100).to_a.sample
+  )
+
+# ---------  QUESTION: House & Building ------------
+category_for_tag = Category.find_by_name("House & Building")
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "Is the Nest thermostat a real money-saver? Or will I end up paying +£200 on a gadget?",
+  upvote: (0..100).to_a.sample
+  )
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "Does installing a heat pump saves much money? I live in South Italy and the investment seems quite high",
+  upvote: (0..100).to_a.sample
+  )
+
+# ---------  QUESTION: Lifestyle ------------
+category_for_tag = Category.find_by_name("Lifestyle")
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "Any good tips on Green Living books?",
+  upvote: (0..100).to_a.sample
+  )
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
+  content: "Is buying an electric vehicle a game changer? I am worried about the autonomy (range in km)",
+  upvote: (0..100).to_a.sample
+  )
+
+# ---------  QUESTION: Climate Change ------------
+category_for_tag = Category.find_by_name("Climate Change")
+Question.create!(
+  user_id: (1..4).to_a.sample,
+  category: category_for_tag,
   content: "What are the consequences of not not staying within the 2deg Celcius?",
   upvote: (0..100).to_a.sample
   )
 Question.create!(
   user_id: (1..4).to_a.sample,
-  category_id: 11,
+  category: category_for_tag,
   content: "What are the 5 main sources of CO2 emissions globally?",
   upvote: (0..100).to_a.sample
   )
