@@ -7,11 +7,6 @@
   color: $brand-secondary !important;
 }
 
-.btn-tags{
-  padding: 10px;
-  height: 55px;
-}
-
 .btn-answer{
   height: 35px;
 }
@@ -55,5 +50,19 @@
 .btn-flat:hover {
   background: $brand-secondary;
   color: white;
+}
 
+.btn-tags{
+  border: 1px solid $brand-secondary;
+  background: transparent;
+  border-radius: 50px;
+  padding: 8px 24px;
+  color: $brand-secondary;
+  transition: background 0.3s ease;
+  text-decoration: none !important;
+}
+
+.btn-tags:hover {
+  background: $brand-secondary;
+  color: white;
 }

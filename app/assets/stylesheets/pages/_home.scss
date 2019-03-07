@@ -21,9 +21,8 @@
 
 .img-banner img{
     position: relative;
-    left: 90px;
+    left: 50px;
     top: 44px;
-    width: 502px;
     height: 386px;
     background-position: center;
     background-size: cover;
@@ -97,6 +96,7 @@
     position: absolute;
     right: -70px;
     z-index: -1;
+    opacity: 0.7;
 }
 
 .box-text-banner2{
