@@ -13,7 +13,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="search">
-      <i class="fab fa-searchengin"></i>
+      <i class="fas fa-search"></i>
     </div>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -31,10 +31,10 @@
       <% else %>
       <div class="d-flex">
         <div class="nav-item login-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link navbar-log btn btn-ghost" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link navbar-log btn btn-ghost btn-log-nav" %>
         </div>
         <div class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link navbar-log btn btn-ghost" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link navbar-log btn btn-ghost btn-log-nav" %>
         </div>
       </div>
       <% end %>
