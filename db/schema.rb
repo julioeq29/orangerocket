@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_154619) do
+ActiveRecord::Schema.define(version: 2019_03_07_124644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2019_03_06_154619) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_weighted_score", default: 0
+    t.integer "cached_weighted_total", default: 0
+    t.float "cached_weighted_average", default: 0.0
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -91,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_154619) do
     t.text "bio"
     t.float "latitude"
     t.float "longitude"
+    t.boolean "admin", default: false, null: false
     t.integer "upvote"
     t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
