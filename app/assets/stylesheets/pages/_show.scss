@@ -31,4 +31,19 @@
 .tags-space{
     margin-left: 10px;
     margin-right: 10px;
+
+.line {
+  width: 100vw;
+  height: 3px;
+  background-color: gray;
+  opacity: 0.5;
+  margin: 20px 0px 20px 0px;
 }
+.tab-content {
+  max-height:500px;
+  min-height: 500px;
+}
+.tabby {
+  width: 33vw;
+  text-align: center;
+

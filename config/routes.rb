@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :users, only: [:show]
 
   resources :questions, except: [:destroy] do
@@ -14,8 +19,8 @@ Rails.application.routes.draw do
   resources :answers, only: [:edit, :update, :destroy]
 
   resources :answers do
-  member do
-    get "like", to: "answers#upvote"
+    member do
+      put "like", to: "answers#upvote"
+    end
   end
-end
 end
