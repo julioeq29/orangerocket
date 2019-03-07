@@ -46,6 +46,9 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 8px;
+  p {
+    font-size: 11px;
+  }
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
