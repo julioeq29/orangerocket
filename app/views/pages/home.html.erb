@@ -1,57 +1,61 @@
 <div class="container-banner banner d-flex">
-  <!--             <div class="nav-scroller py-1 mb-2">
-                    <nav class="nav d-flex justify-content-between">
-                      <a class="p-2 text-muted" href="#">World</a>
-                      <a class="p-2 text-muted" href="#">U.S.</a>
-                      <a class="p-2 text-muted" href="#">Technology</a>
-                      <a class="p-2 text-muted" href="#">Design</a>
-                      <a class="p-2 text-muted" href="#">Culture</a>
-                      <a class="p-2 text-muted" href="#">Business</a>
-                      <a class="p-2 text-muted" href="#">Politics</a>
-                      <a class="p-2 text-muted" href="#">Opinion</a>
-                      <a class="p-2 text-muted" href="#">Science</a>
-                      <a class="p-2 text-muted" href="#">Health</a>
-                      <a class="p-2 text-muted" href="#">Style</a>
-                      <a class="p-2 text-muted" href="#">Travel</a>
-                    </nav>
-                  </div> -->
       <div class="p-4 p-md-5 img-banner">
-        <img src="https://cdn.dribbble.com/users/157149/screenshots/1951432/sns_lightbulb_switch.gif" alt="">
+        <%=image_tag("banner.png", alt: "Banner")%>
       </div>
 
       <div class="p-4 p-md-5 text-banner">
               <div class="container">
                 <div class="col-md-6 px-0 text-right-image">
                   <h1 class="display-4 font-italic">Worried about <strong>climate change ?</strong></h1>
-                  <p class="lead my-3">Learn and share sustainable solutions to tackle the climate problem</p>
-                  <a class="btn btn-flat" href="#">Start</a>
+                  <p class="lead my-3">
+                    <label class='placeholder'>
+                        <span id="banner-typed-text"></span>
+                    </label>
+                  </p>
+
+                  <a class="btn btn-flat" href="#scroll-down" id="scroll">Start</a>
                 </div>
               </div>
       </div>
-      <div class="scroll-down">
-        <i class="fas fa-chevron-down"></i>
-      </div>
 </div>
 
+
   <div class="container-category">
-    <div class="cards card-home">
-      <% @categories.each do |category| %>
-      <div class="card-category card-category-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= category.photo %>);">
-      <%= link_to category.name, category_path(category) %>
-      </div>
-    <% end %>
+    <div class="description-cards text-center">
+      <h1>Start by seleting a category</h1>
+      <p>Topics with the largest impact</p>
     </div>
+      <div class="cards card-home">
+        <% @categories.each do |category| %>
+          <%= link_to category_path(category) do %>
+            <div class="card-category card-category-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= category.photo %>);">
+              <%= category.name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 
-    <div class="container last-container">
+  <div class="container last-container">
           <div class="row featurette">
             <div class="col-md-7">
-              <h2 class="featurette-heading">One-on-one. <span class="text-muted">Connecting Digital + Real.</span></h2>
-              <p class="lead">LessonFly provides digital tools that help students and teachers find each other. With a large variety of topics you will find what you are looking for. Take advantage of our frameworks to book and pay classes. And use the time for what matters: <strong>Learn and Teach</strong>!</p>
+              <div class="box-text-banner2">
+                <h2 class="featurette-heading">One-on-one. <span class="text-muted">Connecting Digital + Real.</span></h2>
+                <p class="lead">LessonFly provides digital tools that help students and teachers find each other. With a large variety of topics you will find what you are looking for. Take advantage of our frameworks to book and pay classes. And use the time for what matters: Learn and Teach!</p>
+              </div>
             </div>
             <div class="col-md-5">
-              <img class="featurette-image img-fluid mx-auto" src="http://blogs.reading.ac.uk/climate-lab-book/files/2016/05/spiral_optimized.gif" alt="Generic placeholder image" style= "width: 500px; height: 500px; max-width: 100%; border-radius: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+              <%= image_tag("banner-2.png", class: "featurette-image")%>
             </div>
           </div>
-    </div>
+  </div>
+
+  <script>
+  document.getElementById('scroll').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('.container-category').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+</script>
 
