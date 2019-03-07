@@ -15,8 +15,8 @@
 }
 
 .container-category{
-  margin: 10px 120px 50px 120px;
-  padding-top: 10px;
+  margin: -30px 120px 50px 120px;
+  /* padding-top: 10px; */
 }
 
 .img-banner img{
@@ -36,6 +36,8 @@
 
 .text-right-image{
   max-width: 100% !important;
+  color: $brand-primary;
+
 }
 
 .card-img-right {
@@ -50,6 +52,7 @@
 
 .description-cards{
   margin-top: 50px;
+  color: $brand-primary;
 }
 
 .description-cards p{
@@ -70,6 +73,7 @@
 .lead{
   letter-spacing: 1px;
   margin-top: 50px !important;
+  opacity: 0.6;
 }
 
 .featurette-heading{
@@ -101,6 +105,7 @@
 
 .box-text-banner2{
   margin-left: 56px;
+  color: $brand-primary;
 }
 
 
