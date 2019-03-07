@@ -1,16 +1,10 @@
-.btn-ghost {
-  color: $brand-secondary;
-  border: 1px solid $brand-secondary;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-size: 10px;
+.btn-log-nav {
+  color: black !important;
+  font-size: 17px !important;
 }
 
-.btn-ghost:hover {
-  opacity: 0.8;
-  background-color: $brand-secondary;
-  font-weight: bold;
-  text-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+.btn-log-nav:hover {
+  color: $brand-secondary !important;
 }
 
 .btn-tags{
@@ -23,11 +17,13 @@
 }
 
 .btn-login{
-  color: $brand-secondary;
-  background-color: $brand-secondary;
   padding: 8px 24px;
-  opacity: 0.8;
-  border-radius: 10px;
+  border-radius: 50px;
+  background: transparent;
+  transition: background 0.3s ease;
+  color: $brand-secondary !important;
+  border: 1px solid $brand-secondary;
+  padding: 8px 24px;
   font-size: 10px;
   width: 80%;
   margin-top: 25px;
@@ -35,9 +31,29 @@
 }
 
 .btn-login:hover{
-  opacity: 1;
+  color: white !important;
+  background-color: $brand-secondary;
 }
 
 .btn-flat{
-  width: 100%;
+  width: 50%;
+}
+
+.btn-flat {
+  position: relative;
+  left: -164px;
+  top: 150px;
+  color: $brand-secondary;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid $brand-secondary;
+  transition: background 0.3s ease;
+  width: 50%;
+}
+
+.btn-flat:hover {
+  background: $brand-secondary;
+  color: white;
+
 }
