@@ -1,5 +1,14 @@
 <h1><%= @question.content %></h1>
 
+<!-- TIMESTAMP FOR QUESTION -->
+<% if Time.now - @question.created_at < 86400 %>
+  <p><%= time_ago_in_words(@question.created_at) %></p>
+<% elsif Time.now - @question.created_at < 172800 %>
+  <p>Yesterday at <%= @question.created_at.strftime("%H:%M") %></p>
+<% else %>
+  <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+<% end %>
+
 <% if policy(@question).edit?  %>
   <% if @answers.any? == false %>
     <%= link_to "edit question", edit_question_path %>
@@ -17,6 +26,15 @@
 <% @answers.each do |answer| %>
   <p><%= answer.content %></p>
 
+<!-- TIMESTAMP FOR ANSWER -->
+  <% if Time.now - answer.created_at < 86400 %>
+    <p><%= time_ago_in_words(answer.created_at) %></p>
+  <% elsif Time.now - answer.created_at < 172800 %>
+    <p>Yesterday at <%= answer.created_at.strftime("%H:%M") %></p>
+  <% else %>
+    <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+  <% end %>
+
   <%= link_to like_answer_path(answer) do %>
     <i class="far fa-thumbs-up">(<%= answer.votes_for.count %>)</i>
   <% end %>
@@ -28,4 +46,7 @@
     data: {confirm: "are you sure?"} %>
   <% end %>
 <% end %>
+
+
+
 

@@ -9,7 +9,6 @@ class QuestionsController < ApplicationController
   #   end
   # end
 
-
   def show
     @question = Question.find(params[:id])
     @answers = Answer.all.where(question: @question).order(created_at: :desc)
@@ -33,7 +32,6 @@ class QuestionsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
@@ -58,7 +56,7 @@ class QuestionsController < ApplicationController
     question = Question.find(params[:id])
     authorize question
     question.destroy
-    redirect_to root_path
+    redirect_to category_path(question.category_id)
   end
 
   private
