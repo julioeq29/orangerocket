@@ -1,3 +1,5 @@
+
+
 <div class="title-category">
   <h1>My dashboard</h1>
   <div class="container d-flex">
@@ -13,34 +15,27 @@
   </div>
 </div>
 
-<div class="container d-flex">
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Liked articles</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My questions</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My answers</a>
 
-  <div class="container articles-dashboard">
-    <h2>Liked articles</h2>
   </div>
-
-  <div class="container questions-dashboard">
-    <h2>My questions</h2>
-      <% @user.questions.each do |question| %>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"></div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><% @user.questions.each do |question| %>
       <div class="container card-question">
         <%= question.content %>
       </div>
-      <% end %>
-  </div>
-  <div class="container answers-dashboard">
-    <h2>My answers</h2>
-  </div>
-
-<%= @answered_users %>
-
-
-
-
-<div
+      <% end %></div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><div
   id="map"
-  style="width: 100%; height: 600px;"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  style="width: 700PX;
+  height: 700px;"
   data-markers="<%= @markers.to_json %>"
-  ></div>
-  </div>
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div></div>
+</div>
 
