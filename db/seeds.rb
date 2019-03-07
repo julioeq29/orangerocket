@@ -153,7 +153,7 @@ puts "creating tags"
 
 # ----------  TAGS: Food & Cooking -------------
 category_for_tag = Category.find_by_name("Food & Cooking")
-array = ["vegan", "sustainable farming", "green agriculture", "healthy", "sustainable fishing", "GMO", "local", "organic", "urban gardening", "diary", "land usage", "fair trade", "co2 emissions", "methane", "fertiliser"]
+array = ["vegan", "co2 emissions", "gmo", "urban gardening", "diary", "land usage", "fair trade", "co2 emissions", "methane", "fertiliser"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
