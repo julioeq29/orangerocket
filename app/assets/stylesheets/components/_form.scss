@@ -13,6 +13,7 @@
 }
 
 .signup-form{
+  width: 100%;
   background: white;
   padding: 10px 20px;
   margin-top: 50px;
@@ -24,4 +25,15 @@
     margin-bottom: 30px;
     text-align: center;
   }
+}
+
+.box-log{
+  width: 400px;
+}
+
+.img-signup-login{
+  display: flex;
+  position: relative;
+  top: 110px;
+  margin-right: 50px;
 }
