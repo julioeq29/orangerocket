@@ -1,3 +1,5 @@
+
+
 <div class="title-category">
   <h1>My dashboard</h1>
   <div class="container d-flex">
@@ -18,7 +20,6 @@
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Liked articles</a>
     <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My questions</a>
     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My answers</a>
-
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -36,36 +37,3 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div></div>
 </div>
-
-<!--
-<div class="container d-flex">
-
-  <div class="container articles-dashboard">
-    <h2>Liked articles</h2>
-  </div>
-
-  <div class="container questions-dashboard">
-    <h2>My questions</h2>
-      <% @user.questions.each do |question| %>
-      <div class="container card-question">
-        <%= question.content %>
-      </div>
-      <% end %>
-  </div>
-  <div class="container answers-dashboard">
-    <h2>My answers</h2>
-  </div>
-
-
-
-
-
-
-<div
-  id="map"
-  style="width: 100%; height: 600px;"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-markers="<%= @markers.to_json %>"
-  ></div>
-  </div>
- -->
