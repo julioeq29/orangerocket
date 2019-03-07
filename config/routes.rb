@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :answers, only: [:edit, :update, :destroy]
 
   resources :answers do
-  member do
-    get "like", to: "answers#upvote"
+    member do
+      put "like", to: "answers#upvote"
+    end
   end
-end
 end
