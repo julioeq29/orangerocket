@@ -5,9 +5,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    users = User.where.not(latitude: nil, longitude: nil)
+    # users = User.where.not(latitude: nil, longitude: nil)
+    user_answers = current_user.answers
+    answered_users = []
+    user_answers.each do |answer|
+      answered_users << answer.question.user
+    end
+    located_answered_users = answered_users.reject do |user|
+      user.latitude.nil? || user.longitude.nil?
+    end
 
-    @markers = users.map do |user|
+    @markers = located_answered_users.map do |user|
       {
         lng: user.longitude,
         lat: user.latitude,
