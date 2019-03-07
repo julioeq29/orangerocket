@@ -23,4 +23,10 @@ Rails.application.routes.draw do
       put "like", to: "answers#upvote"
     end
   end
+
+  resources :articles do
+    member do
+      put "like", to: "articles#upvote"
+    end
+  end
 end

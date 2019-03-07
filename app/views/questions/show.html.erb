@@ -1,9 +1,9 @@
 <h1><%= @question.content %></h1>
 
 <!-- TIMESTAMP FOR QUESTION -->
-<% if Time.now - (@question.created_at - 24.hours) < 86400 %>
+<% if Time.now - @question.created_at < 86400 %>
   <p><%= time_ago_in_words(@question.created_at) %></p>
-<% elsif Time.now - (@question.created_at - 48.hours) < 172800 %>
+<% elsif Time.now - @question.created_at < 172800 %>
   <p>Yesterday at <%= @question.created_at.strftime("%H:%M") %></p>
 <% else %>
   <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
