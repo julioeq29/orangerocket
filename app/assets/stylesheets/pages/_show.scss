@@ -40,10 +40,18 @@
     margin-right: 10px;
 }
 
-.line {
+.line-1{
+  width: 100vw;
+  height: 1px;
+  background-color: #8080806b;
+  opacity: 0.5;
+  margin: 20px 0px 20px 0px;
+  margin-top: 20px
+}
+.line-2 {
   width: 100vw;
   height: 3px;
-  background-color: gray;
+  background-color: #8080806b;
   opacity: 0.5;
   margin: 20px 0px 20px 0px;
 }

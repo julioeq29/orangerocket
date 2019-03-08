@@ -14,7 +14,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/ginachen/cjsyor8nxbgs01fofgk40fsjo'
+      style: 'mapbox://styles/ginachen/cjt03njzw1h3o1fn9wxy6fv5y',
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers)
@@ -32,6 +32,7 @@ const addMarkersToMap = (map, markers) => {
         .addTo(map);
     });
 };
+
 
 
 

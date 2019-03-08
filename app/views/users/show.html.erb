@@ -1,6 +1,21 @@
 
+<!-- <div class="line-1"></div>
+<div class = profile-box>
+ <h1><%= @user.first_name%></h1>
+ <div><h2><%=@user.location%></h2></div>
+ <div ><p>bio</p></div>
+</div> -->
+<div class="card" style="width: 18rem ">
+  <img class="card-img-top" src="http://gpluseurope.com/wp-content/uploads/Website2016-Profile-Photos-Amanda-Orza-300x261.jpg" alt="#">
+  <div class="card-body">
+    <p class="card-text"><h2><%= @user.first_name%></h2>
+      <p></p><%=@user.location%></p><p>bio</p>
+    </p>
+  </div>
+</div>
 
-<div class="title-category">
+
+<!-- <div class="title-category">
   <h1>My dashboard</h1>
   <div class="container d-flex">
     <div class="container dashboard-infos">
@@ -13,54 +28,57 @@
       <p>Here a ranking</p>
     </div>
   </div>
-</div>
-<div class="line"></div>
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link tabby active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Liked articles</a>
-    <a class="nav-item nav-link tabby" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My questions</a>
-    <a class="nav-item nav-link tabby" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My answers</a>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"></div>
-  <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <% @user.questions.each do |question| %>
-      <div class="container card-question">
-        <%= question.content %>
+</div> -->
+<div class = profile-bottm-box>
+  <div class="line-2"></div>
+  <nav>
+    <div class="nav nav-tabs " id="nav-tab" role="tablist">
+      <a class="nav-item nav-link tabby active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Liked articles</a>
+      <a class="nav-item nav-link tabby" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My questions</a>
+      <a class="nav-item nav-link tabby" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My answers</a>
+    </div>
+  </nav>
+
+
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
+    <div class="container">
+      <div class="content-backgroud">
+        <% liked_articles.each do |article| %>
+          <div id="article<%= article.id %>'}"class="card-question-profile-page">
+            <%= link_to article.title, article.url, target: :_blank %>
+            <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
+              <div>
+                <span><p><i class="far fa-thumbs-up"></i></p></span>
+              </div>
+            <% end %>
+            <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    <% @user.questions.each do |question| %>
-      <div class="container card-question">
-        <%= question.content %>
-      </div>
-    <% end %>
+    <div class="content-backgroud">
+      <% @user.questions.each do |question| %>
+        <div class="container card-question-profile-page">
+          <%= question.content %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
     <div
       id="map"
-      style="width: 590px;
-      height: 400px;"
+      style="width: 600px !important;
+      float: right;
+      height: 400px !important;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
-<div>
-  <% liked_articles = @user.find_voted_items.select {|item| item.class == Article} %>
-  <% liked_articles.each do |article| %>
-    <div id="article<%= article.id %>'}"class="container card-question">
-      <%= link_to article.title, article.url, target: :_blank %>
-      <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
-        <div>
-          <span><p><i class="far fa-thumbs-up"></i></p></span>
-        </div>
-      <% end %>
-      <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
-    </div>
-  <% end %>
 </div>
 
 
