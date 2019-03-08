@@ -40,35 +40,35 @@ puts "creating users"
 
 User.create!(
   first_name: "lily",
-  email: "l@l",
+  email: "l@l.com",
   password: "123456",
   location:"hoxton"
   )
 
 User.create!(
   first_name: "gina",
-  email: "g@g",
+  email: "g@g.com",
   password: "123456",
   location:"Peckham"
   )
 
 User.create!(
   first_name: "edoardo",
-  email: "e@e",
+  email: "e@e.com",
   password: "123456",
   location:"Boston"
   )
 
 User.create!(
   first_name: "hector",
-  email: "h@h",
+  email: "h@h.com",
   password: "123456",
   location:"Stratford"
   )
 
 User.create!(
   first_name: "nurcan",
-  email: "n@n",
+  email: "n@n.com",
   password: "123456",
   location:"San Francisco, US"
   )
