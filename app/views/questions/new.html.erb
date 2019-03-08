@@ -1,6 +1,8 @@
-<%= simple_form_for [@question] do |f| %>
-  <%= f.input :content %>
-  <%= f.association :category, collection: Category.all %>
-  <%= f.submit "ask a question", class: "btn btn-primary" %>
+<div class="container bb">
+  <%= simple_form_for [@question] do |f| %>
+    <%= f.input :content %>
+    <%= f.association :category, collection: Category.all %>
+    <%= f.submit "Ask a question", class: "btn btn-tags btn-answer-question" %>
 
-<% end %>
+  <% end %>
+</div>
