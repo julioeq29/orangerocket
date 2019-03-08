@@ -1,0 +1,5 @@
+meta_product_name: "Orange Rocket"
+meta_title: "Orange Rocket - Down-to-earth solutions to tackle climate change"
+meta_description: "Down-to-earth solutions to tackle climate change with articles from trusted sources"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
