@@ -57,7 +57,7 @@
 
       <div class="answer-user-name">
         Answered by <%= link_to user_path(answer.user_id) do %>
-        <%= answer.user.first_name.capitalize %>
+        <%= answer.user.first_name&.capitalize %>
         <% end %>
       </div>
 
