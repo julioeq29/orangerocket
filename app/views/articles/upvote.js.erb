@@ -1,0 +1,3 @@
+var upvote_span = document.querySelector(`#likes${'<%= @article.id %>'}`);
+upvote_span.innerHTML = '<%= @article.votes_for.size %>';
+location.reload(false);

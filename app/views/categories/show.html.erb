@@ -44,6 +44,14 @@
     <div class="container card-question">
       <p><%= link_to article.title, article.url, target: :_blank %></p>
       <p><%= article.source %></p>
+
+      <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+        <div>
+          <span><p><i class="far fa-thumbs-up"></i></p></span>
+        </div>
+      <% end %>
+      <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+
     </div>
     <% end %>
   </div>
