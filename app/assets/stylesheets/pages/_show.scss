@@ -17,6 +17,10 @@
   margin-top: 30px;
 }
 
+.back-cate{
+  margin-top: 30px;
+}
+
 .answer{
   margin-bottom: 30px;
 }
@@ -60,6 +64,12 @@
   opacity: 0.5;
 }
 
+.back-to-show{
+  text-decoration: none !important;
+  color: $brand-primary;
+  opacity: 0.5;
+}
+
 .container-articles{
   margin-top: 37px;
 }
@@ -72,7 +82,10 @@
   display: flex;
 }
 
-
+.title-question{
+  margin-bottom: 30px;
+  color: $brand-primary;
+}
 
 .source-like p{
   opacity: 0.5;
@@ -119,4 +132,19 @@
 .time-user{
   display: flex;
   justify-content: space-between;
+}
+
+.answer_content{
+  width: 500px;
+}
+.btn-send{
+  width: 100%;
+}
+
+.btn-answer-question{
+  width: 100%;
+}
+
+.bb{
+  margin-top: 50px;
 }
