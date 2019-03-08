@@ -2,8 +2,18 @@
 <%= link_to category_path(@question.category_id) do %>Back to <%= @question.category.name %><% end %>
 </div>
 
+<!-- ORIGINATOR USER'S LINK -->
+<div class="question-user-name">
+  <%= link_to user_path(@question.user_id) do %>
+  <%= @question.user.first_name.capitalize %>
+  <% end %>
+   asked:
+</div>
 
-<h1><%= @question.content %></h1>
+<!-- QUESTION'S CONTENT -->
+<div class="question-content">
+  <h1><%= @question.content %></h1>
+</div>
 
 <!-- TIMESTAMP FOR QUESTION -->
 <% if Time.now - @question.created_at < 86400 %>
@@ -38,6 +48,12 @@
 <% @answers.each do |answer| %>
   <div id="delete<%= answer.id %>">
     <p><%= answer.content %></p>
+
+    <div class="answer-user-name">
+      Answered by <%= link_to user_path(answer.user_id) do %>
+      <%= answer.user.first_name.capitalize %>
+      <% end %>
+    </div>
 
   <!-- TIMESTAMP FOR ANSWER -->
     <% if Time.now - answer.created_at < 86400 %>
