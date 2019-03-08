@@ -6,6 +6,12 @@
 .card-home a{
   text-decoration: none !important;
 }
+#map {
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
 
 .card-category-home {
   background-size: cover !important;
@@ -32,6 +38,11 @@
 .card-category-home a{
   color: white !important;
 }
+// .carddy {
+//   width: 40%;
+//   text-align: center;
+//   border-radius:50%
+// }
 
 .card-question{
   padding: 16px 24px;
@@ -47,6 +58,34 @@
     font-size: 11px;
   }
 }
+.card-question-profile-page{
+  padding: 16px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  // margin: 26px auto;
+  // width: 45%;
+  p {
+    font-size: 11px;
+  }
+}
+.card {
+  width: 50vw;
+  text-align: center;
+  border-radius:auto;
+  width: 100%;
+  margin-left:50px
+}
+.content-backgroud {
+  width: 60%;
+padding: 30px;
+margin: 10px auto;
+background-color: #bfb6b647
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {
