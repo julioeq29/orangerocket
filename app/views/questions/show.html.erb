@@ -40,9 +40,14 @@
 
 <!-- FORM TO ANSWER -->
 <%= simple_form_for [@question, @answer] do |f| %>
-  <%= f.input :content, label: false, placeholder: "Your answer here" %>
+  <%= f.input :content,
+              required: true,
+              label: false,
+              placeholder: "Your answer here" %>
   <%= f.submit "send", class: "btn btn-primary" %>
 <% end %>
+
+
 
 <!-- ITERATION TO DISPLAY THE ANSWERS OF A QUESTION -->
 <% @answers.each do |answer| %>
