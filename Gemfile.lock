@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: a2ed2f3e9902ce481d69f5516dd54b92e6cf9afc
+  revision: 7673ce34fa4aff368b2856be3d7eb16e1589fbe4
   branch: master
   specs:
     faker (1.9.3)
@@ -57,7 +57,7 @@ GEM
       tzinfo (~> 1.1)
     acts_as_votable (0.12.0)
     arel (9.0.0)
-    autoprefixer-rails (9.4.10)
+    autoprefixer-rails (9.4.10.1)
       execjs
     aws_cf_signer (0.1.3)
     bcrypt (3.1.12)

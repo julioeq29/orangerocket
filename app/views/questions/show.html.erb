@@ -1,79 +1,105 @@
-<div class="back">
-<%= link_to category_path(@question.category_id) do %>Back to <%= @question.category.name %><% end %>
-</div>
+<div class="container">
 
 
-<h1><%= @question.content %></h1>
+  <div class="back-cate">
+  <%= link_to category_path(@question.category_id), class: "back-to-show" do %> < Back to <%= @question.category.name %>
+  <% end %>
+  </div>
 
-<!-- TIMESTAMP FOR QUESTION -->
-<% if Time.now - @question.created_at < 86400 %>
-  <p><%= time_ago_in_words(@question.created_at) %></p>
-<% elsif Time.now - @question.created_at < 172800 %>
-  <p>Yesterday at <%= @question.created_at.strftime("%H:%M") %></p>
-<% else %>
-  <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-<% end %>
 
-<!-- CONDITION TO ALLOW TO DELETE & EDIT THE QUESTION ONLY IF IT HAS BEEN CREATED BY THE CURRENT USER -->
-<% if policy(@question).edit?  %>
-  <% if @answers.any? == false %>
-    <%= link_to edit_question_path do %>
-      <div>
-        <p><i class="far fa-edit">Edit</i></p>
+  <!-- ORIGINATOR USER'S LINK -->
+  <div class="question-user-name">
+    <%= link_to user_path(@question.user_id) do %>
+    <%= @question.user.first_name.capitalize %>
+    <% end %>
+     asked:
+  </div>
+
+  <!-- QUESTION'S CONTENT -->
+    <h1 class="title-question"><%= @question.content %></h1>
+
+    <!-- FORM TO ANSWER -->
+    <div class="container d-flex justify-content-center">
+      <%= simple_form_for [@question, @answer] do |f| %>
+        <%= f.input :content, label: false, placeholder: "Your answer here", class: "form-answer" %>
+        <%= f.submit "send", class: "btn btn-tags btn-send" %>
+      <% end %>
+
+    </div>
+
+    <!-- TIMESTAMP FOR QUESTION -->
+    <% if Time.now - @question.created_at < 86400 %>
+      <p><%= time_ago_in_words(@question.created_at) %></p>
+    <% elsif Time.now - @question.created_at < 172800 %>
+      <p>Yesterday at <%= @question.created_at.strftime("%H:%M") %></p>
+    <% else %>
+      <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+    <% end %>
+
+    <!-- CONDITION TO ALLOW TO DELETE & EDIT THE QUESTION ONLY IF IT HAS BEEN CREATED BY THE CURRENT USER -->
+    <% if policy(@question).edit?  %>
+      <% if @answers.any? == false %>
+        <%= link_to edit_question_path do %>
+          <div>
+            <p><i class="far fa-edit">Edit</i></p>
+          </div>
+        <% end %>
+      <% end %>
+      <%= link_to "delete question", question_path(@question),
+      method: :delete,
+      data: {confirm: "are you sure?"} %>
+    <% end %>
+
+  <!-- ITERATION TO DISPLAY THE ANSWERS OF A QUESTION -->
+  <% @answers.each do |answer| %>
+    <div id="delete<%= answer.id %>">
+      <p><%= answer.content %></p>
+
+      <div class="answer-user-name">
+        Answered by <%= link_to user_path(answer.user_id) do %>
+        <%= answer.user.first_name.capitalize %>
+        <% end %>
+      </div>
+
+    <!-- TIMESTAMP FOR ANSWER -->
+      <% if Time.now - answer.created_at < 86400 %>
+        <p><%= time_ago_in_words(answer.created_at) %></p>
+      <% elsif Time.now - answer.created_at < 172800 %>
+        <p>Yesterday at <%= answer.created_at.strftime("%H:%M") %></p>
+      <% else %>
+        <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+      <% end %>
+
+      <!-- LIKE BUTTON & COUNTER FOR ANSWER ONLY TO BE DISPLAY WHEN A USER IS LOGGED IN -->
+        <% if current_user == nil %>
+          <%= display %>
+        <% else  %>
+          <%= link_to like_answer_path(answer), class:"like-btn", method: :put, remote: :true do %>
+            <div>
+              <span><p><i class="far fa-thumbs-up"></i></p></span>
+            </div>
+          <% end %>
+          <span class="likes_count" id="likes<%= answer.id %>">(<%= answer.get_upvotes.size %>)</span>
+        <% end %>
+
+        <!-- EDIT ANSWER BUTTON -->
+        <% if policy(answer).edit?  %>
+          <%= link_to edit_answer_path(answer) do %>
+            <div>
+              <p><i class="far fa-edit">Edit</i></p>
+            </div>
+          <% end %>
+
+          <!-- DELETE ANSWER BUTTON -->
+          <%= link_to answer_path(answer), class:"delete-btn", method: :delete, data: {confirm: "are you sure?"}, remote: :true do %>
+            <div>
+              <span><p><i class="far fa-trash-alt"> Delete</i></p></span>
+            </div>
+          <% end %>
       </div>
     <% end %>
   <% end %>
-  <%= link_to "delete question", question_path(@question),
-  method: :delete,
-  data: {confirm: "are you sure?"} %>
-<% end %>
-
-<!-- FORM TO ANSWER -->
-<%= simple_form_for [@question, @answer] do |f| %>
-  <%= f.input :content, label: false, placeholder: "Your answer here" %>
-  <%= f.submit "send", class: "btn btn-primary" %>
-<% end %>
-
-<!-- ITERATION TO DISPLAY THE ANSWERS OF A QUESTION -->
-<% @answers.each do |answer| %>
-  <div id="delete<%= answer.id %>">
-    <p><%= answer.content %></p>
-
-  <!-- TIMESTAMP FOR ANSWER -->
-    <% if Time.now - answer.created_at < 86400 %>
-      <p><%= time_ago_in_words(answer.created_at) %></p>
-    <% elsif Time.now - answer.created_at < 172800 %>
-      <p>Yesterday at <%= answer.created_at.strftime("%H:%M") %></p>
-    <% else %>
-      <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-    <% end %>
-
-  <!-- LIKE BUTTON & COUNTER FOR ANSWER -->
-    <%= link_to like_answer_path(answer), class:"like-btn", method: :put, remote: :true do %>
-      <div>
-        <span><p><i class="far fa-thumbs-up"></i></p></span>
-      </div>
-    <% end %>
-    <span class="likes_count" id="likes<%= answer.id %>"><%= answer.get_upvotes.size %></span>
-
-    <!-- EDIT ANSWER BUTTON -->
-    <% if policy(answer).edit?  %>
-      <%= link_to edit_answer_path(answer) do %>
-        <div>
-          <p><i class="far fa-edit">Edit</i></p>
-        </div>
-      <% end %>
-
-      <!-- DELETE ANSWER BUTTON -->
-      <%= link_to answer_path(answer), class:"delete-btn", method: :delete, data: {confirm: "are you sure?"}, remote: :true do %>
-        <div>
-          <span><p><i class="far fa-trash-alt"> Delete</i></p></span>
-        </div>
-       <% end %>
-    <% end %>
-  </div>
-<% end %>
-
+</div>
 
 
 

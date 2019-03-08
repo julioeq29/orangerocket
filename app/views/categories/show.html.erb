@@ -1,5 +1,5 @@
 <div class="back">
-  <%= link_to "Back to categories", root_path %>
+  <%= link_to "< Back to categories", root_path, class: "back-to-category" %>
 </div>
 
 <div class="title-category">
@@ -36,46 +36,83 @@
     interval: 5000
   })
 </script>
+
+
+
+
+
+
 <div class="container d-flex">
 
   <div class="container articles">
     <h2>Articles</h2>
-    <% @articles.sample(10).each do |article| %>
-    <div class="container card-question">
-      <p><%= link_to article.title, article.url, target: :_blank %></p>
-      <p><%= article.source %></p>
-
-      <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
-        <div>
-          <span><p><i class="far fa-thumbs-up"></i></p></span>
+    <div class="container-articles">
+        <div class="sort">
+          <p>Ordered by : relevance</p>
         </div>
-      <% end %>
-      <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+
+          <% @articles.sample(10).each do |article| %>
+            <div class="card-articles">
+              <div class="text-left">
+                <p><%= link_to article.title, article.url, target: :_blank %></p>
+                <p class="author">'Author'</p>
+              </div>
+              <div class="source-like text-right">
+                <p><%= article.source %></p>
+
+                <div class="like">
+                    <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+
+                        <span><i class="far fa-thumbs-up"></i></span>
+
+                    <% end %>
+                    <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
 
     </div>
-    <% end %>
   </div>
 
   <div class="container questions">
-    <div class="answer d-flex justify-content-between">
-      <h2>Community Q&A</h2>
 
-      <%= link_to "ask a question", new_question_path, class: "btn btn-ghost btn-answer" %>
+      <div class="answer d-flex justify-content-between">
+        <h2>Community Q&A</h2>
+
+        <%= link_to "ask a question", new_question_path, class: "btn-answer btn-tags" %>
+
+      </div>
+      <div class="">
+        <div class="sort">
+          <p>Ordered by : relevance</p>
+        </div>
+
+          <% @questions.each do |question|%>
+          <div class="card-question">
+            <div class="question-link">
+              <%= link_to question.content, question_path(question) %>
+            </div>
+            <div class="time-user">
+              <% if Time.now - question.created_at < 86400 %>
+                <p><%= time_ago_in_words(question.created_at) %></p>
+              <% elsif Time.now - question.created_at < 172800 %>
+                <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
+              <% else %>
+                <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+              <% end %>
+              <p>'<%= question.user.first_name.downcase %>'</p>
+            </div>
+          </div>
+          <% end  %>
+
 
     </div>
-
-    <% @questions.each do |question|%>
-    <div class="container card-question">
-      <%= link_to question.content, question_path(question) %>
-      <% if Time.now - question.created_at < 86400 %>
-        <p><%= time_ago_in_words(question.created_at) %></p>
-      <% elsif Time.now - question.created_at < 172800 %>
-        <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
-      <% else %>
-        <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-      <% end %>
-    </div>
-    <% end  %>
   </div>
+
+
+
+
+
 
 </div>

@@ -90,7 +90,7 @@
 .last-container{
   margin-top: 120px;
   margin-bottom: 220px;
-  height: 500px;
+  height: 400px;
 }
 
 .featurette-image{
@@ -109,5 +109,60 @@
 }
 
 
+
+
+.three-cards-landing-page {
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  margin-top: 220px;
+  margin-bottom: 100px;
+}
+
+.three-card-landing p{
+  margin-top: 30px;
+  margin: 20px 30px;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
+  color: $brand-primary;
+}
+
+.three-card-landing {
+  padding-top: 70px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  margin: 0px 10px 0px 10px;
+  height: 330px;
+}
+
+.three-card-landing:hover{
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background-color: $brand-secondary;
+  .btn-flat-card {
+    background: white;
+    color: $brand-secondary;
+  }
+}
+
+
+.btn-flat-card{
+  width: 50%;
+}
+
+.btn-flat-card {
+  color: white;
+  background: $brand-secondary;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 1px solid $brand-secondary;
+
+  width: 50%;
+}
+
+// .btn-flat-card:hover {
+//   background: white;
+//   color: $brand-secondary;
+// }
 
 

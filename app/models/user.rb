@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :answers
   has_many :liked_articles
 
+  validates :email, presence: true, format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
   def ranking_by_answers
     answers.map { |answer| answer.votes_for.count }.sum
   end

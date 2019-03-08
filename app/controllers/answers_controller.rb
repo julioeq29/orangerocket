@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  # before_action :authenticate_user!, only: [:upvote]
+  before_action :authenticate_user!
   respond_to :js, :json, :html
 
   def new
@@ -13,11 +13,13 @@ class AnswersController < ApplicationController
     @answer.content = params[:answer][:content]
     @answer.question_id = params[:question_id]
     authorize @answer
-    if @answer.save
-      redirect_to question_path(params[:question_id])
-    else
-      render :new
-    end
+    @answer.save
+    # >NEED TO FIX IT TO ADD AN ERROR WHEN A USER SEND A BLANK ANSWER< #
+    # if @answer.save
+    redirect_to question_path(@answer.question)
+    # else
+    #   render 'question/show'
+    # end
   end
 
   def edit
