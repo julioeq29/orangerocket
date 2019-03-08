@@ -10,7 +10,7 @@
   <!-- ORIGINATOR USER'S LINK -->
   <div class="question-user-name">
     <%= link_to user_path(@question.user_id) do %>
-    <%= @question.user&.first_name.capitalize %>
+    <%= @question.user.first_name&.capitalize %>
     <% end %>
      asked:
   </div>
