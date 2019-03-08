@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  # before_action :authenticate_user!, only: [:upvote]
+  before_action :authenticate_user!
   respond_to :js, :json, :html
 
   def new

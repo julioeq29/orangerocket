@@ -48,13 +48,17 @@
       <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
     <% end %>
 
-  <!-- LIKE BUTTON & COUNTER FOR ANSWER -->
-    <%= link_to like_answer_path(answer), class:"like-btn", method: :put, remote: :true do %>
-      <div>
-        <span><p><i class="far fa-thumbs-up"></i></p></span>
-      </div>
+  <!-- LIKE BUTTON & COUNTER FOR ANSWER ONLY TO BE DISPLAY WHEN A USER IS LOGGED IN -->
+    <% if current_user == nil %>
+      <%= display %>
+    <% else  %>
+      <%= link_to like_answer_path(answer), class:"like-btn", method: :put, remote: :true do %>
+        <div>
+          <span><p><i class="far fa-thumbs-up"></i></p></span>
+        </div>
+      <% end %>
+      <span class="likes_count" id="likes<%= answer.id %>">(<%= answer.get_upvotes.size %>)</span>
     <% end %>
-    <span class="likes_count" id="likes<%= answer.id %>"><%= answer.get_upvotes.size %></span>
 
     <!-- EDIT ANSWER BUTTON -->
     <% if policy(answer).edit?  %>
