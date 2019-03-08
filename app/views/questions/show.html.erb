@@ -1,3 +1,8 @@
+<div class="back">
+<%= link_to category_path(@question.category_id) do %>Back to <%= @question.category.name %><% end %>
+</div>
+
+
 <h1><%= @question.content %></h1>
 
 <!-- TIMESTAMP FOR QUESTION -->
