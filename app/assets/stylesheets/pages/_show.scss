@@ -1,12 +1,15 @@
-.tag-show{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin: 30px 88px;
-}
-
 .title-category{
   margin-left: 88px;
   margin-top: 15px;
+  color: $brand-primary;
+}
+
+.articles h2{
+  color: $brand-primary;
+}
+
+.questions h2{
+  color: $brand-primary;
 }
 
 .back{
@@ -49,4 +52,71 @@
 .tabby {
   width: 33vw;
   text-align: center;
+}
+
+.back-to-category{
+  text-decoration: none !important;
+  color: $brand-primary;
+  opacity: 0.5;
+}
+
+.container-articles{
+  margin-top: 37px;
+}
+
+.container-questions{
+  margin-top: 20px;
+}
+
+.like{
+  display: flex;
+}
+
+
+
+.source-like p{
+  opacity: 0.5;
+}
+
+.card-articles a{
+  text-decoration: none !important;
+  color: $brand-primary !important;
+}
+
+.card-articles a:hover{
+  opacity: 0.6;
+  color: $brand-secondary !important;
+}
+
+.author{
+  font-size: 5px;
+  opacity: 0.6;
+}
+
+.likes_count{
+  font-size: 8px;
+}
+
+.question-link{
+  margin-bottom: 30px;
+}
+
+.time-user p{
+  opacity: 0.5;
+  text-decoration: none !important;
+  color: $brand-primary;
+}
+
+.question-link a{
+  text-decoration: none !important;
+  color: $brand-primary;
+}
+.question-link a:hover{
+  opacity: 0.6;
+  color: $brand-secondary !important;
+}
+
+.time-user{
+  display: flex;
+  justify-content: space-between;
 }

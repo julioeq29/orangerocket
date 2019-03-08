@@ -33,20 +33,46 @@
   color: white !important;
 }
 
-.card-question{
-  padding: 16px 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card-articles{
+  padding: 16px 8px 16px 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 85%;
+  font-size: 15px;
+  overflow: hidden;
+  height: 100px;
   background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  margin: 26px auto;
-  width: 70%;
-  p {
-    font-size: 11px;
-  }
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
 }
+
+.card-articles:hover{
+  transform: scale(1.1);
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.card-question{
+  padding: 16px 8px 16px 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 15px;
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-question:hover{
+  transform: scale(1.1);
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {
