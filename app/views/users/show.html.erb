@@ -24,6 +24,13 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"></div>
+  <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <% @user.questions.each do |question| %>
+      <div class="container card-question">
+        <%= question.content %>
+      </div>
+    <% end %>
+  </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
     <% @user.questions.each do |question| %>
       <div class="container card-question">
@@ -40,6 +47,20 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+</div>
+<div>
+  <% liked_articles = @user.find_voted_items.select {|item| item.class == Article} %>
+  <% liked_articles.each do |article| %>
+    <div id="article<%= article.id %>'}"class="container card-question">
+      <%= link_to article.title, article.url, target: :_blank %>
+      <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
+        <div>
+          <span><p><i class="far fa-thumbs-up"></i></p></span>
+        </div>
+      <% end %>
+      <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+    </div>
+  <% end %>
 </div>
 
 

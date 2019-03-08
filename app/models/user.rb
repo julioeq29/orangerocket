@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  acts_as_votable
+  acts_as_voter
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -13,7 +13,11 @@ class User < ApplicationRecord
   has_many :answers
   has_many :liked_articles
 
-  def number_of_votes
+  def ranking_by_answers
     answers.map { |answer| answer.votes_for.count }.sum
+  end
+
+  def liked_articles
+    @articles.map { |article| article.votes_for.count }.sum
   end
 end
