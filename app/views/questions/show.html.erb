@@ -1,8 +1,23 @@
 <div class="container">
 
+
   <div class="back-cate">
   <%= link_to category_path(@question.category_id), class: "back-to-show" do %> < Back to <%= @question.category.name %><% end %>
   </div>
+
+
+<!-- ORIGINATOR USER'S LINK -->
+<div class="question-user-name">
+  <%= link_to user_path(@question.user_id) do %>
+  <%= @question.user.first_name.capitalize %>
+  <% end %>
+   asked:
+</div>
+
+<!-- QUESTION'S CONTENT -->
+<div class="question-content">
+  <h1><%= @question.content %></h1>
+</div>
 
 
   <h1 class="title-question"><%= @question.content %></h1>
@@ -13,6 +28,7 @@
       <%= f.input :content, label: false, placeholder: "Your answer here", class: "form-answer" %>
       <%= f.submit "send", class: "btn btn-tags btn-send" %>
     <% end %>
+
   </div>
 
   <!-- TIMESTAMP FOR QUESTION -->
@@ -23,6 +39,33 @@
   <% else %>
     <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
   <% end %>
+
+  <% end %>
+  <%= link_to "delete question", question_path(@question),
+  method: :delete,
+  data: {confirm: "are you sure?"} %>
+<% end %>
+
+<!-- ITERATION TO DISPLAY THE ANSWERS OF A QUESTION -->
+<% @answers.each do |answer| %>
+  <div id="delete<%= answer.id %>">
+    <p><%= answer.content %></p>
+
+    <div class="answer-user-name">
+      Answered by <%= link_to user_path(answer.user_id) do %>
+      <%= answer.user.first_name.capitalize %>
+      <% end %>
+    </div>
+
+  <!-- TIMESTAMP FOR ANSWER -->
+    <% if Time.now - answer.created_at < 86400 %>
+      <p><%= time_ago_in_words(answer.created_at) %></p>
+    <% elsif Time.now - answer.created_at < 172800 %>
+      <p>Yesterday at <%= answer.created_at.strftime("%H:%M") %></p>
+    <% else %>
+      <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+    <% end %>
+
 
   <!-- CONDITION TO ALLOW TO DELETE & EDIT THE QUESTION ONLY IF IT HAS BEEN CREATED BY THE CURRENT USER -->
   <% if policy(@question).edit?  %>
