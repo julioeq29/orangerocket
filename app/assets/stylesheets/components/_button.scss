@@ -73,3 +73,21 @@
   position: relative;
   top: 39px;
 }
+
+.btn-statistic{
+  border: 1px solid $brand-secondary;
+  background: transparent;
+  border-radius: 50px;
+  padding: 8px 16px;
+  color: $brand-secondary;
+  transition: background 0.3s ease;
+  text-decoration: none !important;
+  height: 40px;
+  margin-left: 15px !important;
+  margin-top: 10px;
+}
+
+.btn-statistic:hover {
+  background: $brand-secondary;
+  color: white;
+}
