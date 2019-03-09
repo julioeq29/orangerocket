@@ -43,6 +43,22 @@
 .login-item{
   margin-right: 20px
 }
+
+.dashboard{
+    height: 40px;
+    padding-top: 5px;
+}
+
+.avatar-menu{
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  opacity: 0.9;
+}
+
+.avatar-items:hover{
+  background-color: $brand-secondary !important;
+}
+
 // Search icon
 .search{
   margin-right: 30px;
