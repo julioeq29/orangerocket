@@ -54,13 +54,24 @@
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body class="">
   <!-- This file lives in public/500.html -->
+  <style> .img500 {
+      display: flex;
+      justify-content: center;
+    }
+    .text {
+      text-align: center;
+    }
+  </style>
   <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+    <div class="img500">
+      <img src="/images/500dragonball.png" style="width: 600px; height: 300px;" alt="">
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+      <div class="text">
+        <h1>Something went wrong!</h1>
+        <p>You may have mistyped the address or the page may have moved.</p>
+      </div>
   </div>
 </body>
 </html>

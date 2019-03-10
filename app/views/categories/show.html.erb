@@ -101,7 +101,7 @@
               <% else %>
                 <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
               <% end %>
-              <p>'author'</p>
+              <p>'<%= question.user.first_name&.downcase %>'</p>
             </div>
           </div>
           <% end  %>
