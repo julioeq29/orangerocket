@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def user_ranking
-    num_answers = @user.answers.count * 10
+    num_answers = @user.answers.count * 100
     likes_counter = 0
     @user.answers.each do |answer|
       likes_counter += answer.cached_votes_up
