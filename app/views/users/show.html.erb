@@ -1,18 +1,44 @@
-
-<!-- <div class="line-1"></div>
-<div class = profile-box>
+<div class="line-1"></div>
+<!-- <div class = profile-box>
  <h1><%= @user.first_name%></h1>
  <div><h2><%=@user.location%></h2></div>
  <div ><p>bio</p></div>
 </div> -->
 <div class="card" style="width: 18rem ">
-  <img class="card-img-top" src="http://gpluseurope.com/wp-content/uploads/Website2016-Profile-Photos-Amanda-Orza-300x261.jpg" alt="#">
-  <div class="card-body">
-    <p class="card-text"><h2><%= @user.first_name%></h2>
-      <p></p><%=@user.location%></p><p>bio</p>
-    </p>
-  </div>
+  <% if @user.photo == nil %>
+    <div><img src="http://www.newdesignfile.com/postpic/2010/07/contact-person-icon_191263.png" class="card-img-top" alt=""></div>
+  <% else %>
+    <div ><%= cl_image_tag(@user.photo, class: "card-img-top", crop: :fill) %>
+      <div class=ranking-icon>
+      <% if @points <= 100 %>
+        <i class="fas fa-seedling ranking"></i>
+      <% elsif @points > 100 && @points <= 200 %>
+        <i class="fas fa-feather-alt ranking"></i>
+      <% elsif @points > 200 && @points <= 300 %>
+        <i class="fas fa-tree ranking"></i>
+      <% elsif @points > 400 && @points <= 500 %>
+        <i class="fas fa-star ranking"></i>
+      <% elsif @points > 500 %>
+        <i class="fas fa-award ranking"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+<div class="card-body">
+  <p class="card-text"><h2><%= @user.first_name%></h2>
+    <p></p><%=@user.location%></p><p>bio</p>
+  </p>
+</div>
+</div>
+
+<!-- DISPLAY UPDATE PROFILE DETAILS BUTTON ONLY FOR OWNER -->
+<% if policy(@user).edit?  %>
+  <%= link_to edit_user_registration_path do %>
+    <div>
+      <p><i class="far fa-edit">Update my profile</i></p>
+    </div>
+  <% end %>
+<% end %>
 
 
 <!-- <div class="title-category">
@@ -71,14 +97,12 @@
   <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
     <div
       id="map"
-      style="width: 600px !important;
+      style="width: 800px !important;
       float: right;
-      height: 400px !important;"
+      height: 600px !important;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
 </div>
-
-

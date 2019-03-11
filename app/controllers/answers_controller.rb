@@ -60,22 +60,6 @@ class AnswersController < ApplicationController
     else
       @answer.liked_by current_user
     end
-
-    #   answer.liked_by current_user
-    # elsif current_user.liked? answer
-    #   authorize answer
-    #   answer.unlike_by current_user
-    # end
-
-    # @answer = Answer.find(params[:id])
-    # @answer.liked_by current_user
-    # authorize @answer
-    # redirect_to question_path(@answer.question_id)
-
-    # update the relevant ansnwer
-    # redirect back to the question page
-    # answer.user.upvotes += 1
-    # asnwer.user.save
   end
 
 private
