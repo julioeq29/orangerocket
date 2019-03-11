@@ -60,11 +60,17 @@
   color: $brand-secondary;
   transition: background 0.3s ease;
   text-decoration: none !important;
+  margin: 10px;
 }
 
 .btn-tags:hover {
   background: $brand-secondary;
+  text-decoration: none !important;
   color: white;
+}
+
+.btn-tags:active{
+  background: $brand-secondary;
 }
 
 .btn-answer{
@@ -73,3 +79,13 @@
   position: relative;
   top: 39px;
 }
+
+
+
+
+
+
+
+
+
+

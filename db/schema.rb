@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_124644) do
+ActiveRecord::Schema.define(version: 2019_03_11_115115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,11 @@ ActiveRecord::Schema.define(version: 2019_03_07_124644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "id_from_source"
+    t.bigint "tag_id"
+    t.string "photo"
+    t.date "pub_date"
     t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["tag_id"], name: "index_articles_on_tag_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -52,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_124644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "name_nyt"
+    t.string "name_guardian"
   end
 
   create_table "liked_articles", force: :cascade do |t|
@@ -121,6 +127,7 @@ ActiveRecord::Schema.define(version: 2019_03_07_124644) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "tags"
   add_foreign_key "liked_articles", "articles"
   add_foreign_key "liked_articles", "users"
   add_foreign_key "questions", "categories"
