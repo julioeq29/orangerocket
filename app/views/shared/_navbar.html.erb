@@ -63,10 +63,14 @@
   </div>
 </div>
 <script>
-  document.getElementById('scroll-three-cards').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector('.three-cards-landing-page').scrollIntoView({
-      behavior: 'smooth'
+  const scroll = document.getElementById('scroll-three-cards')
+  if (scroll) {
+    console.log("HERE")
+    scroll.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector('.three-cards-landing-page').scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-  });
+  };
 </script>

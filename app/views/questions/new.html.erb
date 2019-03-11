@@ -2,9 +2,11 @@
     <div class="container ask-content">
       <%= simple_form_for [@question] do |f| %>
         <%= f.association :category, :class => "category-menu", collection: Category.all  %>
+        <%= f.simple_fields_for :question_tag do |c| %>
+          <%= c.input :tag_id, collection: Tag.all, input_html: { class: "select2", multiple: "mutiple" }  %>
+        <% end %>
         <%= f.input :content %>
         <%= f.submit "Ask a question", class: "btn btn-tags btn-ask-question" %>
-
       <% end %>
     </div>
   <div class="container img-answer">

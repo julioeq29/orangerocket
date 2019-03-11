@@ -11,7 +11,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-
+gem 'jquery-rails'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
