@@ -1,8 +1,13 @@
-<div class="container bb">
-  <%= simple_form_for [@question] do |f| %>
-    <%= f.input :content %>
-    <%= f.association :category, collection: Category.all %>
-    <%= f.submit "Ask a question", class: "btn btn-tags btn-answer-question" %>
+<div class="container ask-form">
+    <div class="container ask-content">
+      <%= simple_form_for [@question] do |f| %>
+        <%= f.association :category, :class => "category-menu", collection: Category.all  %>
+        <%= f.input :content %>
+        <%= f.submit "Ask a question", class: "btn btn-tags btn-ask-question" %>
 
-  <% end %>
+      <% end %>
+    </div>
+  <div class="container img-answer">
+    <%= image_tag "answer-page.png", class: "img-answer" %>
+  </div>
 </div>
