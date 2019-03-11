@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 7673ce34fa4aff368b2856be3d7eb16e1589fbe4
+  revision: 57c37d934fdcf65e7d5b8bc0f8f210e6de428b0b
   branch: master
   specs:
     faker (1.9.3)
@@ -74,7 +74,7 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.2)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
     devise (4.6.1)
@@ -138,7 +138,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    msgpack (1.2.7)
+    msgpack (1.2.8)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     netrc (0.11.0)
