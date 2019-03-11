@@ -11178,6 +11178,7 @@ button.bg-dark:focus {
 /* line 22, node_modules/bootstrap/scss/utilities/_text.scss */
 .text-left {
   text-align: left !important;
+  width: 60px;
 }
 
 /* line 23, node_modules/bootstrap/scss/utilities/_text.scss */

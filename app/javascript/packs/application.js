@@ -9,4 +9,6 @@ initMapbox();
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
 
-
+// lines for tag buttons in Category pages to work
+import { toggleTagButton } from '../components/tag_button';
+toggleTagButton();

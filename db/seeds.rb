@@ -83,13 +83,15 @@ puts "---------------------------------------------------------"
 puts "creating categories"
 
 category = Category.create!(
-  name: "Food & Cooking"
+  name: "Food & Cooking",
+  name_nyt: "Food"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Travel & Commute"
+  name: "Travel & Commute",
+  name_nyt: "Travel"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/1453960/pexels-photo-1453960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
@@ -153,7 +155,7 @@ puts "creating tags"
 
 # ----------  TAGS: Food & Cooking -------------
 category_for_tag = Category.find_by_name("Food & Cooking")
-array = ["vegan", "co2 emissions", "gmo", "urban gardening", "diary", "land usage", "fair trade", "co2 emissions", "methane", "fertiliser"]
+array = ["vegan", "oganic", "sustainable agriculture", "meat free", "gmo", "urban garden", "sustainable fisheries", "fertiliser"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -163,7 +165,8 @@ end
 
 # ---------  TAGS: Travel & Commute ------------
 category_for_tag = Category.find_by_name("Travel & Commute")
-array = ["fuel", "electric", "maritime", "effiency", "planes", "cars", "hydrogen", "autonomous vehicles", "emissions", "smart cities", "electric bike", "electric scooter", "pollution free", "smart planning"]
+array = ["fuel", "electric"]
+# , "maritime", "effiency", "planes", "cars", "hydrogen", "autonomous vehicles", "emissions", "smart cities", "electric bike", "electric scooter", "pollution free", "smart planning"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,

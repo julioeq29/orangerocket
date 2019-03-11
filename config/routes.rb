@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories
+
   resources :articles, only: [:read, :update]
   resources :questions, only: [:destroy]
   resources :answers, only: [:edit, :update, :destroy]
