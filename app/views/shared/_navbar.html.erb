@@ -18,14 +18,24 @@
       <div class="d-flex justify-content-center h-100">
         <%= form_tag categories_path, method: :get, class:'searchbar' do %>
           <%= text_field_tag :query,
-            params[:query],
+            params[:query], autocomplete: false,
             class: "search_input",
             placeholder: "Search..."
           %>
           <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+          <ul id="list-of-results">
+
+          </ul>
         <% end %>
       </div>
     </div>
+
+
+
+
+
+
+
 
 
     <ul class="navbar-nav mr-auto">
@@ -61,10 +71,13 @@
   </div>
 </div>
 <script>
-  document.getElementById('scroll-three-cards').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector('.three-cards-landing-page').scrollIntoView({
-      behavior: 'smooth'
+  var thing = document.getElementById('scroll-three-cards');
+  if (thing) {
+    thing.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector('.three-cards-landing-page').scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 </script>

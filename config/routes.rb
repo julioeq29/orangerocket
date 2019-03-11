@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :categories, only: [ :index ]
+    end
+  end
+
   resources :users, only: [:show]
 
   resources :questions, except: [:destroy] do
