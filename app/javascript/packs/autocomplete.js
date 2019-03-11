@@ -9,7 +9,12 @@ input.addEventListener("keyup", () => {
       results.innerHTML = ""
       data.forEach((obj) => {
         results.insertAdjacentHTML('beforeend', `<li><a href="/categories/${obj.id}">${obj.name}</a></li>`);
-
+        console.log(results)
       })
     });
+})
+document.addEventListener("click", () => {
+  if (results.children) {
+    results.innerHTML = '';
+  }
 })
