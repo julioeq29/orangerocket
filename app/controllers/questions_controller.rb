@@ -28,6 +28,11 @@ class QuestionsController < ApplicationController
     @question.category_id = params[:question][:category_id]
     authorize @question
     if @question.save
+      tag_params.each do |tag|
+        question_tag = QuestionTag.new(tag_id: tag)
+        question_tag.question = @question
+        question_tag.save
+      end
       redirect_to category_path(@question.category)
     else
       render :new
@@ -63,5 +68,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:content, :category_id)
+  end
+
+  def tag_params
+    params.require(:question).require(:question_tag).require(:tag_id)[1..-1].map{|p| p.to_i}
   end
 end

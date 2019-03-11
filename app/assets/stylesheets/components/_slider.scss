@@ -1,0 +1,14 @@
+.slider {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  margin-bottom: 24px;
+
+}
+
+ .slide {
+  width: auto;
+  flex-shrink: 0;
+  height: 100%;
+  margin-top: 10px;
+}

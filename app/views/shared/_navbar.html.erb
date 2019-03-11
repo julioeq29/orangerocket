@@ -3,7 +3,9 @@
   <%= link_to root_path, class: "navbar-brand logo-navbar" do %>
     <%= image_tag "logo.png", width: 80 %>
   <% end %>
-  <a href="#" id="scroll-three-cards" class="btn-statistic">statistic</a>
+  <% if controller_name == "pages" %>
+    <a href="#" id="scroll-three-cards" class="btn-statistic">statistic</a>
+  <% end %>
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,18 +14,44 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="search">
-      <i class="fas fa-search"></i>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <%= form_tag categories_path, method: :get, class:'searchbar' do %>
+          <%= text_field_tag :query,
+            params[:query], autocomplete: false,
+            class: "search_input",
+            placeholder: "Search..."
+          %>
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+
+          <ul id="list-of-results">
+          </ul>
+        <% end %>
+      </div>
     </div>
+
+
+
+
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <%= image_tag "nav-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right avatar-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "My dashboard", user_path(current_user), class: "nav-link dropdown-item avatar-items" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item avatar-items" %>
-          </div>
-        </li>
+        <% if current_user.photo.file.nil? %>
+          <li class="nav-item dropdown">
+            <%= image_tag "nav-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right avatar-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "My dashboard", user_path(current_user), class: "nav-link dropdown-item avatar-items" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item avatar-items" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item dropdown">
+            <%= cl_image_tag(current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+            <div class="dropdown-menu dropdown-menu-right avatar-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "My dashboard", user_path(current_user), class: "nav-link dropdown-item avatar-items" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item avatar-items" %>
+            </div>
+          </li>
+        <% end %>
       <% else %>
       <div class="d-flex">
         <div class="nav-item login-item">
@@ -37,12 +65,14 @@
     </ul>
   </div>
 </div>
-
 <script>
-  document.getElementById('scroll-three-cards').addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector('.three-cards-landing-page').scrollIntoView({
-      behavior: 'smooth'
+  var thing = document.getElementById('scroll-three-cards');
+  if (thing) {
+    thing.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector('.three-cards-landing-page').scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 </script>

@@ -1,17 +1,13 @@
-.footer {
-  background: white;
+.footer1 {
+  background: $brand-secondary;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
   padding: 0px 50px;
-  color: orange;
-  margin-top: 100px;
+  margin-top: 120px;
 }
-.footer-links {
-  display: flex;
-  align-items: center;
-}
+
 .footer-links a {
   color: black;
   opacity: 0.15;
@@ -19,14 +15,30 @@
   font-size: 24px;
   padding: 0px 10px;
 }
+
 .footer-links a:hover {
-  color: $brand-secondary;
+  color: white;
   opacity: 1;
 }
+
 .footer .fa-heart {
   color: $brand-secondary;
 }
 
 .footer-copyright{
   color: $brand-secondary;
+}
+
+.footer2 {
+  background: $brand-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  height: 280px;
+  padding-top: 16px;
+}
+
+.footer2 a {
+  text-decoration: none !important;
 }

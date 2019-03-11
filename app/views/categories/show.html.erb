@@ -7,68 +7,46 @@
 </div>
 
 <div class="container">
-  <div class="carousel slide" data-ride="carousel" data-interval="2000">
-    <div class="carousel-inner">
-      <% @category.tags.each_slice(5).with_index do |slice, index| %>
 
-        <div class="carousel-item text-center <%= index == 0 ? 'active' : '' %>">
-          <% slice.each do |tag| %>
-            <div class="d-inline tags-space" >
-              <a class="btn-tags" href="#"><%= tag.name %></a>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+  <div class="slider" data-tag="<%= @selected_tag %>">
+    <% @category.tags.each do |tag| %>
+        <!-- link to with param tag, link)to linked to this same page -->
+      <div class="data-holder"  data-tag="<%= tag.id %>">
+        <%= link_to tag.name, category_path(@category, tag: tag), class: "btn-tags btn"%>
+      </div>
+    <% end %>
   </div>
 </div>
 
-<script>
-  $('.carousel').carousel({
-    interval: 5000
-  })
-</script>
 
-
-
-
-
-
-<div class="container d-flex">
-
+<div class="container d-flex category-container">
   <div class="container articles">
     <h2>Articles</h2>
     <div class="container-articles">
         <div class="sort">
           <p>Ordered by : relevance</p>
         </div>
-
+          <hr class="line-articles">
           <% @articles.sample(10).each do |article| %>
             <div class="card-articles">
+              <a class="link" href=<%= article.url %> target="_blank">
+              </a>
               <div class="text-left">
-                <p><%= link_to article.title, article.url, target: :_blank %></p>
-                <p class="author">'Author'</p>
+                  <p><%= article.title %></p>
+                  <div class="info-articles d-flex">
+                    <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
+                    <p class="">
+                        <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                            <span><i class="far fa-thumbs-up"></i></span>
+                        <% end %>
+                        <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+                    </p>
+                  </div>
               </div>
-              <div class="source-like text-right">
-                <p><%= article.source %></p>
-
-                <div class="like">
-                    <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
-
-                        <span><i class="far fa-thumbs-up"></i></span>
-
-                    <% end %>
-                    <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
-                </div>
+              <div class="img-article">
+                <%= image_tag article.photo %>
               </div>
+
             </div>
           <% end %>
 
@@ -79,35 +57,25 @@
 
       <div class="answer d-flex justify-content-between">
         <h2>Community Q&A</h2>
-
-        <%= link_to "ask a question", new_question_path, class: "btn-answer btn-tags" %>
-
+        <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
       </div>
+
       <div class="">
         <div class="sort">
           <p>Ordered by : relevance</p>
         </div>
 
+          <hr class="line-articles">
           <% @questions.each do |question|%>
           <div class="card-question">
             <div class="question-link">
               <%= link_to question.content, question_path(question) %>
             </div>
-            <div class="time-user">
-              <% if Time.now - question.created_at < 86400 %>
-                <p><%= time_ago_in_words(question.created_at) %></p>
-              <% elsif Time.now - question.created_at < 172800 %>
-                <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
-              <% else %>
-                <p><%= @question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-              <% end %>
-              <p>'<%= question.user.first_name&.downcase %>'</p>
-            </div>
+          <p class="source"><%= question.user.first_name %></p>
+          <p></p>
           </div>
           <% end  %>
-
-
-    </div>
+      </div>
   </div>
 
 
@@ -116,3 +84,15 @@
 
 
 </div>
+
+<script>
+  $('.carousel').carousel({
+    interval: 300000
+  })
+</script>
+
+
+
+
+
+

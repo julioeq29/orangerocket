@@ -17,7 +17,9 @@
 
   <!-- QUESTION'S CONTENT -->
     <h1 class="title-question"><%= @question.content %></h1>
-
+    <% @question.tags.each do |tag| %>
+      <h2><%= tag.name %></h2>
+    <% end %>
     <!-- FORM TO ANSWER -->
     <div class="container d-flex justify-content-center">
       <%= simple_form_for [@question, @answer] do |f| %>
@@ -51,15 +53,19 @@
     <% end %>
 
   <!-- ITERATION TO DISPLAY THE ANSWERS OF A QUESTION -->
-  <% @answers.each do |answer| %>
-    <div id="delete<%= answer.id %>">
-      <p><%= answer.content %></p>
-
-      <div class="answer-user-name">
-        Answered by <%= link_to user_path(answer.user_id) do %>
-        <%= answer.user.first_name&.capitalize %>
-        <% end %>
+<div class="container">
+      <% @answers.each do |answer| %>
+      <div class="answers">
+        <div id="delete<%= answer.id %>">
+          <p><%= answer.content %></p>
+          <div class="answer-user-name">
+            Answered by <%= link_to user_path(answer.user_id) do %>
+            <%= answer.user.first_name&.capitalize %>
+          </div>
+          <% end %>
+        </div>
       </div>
+
 
     <!-- TIMESTAMP FOR ANSWER -->
       <% if Time.now - answer.created_at < 86400 %>

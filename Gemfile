@@ -16,6 +16,9 @@ gem 'jquery-rails'
 gem 'pusher'
 gem 'figaro'
 
+gem 'jquery-rails'
+gem 'pg_search'
+
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
