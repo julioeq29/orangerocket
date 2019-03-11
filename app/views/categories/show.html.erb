@@ -51,24 +51,35 @@
           <p>Ordered by : relevance</p>
         </div>
 
+
+
+
+
+           <hr class="line-articles">
           <% @articles.sample(10).each do |article| %>
-            <div class="card-articles">
+            <div class="card-articles align-items-start">
+
               <div class="text-left">
-                <p><%= link_to article.title, article.url, target: :_blank %></p>
-                <p class="author">'Author'</p>
+                  <p><%= link_to article.title, article.url, target: :_blank %></p>
+
+                  <div class="d-flex bd-highlight mb-3 align-items-end">
+                    <p class="author p-2 bd-highlight">'Author'</p>
+                    <p class="p-2 bd-highlight"><%= article.source %></p>
+                    <p class="ml-auto p-2 bd-highlight">
+                        <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                            <span><i class="far fa-thumbs-up"></i></span>
+                        <% end %>
+                        <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+                    </p>
+                  </div>
+
+
               </div>
-              <div class="source-like text-right">
-                <p><%= article.source %></p>
 
-                <div class="like">
-                    <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
-
-                        <span><i class="far fa-thumbs-up"></i></span>
-
-                    <% end %>
-                    <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
-                </div>
+              <div class="img-article">
+              <%= image_tag "" %>
               </div>
+
             </div>
           <% end %>
 
