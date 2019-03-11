@@ -5,7 +5,7 @@ const toggleTagButton = () => {
   if (button) {
     button.addEventListener('click', (e) => {
       this.style.backgroundColor = 'red';
-      });
+    });
   }
 }
 
