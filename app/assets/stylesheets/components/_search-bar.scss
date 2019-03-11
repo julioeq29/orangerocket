@@ -9,27 +9,28 @@
     margin-top:5px;
 }
 
+
 .search_input{
-    color: $brand-primary;
+    // color: $brand-primary;
     border: 0;
     outline: 0;
-    background: none;
-    width: 0;
+    // background: none;
+    // width: 0;
     caret-color: $brand-primary !important;
     line-height: 40px;
     transition: width 0.4s linear;
-}
-
-.searchbar:hover > .search_input{
     padding: 0 10px;
     width: 350px;
     caret-color: $brand-secondary;
     transition: width 0.4s linear;
+    background: transparent;
+    color: $brand-secondary;
+}
+
+.searchbar:hover > .search_input{
 }
 
 .searchbar:hover > .search_icon{
-    background: transparent;
-    color: $brand-secondary;
 }
 
 .search_icon{

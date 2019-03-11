@@ -2,9 +2,11 @@
 const button = document.querySelector("#clickme");
 
 const toggleTagButton = () => {
-  button.addEventListener('click', (e) => {
-    this.style.backgroundColor = 'red';
+  if (button) {
+    button.addEventListener('click', (e) => {
+      this.style.backgroundColor = 'red';
     });
+  }
 }
 
 export { toggleTagButton };
