@@ -1,6 +1,7 @@
 .title-category{
   margin-left: 88px;
-  margin-top: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   color: $brand-primary;
 }
 
@@ -14,7 +15,8 @@
 
 .back{
   margin-left: 88px;
-  margin-top: 30px;
+  margin-top: 8px;
+  font-size: 12px;
 }
 
 .back-cate{
@@ -85,6 +87,10 @@
   margin-top: 37px;
 }
 
+.sort{
+  font-size: 12px;
+}
+
 .container-questions{
   margin-top: 20px;
 }
@@ -110,6 +116,10 @@
 .card-articles a:hover{
   opacity: 0.6;
   color: $brand-secondary !important;
+}
+
+.card-articles .tags-articles{
+  font-size: 10px;
 }
 
 .author{
