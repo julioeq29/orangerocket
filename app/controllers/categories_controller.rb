@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @selected_tag = params[:tag]
     @category = Category.find(params[:id])
     @tags = Tag.all
     authorize @category

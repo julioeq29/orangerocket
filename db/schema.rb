@@ -120,9 +120,9 @@ ActiveRecord::Schema.define(version: 2019_03_11_122429) do
     t.string "last_name"
     t.string "location"
     t.text "bio"
+    t.boolean "admin", default: false, null: false
     t.float "latitude"
     t.float "longitude"
-    t.boolean "admin", default: false, null: false
     t.integer "upvote"
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
