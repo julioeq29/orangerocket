@@ -8,22 +8,18 @@
 
 <div class="container">
 
-  <div class="slider">
+  <div class="slider" data-tag="<%= @selected_tag %>">
     <% @category.tags.each do |tag| %>
-      <div class="slide">
         <!-- link to with param tag, link)to linked to this same page -->
-          <%= link_to tag.name, category_path(@category, tag: tag), class: "btn-tags btn"%>
+      <div class="data-holder"  data-tag="<%= tag.id %>">
+        <%= link_to tag.name, category_path(@category, tag: tag), class: "btn-tags btn"%>
       </div>
     <% end %>
   </div>
 
 </div>
 
-<script>
-  $('.carousel').carousel({
-    interval: 300000
-  })
-</script>
+
 
 
 

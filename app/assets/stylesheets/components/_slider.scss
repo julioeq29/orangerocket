@@ -1,8 +1,7 @@
 .slider {
-  width: 1100px;
-  height: 64px;
+  width: 100%;
+  flex-wrap: wrap;
   display: flex;
-  overflow-x: auto;
   margin-bottom: 24px;
 
 }

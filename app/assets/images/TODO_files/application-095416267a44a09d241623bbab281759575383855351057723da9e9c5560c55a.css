@@ -18852,7 +18852,8 @@ readers do not read off random characters that represent icons */
   border: 1px solid #1DDD88;
   background: transparent;
   border-radius: 50px;
-  padding: 8px 24px;
+  padding: 5px 10px !important;
+  font-size: 12px !important;
   color: #1DDD88;
   transition: background 0.3s ease;
   text-decoration: none !important;
