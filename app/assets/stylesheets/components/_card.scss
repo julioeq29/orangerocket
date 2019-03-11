@@ -52,16 +52,17 @@
   width: 90%;
   font-size: 15px;
   overflow: hidden;
-  height: 120px;
+  height: 135px;
   background: transparent;
   display: flex;
-  justify-content: space-between;
+  position: relative;
 }
 
 .card-articles:hover{
-  transform: scale(1.1);
+  transform: scale(1.02);
   transition: 0.3s ease;
   font-weight: bold;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 .card-question{
@@ -69,18 +70,19 @@
   border-radius: 10px;
   margin-bottom: 20px;
   margin-top: 10px;
-  width: 100%;
+  width: 90%;
   font-size: 15px;
   overflow: hidden;
   height: 100px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-question:hover{
-  transform: scale(1.1);
+  transform: scale(1.02);
   transition: 0.3s ease;
   font-weight: bold;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background-color: $brand-secondary;
 }
 
 .card-question-profile-page{
@@ -106,11 +108,10 @@
   border-color: transparent;
 }
 .content-backgroud {
-  width: 60%;
+width: 60%;
 padding: 30px;
 margin: 10px auto;
 box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
-background-color: #bfb6b68f
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

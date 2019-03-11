@@ -26,7 +26,7 @@ require 'open-uri'
 
         articles["response"]["docs"][0..5].each do |article|
           p id_for_test = article["_id"]
-          p image_for_article = article['multimedia'] == [] ? "no photo" : "https://www.nytimes.com/#{article['multimedia'][0]['url']}"
+          p image_for_article = article['multimedia'] == [] ? "no-img.png" : "https://www.nytimes.com/#{article['multimedia'][0]['url']}"
           unless Article.where(id_from_source: id_for_test).any?
             Article.create!(
               source: "NYT",
