@@ -60,11 +60,17 @@
   color: $brand-secondary;
   transition: background 0.3s ease;
   text-decoration: none !important;
+  margin: 10px;
 }
 
 .btn-tags:hover {
   background: $brand-secondary;
+  text-decoration: none !important;
   color: white;
+}
+
+.btn-tags:active{
+  background: $brand-secondary;
 }
 
 .btn-answer{
@@ -75,19 +81,31 @@
 }
 
 .btn-statistic{
-  border: 1px solid $brand-secondary;
+  border: 1px solid $brand-primary;
   background: transparent;
   border-radius: 50px;
   padding: 8px 16px;
-  color: $brand-secondary;
+  color: $brand-primary;
   transition: background 0.3s ease;
   text-decoration: none !important;
   height: 40px;
   margin-left: 15px !important;
   margin-top: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-weight: bold;
 }
 
 .btn-statistic:hover {
-  background: $brand-secondary;
-  color: white;
+  background: $brand-primary;
+  color: $brand-secondary;
 }
+
+
+
+
+
+
+
+
+
+

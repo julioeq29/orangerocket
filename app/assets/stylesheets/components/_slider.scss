@@ -1,0 +1,15 @@
+.slider {
+  width: 1100px;
+  height: 64px;
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 24px;
+
+}
+
+ .slide {
+  width: auto;
+  flex-shrink: 0;
+  height: 100%;
+  margin-top: 10px;
+}

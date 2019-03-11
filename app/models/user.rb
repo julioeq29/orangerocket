@@ -16,11 +16,11 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  def ranking_by_answers
-    answers.map { |answer| answer.votes_for.count }.sum
-  end
+  # def ranking_by_answers
+  #   answers.map { |answer| answer.votes_for.count }.sum
+  # end
 
-  def liked_articles
-    @articles.map { |article| article.votes_for.count }.sum
-  end
+  # def liked_articles
+  #   @articles.map { |article| article.votes_for.count }.sum
+  # end
 end
