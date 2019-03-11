@@ -1,7 +1,11 @@
 class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @categories = Category.all
+    if params[:query].present?
+      @categories = policy_scope(Category).global_search(params[:query])
+    else
+      @categories = policy_scope(Category).all
+    end
   end
 
   def show
