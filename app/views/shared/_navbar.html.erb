@@ -16,18 +16,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
-        <div class="searchbar">
-          <input class="search_input" type="text" name="" placeholder="Search...">
+        <%= form_tag categories_path, method: :get, class:'searchbar' do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "search_input",
+            placeholder: "Search..."
+          %>
           <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-        </div>
+        <% end %>
       </div>
     </div>
-
-
-
-
-
-
 
 
     <ul class="navbar-nav mr-auto">
