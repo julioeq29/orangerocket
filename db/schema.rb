@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_115115) do
+
+ActiveRecord::Schema.define(version: 2019_03_11_122429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +70,24 @@ ActiveRecord::Schema.define(version: 2019_03_11_115115) do
     t.index ["user_id"], name: "index_liked_articles_on_user_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "question_tags", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_tags_on_question_id"
+    t.index ["tag_id"], name: "index_question_tags_on_tag_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
@@ -102,9 +121,9 @@ ActiveRecord::Schema.define(version: 2019_03_11_115115) do
     t.string "last_name"
     t.string "location"
     t.text "bio"
-    t.boolean "admin", default: false, null: false
     t.float "latitude"
     t.float "longitude"
+    t.boolean "admin", default: false, null: false
     t.integer "upvote"
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -131,6 +150,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_115115) do
   add_foreign_key "articles", "tags"
   add_foreign_key "liked_articles", "articles"
   add_foreign_key "liked_articles", "users"
+  add_foreign_key "question_tags", "questions"
+  add_foreign_key "question_tags", "tags"
   add_foreign_key "questions", "categories"
   add_foreign_key "questions", "users"
   add_foreign_key "tags", "categories"
