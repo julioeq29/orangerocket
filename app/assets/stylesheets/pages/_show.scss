@@ -25,6 +25,7 @@
 
 .answer{
   margin-bottom: 30px;
+  width: 90%;
 }
 
 .carousel{
@@ -145,10 +146,7 @@
   text-decoration: none !important;
   color: $brand-primary;
 }
-.question-link a:hover{
-  opacity: 0.6;
-  color: $brand-secondary !important;
-}
+
 
 .time-user{
   display: flex;
@@ -185,7 +183,6 @@
 
 .ask-content{
   margin-top: 90px;
-  height: 300px;
   width: 40%;
   background-size: cover;
   background-position: center;
@@ -218,10 +215,54 @@
   height: 380px;
 }
 
-.img-article{
-  width: 100px;
+.img-article img{
+  max-width: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  max-height:100px;
+  border-radius: 5px;
+  margin-left: 10px;
+  object-fit: cover;
 }
 
 .line-articles{
-  width: 80%;
+  width: 90%;
+  margin-left: 0;
+}
+
+.text-left{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.info-articles{
+  justify-content: space-between;
+}
+
+.info-articles p{
+  margin: 0 !important;
+}
+
+.source{
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.date-articles{
+  font-size: 10px;
+}
+
+.category-container{
+  margin-top: 50px;
+}
+.link {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }

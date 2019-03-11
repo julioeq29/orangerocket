@@ -16,50 +16,35 @@
       </div>
     <% end %>
   </div>
-
 </div>
 
 
-
-
-
-
-
-
-<div class="container d-flex">
-
+<div class="container d-flex category-container">
   <div class="container articles">
     <h2>Articles</h2>
     <div class="container-articles">
         <div class="sort">
           <p>Ordered by : relevance</p>
         </div>
-
-
-           <hr class="line-articles">
+          <hr class="line-articles">
           <% @articles.sample(10).each do |article| %>
-            <div class="card-articles align-items-start">
-
+            <div class="card-articles">
+              <a class="link" href=<%= article.url %> target="_blank">
+              </a>
               <div class="text-left">
-                  <p><%= link_to article.title, article.url, target: :_blank %></p>
-
-                  <div class="d-flex bd-highlight mb-3 align-items-end">
-                    <p class="author p-2 bd-highlight">'Author'</p>
-                    <p class="p-2 bd-highlight"><%= article.source %></p>
-                    <p class="ml-auto p-2 bd-highlight">
+                  <p><%= article.title %></p>
+                  <div class="info-articles d-flex">
+                    <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
+                    <p class="">
                         <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
                             <span><i class="far fa-thumbs-up"></i></span>
                         <% end %>
                         <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
                     </p>
                   </div>
-
-
-
               </div>
-
               <div class="img-article">
-              <%= image_tag "" %>
+                <%= image_tag article.photo %>
               </div>
 
             </div>
@@ -72,26 +57,25 @@
 
       <div class="answer d-flex justify-content-between">
         <h2>Community Q&A</h2>
-
-        <%= link_to "ask a question", new_question_path, class: "btn-answer btn-tags" %>
-
+        <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
       </div>
+
       <div class="">
         <div class="sort">
           <p>Ordered by : relevance</p>
         </div>
 
+          <hr class="line-articles">
           <% @questions.each do |question|%>
           <div class="card-question">
             <div class="question-link">
               <%= link_to question.content, question_path(question) %>
             </div>
-
+          <p class="source"><%= question.user.first_name %></p>
+          <p></p>
           </div>
           <% end  %>
-
-
-    </div>
+      </div>
   </div>
 
 
@@ -100,3 +84,15 @@
 
 
 </div>
+
+<script>
+  $('.carousel').carousel({
+    interval: 300000
+  })
+</script>
+
+
+
+
+
+

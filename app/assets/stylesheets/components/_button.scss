@@ -7,9 +7,7 @@
   color: $brand-secondary !important;
 }
 
-.btn-answer{
-  height: 35px;
-}
+
 
 .btn-login{
   padding: 8px 24px;
@@ -79,11 +77,10 @@
   background: $brand-secondary;
 }
 
-.btn-answer{
+.btn-ask{
   color: $brand-primary !important;
   padding-bottom:30px !important;
-  position: relative;
-  top: 39px;
+  height: 35px;
 }
 
 .btn-statistic{

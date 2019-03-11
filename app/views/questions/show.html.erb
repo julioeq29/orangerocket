@@ -17,7 +17,9 @@
 
   <!-- QUESTION'S CONTENT -->
     <h1 class="title-question"><%= @question.content %></h1>
-
+    <% @question.tags.each do |tag| %>
+      <h2><%= tag.name %></h2>
+    <% end %>
     <!-- FORM TO ANSWER -->
     <div class="container d-flex justify-content-center">
       <%= simple_form_for [@question, @answer] do |f| %>
