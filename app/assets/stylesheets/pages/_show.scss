@@ -19,9 +19,6 @@
   font-size: 12px;
 }
 
-.back-cate{
-  margin-top: 30px;
-}
 
 .answer{
   margin-bottom: 30px;
@@ -75,13 +72,11 @@
 .back-to-category{
   text-decoration: none !important;
   color: $brand-primary;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
-.back-to-show{
-  text-decoration: none !important;
-  color: $brand-primary;
-  opacity: 0.5;
+.back-to-category:hover{
+  color: $brand-secondary !important;
 }
 
 .container-articles{
@@ -98,11 +93,6 @@
 
 .like{
   display: flex;
-}
-
-.title-question{
-  margin-bottom: 30px;
-  color: $brand-primary;
 }
 
 .source-like p{
@@ -162,12 +152,6 @@
 
 .btn-ask-question{
   width: 100%;
-}
-
-
-.back-cate a:hover{
-  color: $brand-secondary;
-  opacity: 1;
 }
 
 .answers{
@@ -251,7 +235,6 @@ span.select2-selection.select2-selection--multiple {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .info-articles{
