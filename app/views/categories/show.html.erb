@@ -28,16 +28,17 @@
 
 
 <div class="container d-flex category-container">
+
   <div class="container articles">
     <h2>Articles</h2>
-    <div class="container-articles">
-        <div class="sort">
-          <p>Ordered by : relevance</p>
-        </div>
+      <div class="sort">
+        <p>ordered by : date</p>
+      </div>
+        <div class="container-articles">
           <hr class="line-articles">
-          <% @articles.sample(10).each do |article| %>
+          <% @articles.each do |article| %>
             <div class="card-articles">
-              <a class="link" href=<%= article.url %> target="_blank">
+              <a class="link-article" href=<%= article.url %> target="_blank">
               </a>
               <div class="text-left">
                   <p><%= article.title %></p>
@@ -54,12 +55,10 @@
               <div class="img-article">
                 <%= image_tag article.photo %>
               </div>
-
             </div>
           <% end %>
-
+        </div>
     </div>
-  </div>
 
   <div class="container questions">
 
@@ -67,22 +66,28 @@
         <h2>Community Q&A</h2>
         <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
       </div>
-
-      <div class="">
         <div class="sort">
-          <p>Ordered by : relevance</p>
+          <p>ordered by : relevance</p>
         </div>
 
+      <div class="">
+
           <hr class="line-articles">
+
           <% @questions.each do |question|%>
           <div class="card-question">
+            <a class="link-question" href=<%= question_path(question) %> >
+            </a>
             <div class="question-link">
               <%= link_to question.content, question_path(question) %>
             </div>
-          <p class="source"><%= question.user.first_name %></p>
-          <p></p>
+            <div class="">
+              <p class="source ">@ <%= question.user.first_name %></p>
+            </div>
           </div>
           <% end  %>
+
+
       </div>
   </div>
 

@@ -17,11 +17,9 @@
   margin-left: 88px;
   margin-top: 8px;
   font-size: 12px;
+  color: $brand-primary !important;
 }
 
-.back-cate{
-  margin-top: 30px;
-}
 
 .answer{
   margin-bottom: 30px;
@@ -75,17 +73,17 @@
 .back-to-category{
   text-decoration: none !important;
   color: $brand-primary;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
-.back-to-show{
-  text-decoration: none !important;
-  color: $brand-primary;
-  opacity: 0.5;
+.back-to-category:hover{
+  color: $brand-secondary !important;
 }
 
 .container-articles{
   margin-top: 37px;
+  overflow-y: scroll;
+  height: 80vh;
 }
 
 .sort{
@@ -94,15 +92,12 @@
 
 .container-questions{
   margin-top: 20px;
+  overflow-y: scroll;
+  height: 80vh;
 }
 
 .like{
   display: flex;
-}
-
-.title-question{
-  margin-bottom: 30px;
-  color: $brand-primary;
 }
 
 .source-like p{
@@ -162,12 +157,6 @@
 
 .btn-ask-question{
   width: 100%;
-}
-
-
-.back-cate a:hover{
-  color: $brand-secondary;
-  opacity: 1;
 }
 
 .answers{
@@ -251,7 +240,6 @@ span.select2-selection.select2-selection--multiple {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .info-articles{
@@ -274,7 +262,17 @@ span.select2-selection.select2-selection--multiple {
 .category-container{
   margin-top: 50px;
 }
-.link {
+
+.link-article {
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.link-question{
   position: absolute;
   height: 100%;
   width: 100%;
