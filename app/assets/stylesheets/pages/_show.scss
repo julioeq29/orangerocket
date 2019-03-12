@@ -81,6 +81,8 @@
 
 .container-articles{
   margin-top: 37px;
+  overflow-y: scroll;
+  height: 80vh;
 }
 
 .sort{
@@ -89,6 +91,8 @@
 
 .container-questions{
   margin-top: 20px;
+  overflow-y: scroll;
+  height: 80vh;
 }
 
 .like{
