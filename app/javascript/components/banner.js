@@ -3,7 +3,7 @@ import Typed from 'typed.js';
   console.log(text)
   if (text) {
     new Typed('#banner-typed-text', {
-      strings: ["Sustainable solutions to tackle the climate problem 🤟"],
+      strings: ["Sustainable solutions to take action, now! 🤟"],
       typeSpeed: 60,
       loop: true
     });
@@ -12,7 +12,7 @@ import Typed from 'typed.js';
 const loadDynamicBannerText = () => {
   if (text) {
     new Typed('#banner-typed-text', {
-      strings: ["Sustainable solutions to tackle the climate problem 🤟"],
+      strings: ["Sustainable solutions to take action, now! 🤟"],
       typeSpeed: 60,
       loop: true
     });

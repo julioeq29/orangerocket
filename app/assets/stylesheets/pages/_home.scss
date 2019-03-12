@@ -20,16 +20,40 @@
 
 .container-category{
   margin: -30px 120px 50px 120px;
+  margin-top: 140px;
   /* padding-top: 10px; */
 }
 
+.container-category h1 {
+  font-style: normal !important;
+}
+
+.container-category p {
+  font-weight: 200;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.container-activity h1 {
+  font-style: normal !important;
+}
+
+.container-activity p {
+  font-weight: 200;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+
+
 .img-banner img{
     position: relative;
-    left: 50px;
     top: 44px;
-    height: 386px;
+    height: 85vh;
+    width: 100%;
     background-position: center;
-    background-size: cover;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 .text-banner{
@@ -61,16 +85,25 @@
 
 .description-cards p{
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .display-4 strong{
   letter-spacing: 4px;
-  margin-bottom: 56px !important
+  margin-bottom: 56px !important;
 }
 
 .display-4{
-  margin-top: 50px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.landing-text {
+  font-weight: 200;
+  width: 360px;
+  font-size: 24px;
+  margin-top: 40px;
+  letter-spacing: 2px;
 }
 
 
@@ -116,15 +149,21 @@
   color: $brand-primary;
 }
 
-
+.container-activity {
+  margin-top: 180px;
+}
 
 
 .three-cards-landing-page {
   position: relative;
   text-align: center;
   justify-content: center;
-  margin-top: 220px;
+  margin-top: 60px;
   margin-bottom: 100px;
+}
+
+.three-card-landing h1{
+  color: $brand-primary;
 }
 
 .three-card-landing p{
@@ -133,6 +172,8 @@
   line-height: 1.5;
   letter-spacing: 1.3px;
   color: $brand-primary;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .three-card-landing a{
@@ -159,22 +200,17 @@
   text-decoration: none !important;
   .btn-flat-card {
     background: white;
-    color: $brand-secondary;
+    color: $brand-secondary !important;
   }
 }
 
 
-.btn-flat-card{
-  width: 50%;
-}
-
 .btn-flat-card {
-  color: white;
+  color: white !important;
   background: $brand-secondary;
   padding: 8px 24px;
   border-radius: 50px;
   border: 1px solid $brand-secondary;
-
   width: 50%;
 }
 
@@ -186,5 +222,31 @@
 //   background: white;
 //   color: $brand-secondary;
 // }
+
+
+.img-last-container {
+  width: 45vw;
+  opacity: 0.9;
+  border-radius: 4px;
+}
+
+.description-last-container {
+  text-align: left;
+  margin-left: 90px;
+  padding-top: 50px;
+  color: $brand-primary;
+}
+
+.container-last h1 {
+  font-style: normal !important;
+  width: 300px;
+}
+
+.container-last p {
+  font-weight: 200;
+  font-size: 24px;
+  width: 410px;
+  letter-spacing: 1px;
+}
 
 
