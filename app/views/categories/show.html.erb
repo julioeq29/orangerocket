@@ -37,7 +37,7 @@
           <hr class="line-articles">
           <% @articles.sample(10).each do |article| %>
             <div class="card-articles">
-              <a class="link" href=<%= article.url %> target="_blank">
+              <a class="link-article" href=<%= article.url %> target="_blank">
               </a>
               <div class="text-left">
                   <p><%= article.title %></p>
@@ -74,8 +74,11 @@
         </div>
 
           <hr class="line-articles">
+
           <% @questions.each do |question|%>
           <div class="card-question">
+            <a class="link-question" href=<%= question_path(question) %> >
+            </a>
             <div class="question-link">
               <%= link_to question.content, question_path(question) %>
             </div>
@@ -84,6 +87,8 @@
             </div>
           </div>
           <% end  %>
+
+
       </div>
   </div>
 
