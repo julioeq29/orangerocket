@@ -1,9 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  margin: 0px 56px 0px 56px;
+  // margin: 0px 56px 0px 56px;
+  padding: 16px 56px 0px 56px;
   max-height: 80px;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  box-shadow: inset 5px 25px 44px -30px rgba(0,0,0,0.2);
+  width: 100vw;
 }
 
 .border-none {
