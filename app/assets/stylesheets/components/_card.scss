@@ -109,12 +109,62 @@
   margin-left:50px;
   border-color: transparent;
 }
+
 .content-backgroud {
 width: 60%;
 padding: 30px;
 margin: 10px auto;
 box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
 }
+//from below is the card results---------------------
+
+
+
+.card-result {
+
+ text-decoration: none;
+ margin-left: 23px;
+ margin-top: 60px;
+ display: flex;
+ flex-wrap: wrap;
+ margin:45px
+}
+
+
+.card-result a{
+  text-decoration: none !important;
+  color:white
+}
+.large {
+  width: 36% !important;
+  min-width: 360px !important;
+}
+
+
+.card-category-result {
+  background-size: cover !important;
+  background-position: center !important;
+  height: 179px;
+  width: 18%;
+  min-width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  transition: 0.3s ease;
+  text-decoration: none;
+  margin: 10px;
+}
+.card-category-result:hover{
+  transform: scale(1.1);
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {

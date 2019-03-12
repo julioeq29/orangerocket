@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @user = User.find(params[:id])
     authorize @user
     user_answers = @user.answers
@@ -23,6 +24,8 @@ class UsersController < ApplicationController
       }
     end
 
+
+
     @all_replied_questions_ids = []
     @user = User.find(params[:id])
     @user.answers.each do |answer|
@@ -34,6 +37,7 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     authorize @user
+
     @points = user_ranking
   end
 
