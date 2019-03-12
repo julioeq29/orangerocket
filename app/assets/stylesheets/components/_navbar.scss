@@ -6,6 +6,11 @@
   // box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
+.border-none {
+  border: none !important;
+  background: none;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -81,27 +86,12 @@
   background-color: $brand-secondary;
 }
 // Search icon
-.search{
-  margin-right: 30px;
-}
 
-.fa-search{
-  font-size: 24px;
-}
 .nav-tabs .nav-link{
   color :deeppink;
   font:bold
 }
-#list-of-results{
-background-color:lightgrey;
-box-shadow : 0 0 5px rgba(0,0,0,0.6);
-position: absolute;
-z-index: 1;
-border-radius: 30 px;
-color: mediumspringgreen;
-border-radius:8%;
-align-items: center;
-transition: 0.3s ease;
-}
+
+
 
 //

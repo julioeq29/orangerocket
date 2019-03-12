@@ -5,6 +5,7 @@
     "@mapbox/mapbox-gl-geocoder": "^3.1.4",
     "@rails/webpacker": "3.5",
     "bootstrap": "^4.3.1",
+    "infinite-scroll": "^3.0.5",
     "jquery": "^3.3.1",
     "mapbox-gl": "^0.53.1",
     "places.js": "^1.16.1",

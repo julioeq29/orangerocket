@@ -14,12 +14,13 @@ class CategoriesController < ApplicationController
     @tags = Tag.all
     authorize @category
     @questions = Question.all.where(category: @category).order(created_at: :desc)
+    @params = params
     if params[:tag].nil?
-      @articles = Article.all.where(category: @category)
+      @articles = Article.all.where(category: @category).order(pub_date: :desc)
       # while we solve the problem
       # @questions = Question.all.where(category: @category)
     else
-      @articles = Article.joins(:category).where(tag: params[:tag])
+      @articles = Article.joins(:category).where(tag: params[:tag]).order(pub_date: :desc)
       # @questions = Question.joins(:category).where(tag: params[:tag])
     end
   end

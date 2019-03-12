@@ -4,7 +4,7 @@
     <%= image_tag "logo.png", width: 80 %>
   <% end %>
   <% if controller_name == "pages" %>
-    <a href="#" id="scroll-three-cards" class="btn-statistic">statistic</a>
+    <a href="#" id="scroll-three-cards" class="btn-statistic">Activity</a>
   <% end %>
   </div>
 
@@ -22,9 +22,11 @@
             class: "search_input",
             placeholder: "Search..."
           %>
-          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+          <%= button_tag(type: "submit", class: "search_icon border-none") do %>
+              <i class="fas fa-search"></i>
+          <% end %>
 
-          <ul id="list-of-results">
+          <ul id="list-of-results" class= "search-menu-drop">
           </ul>
         <% end %>
       </div>
