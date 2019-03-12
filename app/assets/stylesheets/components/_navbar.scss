@@ -60,6 +60,26 @@
   background-color: $brand-secondary !important;
 }
 
+.alert-info{
+  background-color: $brand-secondary;
+}
+
+.alert-warning{
+  background-color: $brand-info;
+  color: $brand-primary;
+}
+
+.alert-primary{
+  background-color: $brand-secondary;
+}
+
+.alert-secondary{
+  background-color: $brand-secondary;
+}
+
+.alert-success{
+  background-color: $brand-secondary;
+}
 // Search icon
 .search{
   margin-right: 30px;
