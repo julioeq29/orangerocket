@@ -1,3 +1,7 @@
+.page-container{
+  min-height: calc(100vh - 160px);
+}
+
 .container-banner{
   margin:10px;
 }
@@ -131,6 +135,15 @@
   color: $brand-primary;
 }
 
+.three-card-landing a{
+  text-decoration: none !important;
+  color: $brand-primary;
+}
+
+.three-card-landing:hover a{
+  text-decoration: none !important;
+}
+
 .three-card-landing {
   padding-top: 70px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -143,6 +156,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
   background-color: $brand-secondary;
+  text-decoration: none !important;
   .btn-flat-card {
     background: white;
     color: $brand-secondary;
@@ -164,6 +178,10 @@
   width: 50%;
 }
 
+.text-muted{
+    color: black !important;
+    font-weight: bold;
+}
 // .btn-flat-card:hover {
 //   background: white;
 //   color: $brand-secondary;

@@ -234,7 +234,6 @@ end
 # ---------  TAGS: House & Building ------------
 category_for_tag = Category.find_by_name("House & Building")
 array = ["recycling at home", "energy efficient", "sustainable materials", "passive cooling", "passive heating"]
-  # "lightning", "led", "recycled material", "solar energy", "heat pumps", "energy efficiency", "VOC", "renewable energy", "concrete", "cement", "co2 emissions", "passive heating", "passive cooling", "pollution"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,

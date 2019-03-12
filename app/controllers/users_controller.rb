@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.where.not(latitude: nil, longitude: nil)
   end
 
   def show
     # users = User.where.not(latitude: nil, longitude: nil)
+
     @user = User.find(params[:id])
     authorize @user
     user_answers = @user.answers
@@ -22,7 +22,6 @@ class UsersController < ApplicationController
         lng: user.longitude,
         lat: user.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
-
       }
     end
     @points = user_ranking
@@ -38,4 +37,5 @@ class UsersController < ApplicationController
     end
     return num_answers + likes_counter
   end
+
 end

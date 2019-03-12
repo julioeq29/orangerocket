@@ -1,8 +1,50 @@
+.container.second-container {
+  max-height: 100vh;
+  overflow: scroll;
+}
+
+.personal-data {
+  margin-top: 30px;
+}
+
 .profile-and-photo {
   display: flex;
   flex-direction: column;
 }
 
 .card-body {
-  margin-top: 0px;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-text {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+p.user-location {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.update-button {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  bottom: 35px;
+  left: 13px;
+}
+
+.btn-ask.btn-tags.btn-update {
+  height: 30px;
+}
+
+.nav {
+  justify-content: space-around;
 }
