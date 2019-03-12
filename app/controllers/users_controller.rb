@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.where.not(latitude: nil, longitude: nil)
   end
 
   def show
-    # users = User.where.not(latitude: nil, longitude: nil)
-    user_answers = current_user.answers
+    @user = User.find(params[:id])
+    authorize @user
+    user_answers = @user.answers
     answered_users = []
     user_answers.each do |answer|
       answered_users << answer.question.user
@@ -20,9 +20,18 @@ class UsersController < ApplicationController
         lng: user.longitude,
         lat: user.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
-
       }
     end
+
+    @all_replied_questions_ids = []
+    @user = User.find(params[:id])
+    @user.answers.each do |answer|
+      @all_replied_questions_ids << answer.question.id
+      @all_replied_questions_ids.uniq!
+    end
+
+    @users_id = user_location
+
     @user = User.find(params[:id])
     authorize @user
     @points = user_ranking
@@ -37,5 +46,14 @@ class UsersController < ApplicationController
       likes_counter += answer.cached_votes_up
     end
     return num_answers + likes_counter
+  end
+
+  def user_location
+    @users_id = []
+    @all_replied_questions_ids.each do |id|
+      @users_id << Question.find(id).user_id
+      @users_id
+    end
+    return @users_id
   end
 end

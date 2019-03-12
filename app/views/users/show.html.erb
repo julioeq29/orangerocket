@@ -1,8 +1,9 @@
-
-  <div class="personal-data">
-    <div class="profile-and-photo">
-      <div ><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
-        <div class=ranking-icon>
+<hr>
+  <div class="container">
+    <div class="personal-data">
+      <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
+      </div>
+      <div class=ranking-icon>
         <% if @points <= 100 %>
           <i class="fas fa-seedling ranking"></i>
         <% elsif @points > 100 && @points <= 200 %>
@@ -15,57 +16,100 @@
           <i class="fas fa-award ranking"></i>
         <% end %>
       </div>
+      <div class="card-body">
+        <div class="card-text">
+          <h2 class="user-name"><%= @user.first_name&.capitalize %> <%= @user.last_name&.capitalize %></h2>
+          <h2 class="user-location"><%= @user.location.capitalize %></h2>
+          <p><%= @user.bio %></p>
+        </div>
+        <div class="update-button">
+          <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask btn-tags" %>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <p class="card-text"><h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
-        <p><%= @user.location.capitalize %></p>
-        <p><%= @user.bio %></p>
-      </p>
-    </div>
-    <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask btn-tags" %>
   </div>
+<hr>
+<div class="container">
+  <div class="user-tabs">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Liked articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My questions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My answers</a>
+      </li>
+    </ul>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Liked articles</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My questions</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My answers</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
-    <% liked_articles.each do |article| %>
-      <div id="article<%= article.id %>'}"class="card-question-profile-page">
-        <%= link_to article.title, article.url, target: :_blank %>
-        <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
-          <div>
-            <span><p><i class="far fa-thumbs-up"></i></p></span>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
+        <% if liked_articles == [] %>
+          <div class="card-articles">
+            <p>You haven't liked any article yet</p>
+          </div>
+        <% else %>
+          <div class="card-articles">
+            <% liked_articles.each do |article| %>
+              <div id="article<%= article.id %>'}"class="card-question-profile-page">
+                <%= link_to article.title, article.url, target: :_blank %>
+                <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
+                  <div>
+                    <span><p><i class="far fa-thumbs-up"></i></p></span>
+                  </div>
+                <% end %>
+                <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+              </div>
+            <% end %>
           </div>
         <% end %>
-        <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
       </div>
-    <% end %>
-  </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <% @user.questions.each do |question| %>
-      <div class="container card-question-profile-page">
-        <%= question.content %>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <% @user.questions.each do |question| %>
+          <div class="card-question">
+            <div class="question-link">
+              <%= link_to question.content, question_path(question) %>
+            </div>
+          <% if Time.now - question.created_at < 86400 %>
+            <p><%= time_ago_in_words(question.created_at) %></p>
+          <% elsif Time.now - question.created_at < 172800 %>
+            <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
+          <% else %>
+            <p><%= question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+          <% end %>
+          </div>
+        <% end  %>
       </div>
-    <% end %>
-  </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-    <div
-      id="map"
-      style="width: 800px !important;
-      float: right;
-      height: 600px !important;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <% @all_replied_questions_ids.each do |id_question| %>
+          <div class="card-question">
+            <div class="question-link">
+              <%= link_to Question.find(id_question).content, question_path(id_question) %>
+              <p><%= Question.find(id_question).user.location %></p>
+            </div>
+              <% if Time.now - Question.find(id_question).created_at < 86400 %>
+                <p><%= time_ago_in_words(Question.find(id_question).created_at) %></p>
+              <% elsif Time.now - Question.find(id_question).created_at < 172800 %>
+                <p>Yesterday at <%= Question.find(id_question).created_at.strftime("%H:%M") %></p>
+              <% else %>
+                <p><%= Question.find(id_question).created_at.strftime("%e, %B %Y at %k:%M") %></p>
+              <% end %>
+              </div>
+          </div>
+        <% end %>
+      </div>
+
+        <div
+          id="map"
+          style="width: 800px !important;
+          float: right;
+          height: 600px !important;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
     </div>
   </div>
 </div>
