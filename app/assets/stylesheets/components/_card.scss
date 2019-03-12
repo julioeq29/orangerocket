@@ -115,19 +115,18 @@ padding: 30px;
 margin: 10px auto;
 box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
 }
-//from below is the card results
+//from below is the card results---------------------
 
 
 
 .card-result {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
-  // grid-gap: 25px;
+
  text-decoration: none;
  margin-left: 23px;
  margin-top: 60px;
  display: flex;
  flex-wrap: wrap;
+ margin:45px
 }
 
 
