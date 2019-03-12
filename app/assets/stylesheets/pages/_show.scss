@@ -274,7 +274,17 @@ span.select2-selection.select2-selection--multiple {
 .category-container{
   margin-top: 50px;
 }
-.link {
+
+.link-article {
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.link-question{
   position: absolute;
   height: 100%;
   width: 100%;
