@@ -92,6 +92,16 @@
   color :deeppink;
   font:bold
 }
-
+#list-of-results{
+background-color:lightgrey;
+box-shadow : 0 0 5px rgba(0,0,0,0.6);
+position: absolute;
+z-index: 1;
+border-radius: 30 px;
+color: mediumspringgreen;
+border-radius:8%;
+align-items: center;
+transition: 0.3s ease;
+}
 
 //

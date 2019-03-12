@@ -50,14 +50,21 @@
   color: white;
 }
 
+.clicked {
+  background: $brand-secondary !important;
+  color: white !important;
+}
+
 .btn-tags{
   border: 1px solid $brand-secondary;
   background: transparent;
   border-radius: 50px;
-  padding: 8px 24px;
+  padding: 5px 10px;
   color: $brand-secondary;
   transition: background 0.3s ease;
   text-decoration: none !important;
+  margin: 5px;
+  font-size: 12px;
 }
 
 .btn-tags:hover {

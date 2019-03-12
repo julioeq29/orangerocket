@@ -3,6 +3,7 @@ class ApinytJob < ApplicationJob
 
 require 'json'
 require 'open-uri'
+require 'nokogiri'
 
   def perform
     # --------------------- NEW YORK TIMES --------------------------
@@ -10,11 +11,10 @@ require 'open-uri'
     theguardiankey = "13a601cd-ff74-4179-bf87-969fdba0192b"
     newsapi = "1f20e8f9d59a42be91f8c25d9ab2baeb"
 
-
     # --------------------- NYT --------------------------
 
     categories = Category.all
-    categories[0..4].each do |category|
+    categories.each do |category|
       category_for_article = Category.find_by_name(category.name)
 
       category.tags.each do |tag|
@@ -22,7 +22,7 @@ require 'open-uri'
         url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=#{tag.name}&fq=#{category.name_nyt}&api-key=#{nytimeskey}"
         user_serialized = open(url).read
         articles = JSON.parse(user_serialized)
-        sleep 2
+        sleep 4
 
         articles["response"]["docs"][0..5].each do |article|
           p id_for_test = article["_id"]
@@ -34,46 +34,59 @@ require 'open-uri'
               title: article["headline"]["main"],
               category: category_for_article,
               tag: tag_for_article,
-              upvote: (0..100).to_a.sample,
               id_from_source: article["_id"],
               photo: image_for_article,
               pub_date: article["pub_date"].split("T").first
             )
-            sleep 1
+            sleep 2
           end
+          sleep 1
         end
       end
     end
 
-
     # ----------------- The Guardian ----------------------
 
-    # categories = Category.all
-    # categories[0..1].each do |category|
-    #   category_for_article = Category.find_by_name(category.name)
+    categories = Category.all
+    categories.each do |category|
+      category_for_article = Category.find_by_name(category.name)
 
-    # content = "food cooking sustainable"
-    #   url = "https://content.guardianapis.com/search?q=#{content}&api-key=#{theguardiankey}"
-    #   user_serialized = open(url).read
-    #   articles = JSON.parse(user_serialized)
+      category.tags.each do |tag|
+        tag_for_article = Tag.find_by_name(tag.name)
+        p url = "https://content.guardianapis.com/search?q=#{tag.name}&api-key=#{theguardiankey}"
+        user_serialized = open(url).read
+        articles = JSON.parse(user_serialized)
+        sleep 4
 
-    #   articles["response"]["results"][0..10].each do |article|
-    #     id_for_test = article["id"]
-    #     unless Article.where(id_from_source: id_for_test).any?
-    #       Article.create!(
-    #         source: "The Guardian",
-    #         url: article["webUrl"],
-    #         title: article["webTitle"],
-    #         category: category_for_article,
-    #         upvote: (0..100).to_a.sample,
-    #         id_from_source: article["id"]
-    #       )
-    #     end
-    #   end
+        articles["response"]["results"][0..5].each do |article|
+          id_for_test = article["id"]
 
+          p url_photo = article["webUrl"]
+          html_file = open(url_photo).read
+          html_doc = Nokogiri.HTML(html_file)
 
+          p image_for_article = html_doc.search('.maxed').attribute('src').nil? || html_doc.search('.maxed').attribute('src').value == "" ? "no-img.png" : html_doc.search('.maxed').attribute('src').value
 
+          unless Article.where(id_from_source: id_for_test).any?
+            Article.create!(
+              source: "The Guardian",
+              url: article["webUrl"],
+              title: article["webTitle"],
+              category: category_for_article,
+              tag: tag_for_article,
+              id_from_source: article["id"],
+              photo: image_for_article,
+              pub_date: article["webPublicationDate"].split("T").first
+            )
+          sleep 2
+          end
+        sleep 1
+        end
+      end
+    end
 
+ end
+end
 
 
     # category_for_article = Category.find_by_name("Food & Cooking")
@@ -376,5 +389,4 @@ require 'open-uri'
     #     )
     #   end
     # end
-  end
-end
+

@@ -97,49 +97,57 @@ category.remote_photo_url = "https://images.pexels.com/photos/1453960/pexels-pho
 category.save
 
 category = Category.create!(
-  name: "Energy"
+  name: "Energy",
+  name_nyt: "Energy"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/243053/pexels-photo-243053.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Waste & Recycling"
+  name: "Waste & Recycling",
+  name_nyt: ""
   )
 category.remote_photo_url = "https://images.pexels.com/photos/1933386/pexels-photo-1933386.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Politics & Activism"
+  name: "Politics & Activism",
+  name_nyt: ""
   )
 category.remote_photo_url = "https://images.pexels.com/photos/919109/pexels-photo-919109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Technology"
+  name: "Technology",
+  name_nyt: "Technology"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Shopping & Fashion"
+  name: "Shopping & Fashion",
+  name_nyt: "Fashion"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/1345082/pexels-photo-1345082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "House & Building"
+  name: "House & Building",
+  name_nyt: "House"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/302186/pexels-photo-302186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Lifestyle"
+  name: "Lifestyle",
+  name_nyt: "Style"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/310983/pexels-photo-310983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
 
 category = Category.create!(
-  name: "Climate Change"
+  name: "Climate Change",
+  name_nyt: "Style"
   )
 category.remote_photo_url = "https://images.pexels.com/photos/221012/pexels-photo-221012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 category.save
@@ -155,7 +163,7 @@ puts "creating tags"
 
 # ----------  TAGS: Food & Cooking -------------
 category_for_tag = Category.find_by_name("Food & Cooking")
-array = ["vegan", "oganic", "sustainable agriculture", "meat free", "gmo", "urban garden", "sustainable fisheries", "fertiliser"]
+array = ["vegan", "organic", "sustainable agriculture", "meat free", "gmo", "urban garden", "sustainable fisheries", "fertiliser"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -165,8 +173,7 @@ end
 
 # ---------  TAGS: Travel & Commute ------------
 category_for_tag = Category.find_by_name("Travel & Commute")
-array = ["fuel", "electric"]
-# , "maritime", "effiency", "planes", "cars", "hydrogen", "autonomous vehicles", "emissions", "smart cities", "electric bike", "electric scooter", "pollution free", "smart planning"]
+array = ["sustainable transport", "emissions", "electric mobility", "electric cars", "fuel efficiency", "pollution free", "bike sharing"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -176,7 +183,7 @@ end
 
 # ---------  TAGS: Energy ----------------------
 category_for_tag = Category.find_by_name("Energy")
-array = ["efficiency", "solar", "green", "geothermal", "renewable", "hydro power", "save", "suppliers", "wind", "nuclear", "energy storage", "biofuel", "standby power"]
+array = ["emissions", "solar", "wind power", "renewable energy", "energy storage", "efficiency"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -186,7 +193,7 @@ end
 
 # ---------  TAGS: Waste & Recycling -------------
 category_for_tag = Category.find_by_name("Waste & Recycling")
-array = ["circular economy", "food waste", "composting", "reuse", "reduce", "packaging", "repair", "single use", "technology", "community projects", "plastics"]
+array = ["waste recycling", "food waste", "zero waste", "plastic pollution", "single use plastic", "recycling landfills"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -196,7 +203,7 @@ end
 
 # ---------  TAGS: Politics & Activism -------------
 category_for_tag = Category.find_by_name("Politics & Activism")
-array = ["social economy", "laws", "political party", "environmental regulations", "protection", "public programs", "agreements", "trade", "international organisations", "green tax", "eco activism", "social engagement", "pollution", "anthropocene", "man made climate change", "sustainability", "social movement", "anti environmentalism", "wild life reserves"]
+array = ["climate activism", "new green deal", "environmental regulations", "climate paris agreement", "un ipcc", "climate deal"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -206,7 +213,7 @@ end
 
 # ---------  TAGS: Technology ------------
 category_for_tag = Category.find_by_name("Technology")
-array = ["app", "solar", "battery", "planned obsolescence", "repair", "durability", "green", "blockchain", "supply chain", "internet of things", "smart metering", "geo engineering", "technological breakthrough"]
+array = ["planned obsolescence", "greenhouse gas", "global warming", "geoengineering", "renewable energy"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -216,7 +223,7 @@ end
 
 # ---------  TAGS: Shopping & Fashion ------------
 category_for_tag = Category.find_by_name("Shopping & Fashion")
-array = ["inseason", "used products", "reusable shopping bag", "eco friendly", "container", "impulsive shopping", "shopless", "plastic pollution", "organic materials", "sustainable design", "sustainable clothes", "sustainable brands", "consumerism"]
+array = ["fast fashion", "eco friendly", "sustainable brands", "ethical brands", "sustainable fashion", "recycling clothes"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -226,7 +233,8 @@ end
 
 # ---------  TAGS: House & Building ------------
 category_for_tag = Category.find_by_name("House & Building")
-array = ["lightning", "led", "recycled material", "solar energy", "heat pumps", "energy efficiency", "VOC", "renewable energy", "concrete", "cement", "co2 emissions", "passive heating", "passive cooling", "pollution"]
+array = ["recycling at home", "energy efficient", "sustainable materials", "passive cooling", "passive heating"]
+  # "lightning", "led", "recycled material", "solar energy", "heat pumps", "energy efficiency", "VOC", "renewable energy", "concrete", "cement", "co2 emissions", "passive heating", "passive cooling", "pollution"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -236,7 +244,7 @@ end
 
 # ---------  TAGS: Lifestyle ------------
 category_for_tag = Category.find_by_name("Lifestyle")
-array = ["recycle", "reduce", "reuse", "waste", "plastic", "compost", "public transport", "consumerism", "sustinable", "climate friendly", "biking"]
+array = ["sustainability", "impact investment", "environment", "recycling", "fast fashion"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,
@@ -246,7 +254,7 @@ end
 
 # ---------  TAGS: Climate Change ------------
 category_for_tag = Category.find_by_name("Climate Change")
-array = ["greenhouse gases", "climate", "temperature raise", "atmosphere", "co2 concentration", "carbon dioxide", "methane", "carbon emissions", "wind", "pollution", "GHG", "global warming", "over population"]
+array = ["climate change", "carbon emissions", "ice melting", "global temperature", "ocean warming", "ocean acidification", "methane", "ozone"]
 array.each do |item|
   Tag.create!(
     category: category_for_tag,

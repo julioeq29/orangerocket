@@ -11178,7 +11178,6 @@ button.bg-dark:focus {
 /* line 22, node_modules/bootstrap/scss/utilities/_text.scss */
 .text-left {
   text-align: left !important;
-  width: 60px;
 }
 
 /* line 23, node_modules/bootstrap/scss/utilities/_text.scss */
@@ -18517,7 +18516,7 @@ readers do not read off random characters that represent icons */
 
 /* line 1, app/assets/stylesheets/components/_avatar.scss */
 .avatar {
-  width: 40px;
+  width: 50px;
   border-radius: 50%;
 }
 
@@ -18543,13 +18542,33 @@ readers do not read off random characters that represent icons */
   border: white 1px solid;
 }
 
-/* line 21, app/assets/stylesheets/components/_avatar.scss */
-.card-img-top {
+/* line 22, app/assets/stylesheets/components/_avatar.scss */
+img.card-img-top {
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
-  width: 50%;
+  border: 0.1px solid gray;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* line 34, app/assets/stylesheets/components/_avatar.scss */
+div.ranking-icon {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  right: 55px;
+  top: 45px;
+  border-radius: 50%;
+  background: #FFD300;
+  color: white;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
 }
 
 /* line 1, app/assets/stylesheets/components/_navbar.scss */
@@ -18573,10 +18592,11 @@ readers do not read off random characters that represent icons */
 
 /* line 18, app/assets/stylesheets/components/_navbar.scss */
 .logo img {
-  width: 60px;
+  width: 50px;
+  height: 50px;
 }
 
-/* line 22, app/assets/stylesheets/components/_navbar.scss */
+/* line 23, app/assets/stylesheets/components/_navbar.scss */
 .logo h1 {
   font-size: 20px;
   position: relative;
@@ -18584,12 +18604,12 @@ readers do not read off random characters that represent icons */
   height: 30px;
 }
 
-/* line 29, app/assets/stylesheets/components/_navbar.scss */
+/* line 30, app/assets/stylesheets/components/_navbar.scss */
 .logo a {
   margin-right: 0px !important;
 }
 
-/* line 33, app/assets/stylesheets/components/_navbar.scss */
+/* line 34, app/assets/stylesheets/components/_navbar.scss */
 .navbar-log {
   color: #393e46 !important;
   padding: 8px 24px;
@@ -18600,25 +18620,51 @@ readers do not read off random characters that represent icons */
   letter-spacing: 2px;
 }
 
-/* line 43, app/assets/stylesheets/components/_navbar.scss */
+/* line 44, app/assets/stylesheets/components/_navbar.scss */
 .login-item {
   margin-right: 20px;
 }
 
-/* line 47, app/assets/stylesheets/components/_navbar.scss */
+/* line 48, app/assets/stylesheets/components/_navbar.scss */
+.dashboard {
+  height: 40px;
+  padding-top: 5px;
+}
+
+/* line 53, app/assets/stylesheets/components/_navbar.scss */
+.avatar-menu {
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+}
+
+/* line 59, app/assets/stylesheets/components/_navbar.scss */
+.avatar-items:hover {
+  background-color: #1DDD88 !important;
+}
+
+/* line 64, app/assets/stylesheets/components/_navbar.scss */
 .search {
   margin-right: 30px;
 }
 
-/* line 51, app/assets/stylesheets/components/_navbar.scss */
+/* line 68, app/assets/stylesheets/components/_navbar.scss */
 .fa-search {
   font-size: 24px;
 }
 
-/* line 54, app/assets/stylesheets/components/_navbar.scss */
+/* line 71, app/assets/stylesheets/components/_navbar.scss */
 .nav-tabs .nav-link {
   color: deeppink;
   font: bold;
+}
+
+/* line 75, app/assets/stylesheets/components/_navbar.scss */
+#list-of-results {
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  border-radius: 10 px;
 }
 
 /* line 1, app/assets/stylesheets/components/_card.scss */
@@ -18633,6 +18679,12 @@ readers do not read off random characters that represent icons */
 }
 
 /* line 10, app/assets/stylesheets/components/_card.scss */
+#map canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* line 16, app/assets/stylesheets/components/_card.scss */
 .card-category-home {
   background-size: cover !important;
   background-position: center !important;
@@ -18651,36 +18703,65 @@ readers do not read off random characters that represent icons */
   text-decoration: none;
 }
 
-/* line 28, app/assets/stylesheets/components/_card.scss */
+/* line 34, app/assets/stylesheets/components/_card.scss */
 .card-category-home:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-/* line 32, app/assets/stylesheets/components/_card.scss */
+/* line 38, app/assets/stylesheets/components/_card.scss */
 .card-category-home a {
   color: white !important;
 }
 
-/* line 41, app/assets/stylesheets/components/_card.scss */
-.card-question {
-  padding: 16px 24px;
+/* line 47, app/assets/stylesheets/components/_card.scss */
+.card-articles {
+  padding: 16px 8px 16px 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 90%;
+  font-size: 15px;
+  overflow: hidden;
+  height: 135px;
+  background: transparent;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+}
+
+/* line 61, app/assets/stylesheets/components/_card.scss */
+.card-articles:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  transition: 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* line 68, app/assets/stylesheets/components/_card.scss */
+.card-question {
+  padding: 16px 8px 16px 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 90%;
+  font-size: 15px;
+  overflow: hidden;
+  height: 100px;
   background: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  margin: 26px auto;
-  width: 70%;
 }
 
-/* line 51, app/assets/stylesheets/components/_card.scss */
-.card-question p {
-  font-size: 11px;
+/* line 80, app/assets/stylesheets/components/_card.scss */
+.card-question:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  transition: 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #1DDD88;
 }
 
-/* line 55, app/assets/stylesheets/components/_card.scss */
+/* line 88, app/assets/stylesheets/components/_card.scss */
 .card-question-profile-page {
   padding: 16px 24px;
   display: flex;
@@ -18689,78 +18770,78 @@ readers do not read off random characters that represent icons */
   background: white;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  margin: 26px auto;
-  width: 45%;
 }
 
-/* line 65, app/assets/stylesheets/components/_card.scss */
+/* line 98, app/assets/stylesheets/components/_card.scss */
 .card-question-profile-page p {
   font-size: 11px;
 }
 
-/* line 69, app/assets/stylesheets/components/_card.scss */
+/* line 102, app/assets/stylesheets/components/_card.scss */
 .card {
   width: 50vw;
   text-align: center;
   border-radius: auto;
   width: 100%;
   margin-left: 50px;
+  border-color: transparent;
+}
+
+/* line 110, app/assets/stylesheets/components/_card.scss */
+.content-backgroud {
+  width: 60%;
+  padding: 30px;
+  margin: 10px auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
-  /* line 79, app/assets/stylesheets/components/_card.scss */
+  /* line 118, app/assets/stylesheets/components/_card.scss */
   .card-home {
     grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 576px) {
-  /* line 86, app/assets/stylesheets/components/_card.scss */
+  /* line 125, app/assets/stylesheets/components/_card.scss */
   .card-home {
     grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 93, app/assets/stylesheets/components/_card.scss */
+  /* line 132, app/assets/stylesheets/components/_card.scss */
   .card-home {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 100, app/assets/stylesheets/components/_card.scss */
+  /* line 139, app/assets/stylesheets/components/_card.scss */
   .card-home {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 107, app/assets/stylesheets/components/_card.scss */
+  /* line 146, app/assets/stylesheets/components/_card.scss */
   .card-home {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
 /* line 1, app/assets/stylesheets/components/_footer.scss */
-.footer {
-  background: white;
+.footer1 {
+  background: #1DDD88;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
   padding: 0px 50px;
-  color: orange;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 /* line 11, app/assets/stylesheets/components/_footer.scss */
-.footer-links {
-  display: flex;
-  align-items: center;
-}
-
-/* line 15, app/assets/stylesheets/components/_footer.scss */
 .footer-links a {
   color: black;
   opacity: 0.15;
@@ -18769,20 +18850,36 @@ readers do not read off random characters that represent icons */
   padding: 0px 10px;
 }
 
-/* line 22, app/assets/stylesheets/components/_footer.scss */
+/* line 19, app/assets/stylesheets/components/_footer.scss */
 .footer-links a:hover {
-  color: #1DDD88;
+  color: white;
   opacity: 1;
 }
 
-/* line 26, app/assets/stylesheets/components/_footer.scss */
+/* line 24, app/assets/stylesheets/components/_footer.scss */
 .footer .fa-heart {
   color: #1DDD88;
 }
 
-/* line 30, app/assets/stylesheets/components/_footer.scss */
+/* line 28, app/assets/stylesheets/components/_footer.scss */
 .footer-copyright {
   color: #1DDD88;
+}
+
+/* line 32, app/assets/stylesheets/components/_footer.scss */
+.footer2 {
+  background: #393e46;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  height: 280px;
+  padding-top: 16px;
+}
+
+/* line 42, app/assets/stylesheets/components/_footer.scss */
+.footer2 a {
+  text-decoration: none !important;
 }
 
 /* line 1, app/assets/stylesheets/components/_button.scss */
@@ -18796,12 +18893,7 @@ readers do not read off random characters that represent icons */
   color: #1DDD88 !important;
 }
 
-/* line 10, app/assets/stylesheets/components/_button.scss */
-.btn-answer {
-  height: 35px;
-}
-
-/* line 14, app/assets/stylesheets/components/_button.scss */
+/* line 12, app/assets/stylesheets/components/_button.scss */
 .btn-login {
   padding: 8px 24px;
   border-radius: 50px;
@@ -18816,18 +18908,18 @@ readers do not read off random characters that represent icons */
   margin-bottom: 25px;
 }
 
-/* line 28, app/assets/stylesheets/components/_button.scss */
+/* line 26, app/assets/stylesheets/components/_button.scss */
 .btn-login:hover {
   color: white !important;
   background-color: #1DDD88;
 }
 
-/* line 33, app/assets/stylesheets/components/_button.scss */
+/* line 31, app/assets/stylesheets/components/_button.scss */
 .btn-flat {
   width: 50%;
 }
 
-/* line 37, app/assets/stylesheets/components/_button.scss */
+/* line 35, app/assets/stylesheets/components/_button.scss */
 .btn-flat {
   position: relative;
   left: -164px;
@@ -18841,33 +18933,67 @@ readers do not read off random characters that represent icons */
   width: 50%;
 }
 
-/* line 50, app/assets/stylesheets/components/_button.scss */
+/* line 48, app/assets/stylesheets/components/_button.scss */
 .btn-flat:hover {
   background: #1DDD88;
   color: white;
 }
 
-/* line 55, app/assets/stylesheets/components/_button.scss */
+/* line 53, app/assets/stylesheets/components/_button.scss */
 .btn-tags {
   border: 1px solid #1DDD88;
   background: transparent;
   border-radius: 50px;
-  padding: 5px 10px !important;
-  font-size: 12px !important;
+  padding: 8px 24px;
   color: #1DDD88;
   transition: background 0.3s ease;
   text-decoration: none !important;
 }
 
-/* line 65, app/assets/stylesheets/components/_button.scss */
+/* line 63, app/assets/stylesheets/components/_button.scss */
 .btn-tags:hover {
   background: #1DDD88;
+  text-decoration: none !important;
   color: white;
+}
+
+/* line 69, app/assets/stylesheets/components/_button.scss */
+.btn-tags:active {
+  background: #1DDD88;
+}
+
+/* line 73, app/assets/stylesheets/components/_button.scss */
+.btn-ask {
+  color: #393e46 !important;
+  padding-bottom: 30px !important;
+  height: 35px;
+}
+
+/* line 79, app/assets/stylesheets/components/_button.scss */
+.btn-statistic {
+  border: 1px solid #393e46;
+  background: transparent;
+  border-radius: 50px;
+  padding: 8px 16px;
+  color: #393e46;
+  transition: background 0.3s ease;
+  text-decoration: none !important;
+  height: 40px;
+  margin-left: 15px !important;
+  margin-top: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+/* line 94, app/assets/stylesheets/components/_button.scss */
+.btn-statistic:hover {
+  background: #393e46;
+  color: #1DDD88;
 }
 
 /* line 1, app/assets/stylesheets/components/_map.scss */
 .mapboxgl-popup {
-  max-width: 350px;
+  max-width: 500px;
 }
 
 /* line 5, app/assets/stylesheets/components/_map.scss */
@@ -18922,6 +19048,62 @@ readers do not read off random characters that represent icons */
   position: relative;
   top: 110px;
   margin-right: 50px;
+}
+
+/* line 1, app/assets/stylesheets/components/_slider.scss */
+.slider {
+  width: 1100px;
+  height: 64px;
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+/* line 10, app/assets/stylesheets/components/_slider.scss */
+.slide {
+  width: auto;
+  flex-shrink: 0;
+  height: 100%;
+  margin-top: 10px;
+}
+
+/* line 1, app/assets/stylesheets/components/_search-bar.scss */
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 30px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+/* line 13, app/assets/stylesheets/components/_search-bar.scss */
+.search_input {
+  border: 0;
+  outline: 0;
+  caret-color: #393e46 !important;
+  line-height: 40px;
+  transition: width 0.4s linear;
+  padding: 0 10px;
+  width: 350px;
+  caret-color: #1DDD88;
+  transition: width 0.4s linear;
+  background: transparent;
+  color: #1DDD88;
+}
+
+/* line 36, app/assets/stylesheets/components/_search-bar.scss */
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #393e46;
 }
 
 /* line 1, app/assets/stylesheets/pages/_home.scss */
@@ -19016,25 +19198,30 @@ readers do not read off random characters that represent icons */
 
 /* line 79, app/assets/stylesheets/pages/_home.scss */
 .featurette-heading {
-  margin-top: 10rem;
+  margin-top: 21rem;
   line-height: 1;
   letter-spacing: -.05rem;
   font-weight: normal;
 }
 
 /* line 86, app/assets/stylesheets/pages/_home.scss */
+.featurette-heading p {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* line 90, app/assets/stylesheets/pages/_home.scss */
 .featurette {
   height: 500px;
 }
 
-/* line 90, app/assets/stylesheets/pages/_home.scss */
+/* line 94, app/assets/stylesheets/pages/_home.scss */
 .last-container {
   margin-top: 120px;
-  margin-bottom: 220px;
-  height: 500px;
+  margin-bottom: 350px;
+  height: 400px;
 }
 
-/* line 96, app/assets/stylesheets/pages/_home.scss */
+/* line 100, app/assets/stylesheets/pages/_home.scss */
 .featurette-image {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   height: 561px;
@@ -19042,84 +19229,383 @@ readers do not read off random characters that represent icons */
   position: absolute;
   right: -70px;
   z-index: -1;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-/* line 106, app/assets/stylesheets/pages/_home.scss */
+/* line 110, app/assets/stylesheets/pages/_home.scss */
 .box-text-banner2 {
   margin-left: 56px;
   color: #393e46;
 }
 
-/* line 1, app/assets/stylesheets/pages/_show.scss */
-.tag-show {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin: 30px 88px;
+/* line 118, app/assets/stylesheets/pages/_home.scss */
+.three-cards-landing-page {
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  margin-top: 220px;
+  margin-bottom: 100px;
 }
 
-/* line 7, app/assets/stylesheets/pages/_show.scss */
+/* line 126, app/assets/stylesheets/pages/_home.scss */
+.three-card-landing p {
+  margin-top: 30px;
+  margin: 20px 30px;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
+  color: #393e46;
+}
+
+/* line 134, app/assets/stylesheets/pages/_home.scss */
+.three-card-landing {
+  padding-top: 70px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0px 10px 0px 10px;
+  height: 330px;
+}
+
+/* line 142, app/assets/stylesheets/pages/_home.scss */
+.three-card-landing:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #1DDD88;
+}
+
+/* line 146, app/assets/stylesheets/pages/_home.scss */
+.three-card-landing:hover .btn-flat-card {
+  background: white;
+  color: #1DDD88;
+}
+
+/* line 153, app/assets/stylesheets/pages/_home.scss */
+.btn-flat-card {
+  width: 50%;
+}
+
+/* line 157, app/assets/stylesheets/pages/_home.scss */
+.btn-flat-card {
+  color: white;
+  background: #1DDD88;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 1px solid #1DDD88;
+  width: 50%;
+}
+
+/* line 1, app/assets/stylesheets/pages/_show.scss */
 .title-category {
   margin-left: 88px;
-  margin-top: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  color: #393e46;
+}
+
+/* line 8, app/assets/stylesheets/pages/_show.scss */
+.articles h2 {
+  color: #393e46;
 }
 
 /* line 12, app/assets/stylesheets/pages/_show.scss */
+.questions h2 {
+  color: #393e46;
+}
+
+/* line 16, app/assets/stylesheets/pages/_show.scss */
 .back {
   margin-left: 88px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* line 22, app/assets/stylesheets/pages/_show.scss */
+.back-cate {
   margin-top: 30px;
 }
 
-/* line 17, app/assets/stylesheets/pages/_show.scss */
+/* line 26, app/assets/stylesheets/pages/_show.scss */
 .answer {
   margin-bottom: 30px;
+  width: 90%;
 }
 
-/* line 21, app/assets/stylesheets/pages/_show.scss */
+/* line 31, app/assets/stylesheets/pages/_show.scss */
 .carousel {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-/* line 26, app/assets/stylesheets/pages/_show.scss */
+/* line 36, app/assets/stylesheets/pages/_show.scss */
 .carousel-inner {
   height: 50px;
   padding-top: 10px;
 }
 
-/* line 31, app/assets/stylesheets/pages/_show.scss */
+/* line 41, app/assets/stylesheets/pages/_show.scss */
 .tags-space {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-/* line 36, app/assets/stylesheets/pages/_show.scss */
+/* line 46, app/assets/stylesheets/pages/_show.scss */
 .line-1 {
   width: 100vw;
   height: 1px;
   background-color: #8080806b;
   opacity: 0.5;
   margin: 20px 0px 20px 0px;
-  margin-top: 20px;
+  margin-top: 0.2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 44, app/assets/stylesheets/pages/_show.scss */
+/* line 55, app/assets/stylesheets/pages/_show.scss */
 .line-2 {
   width: 100vw;
-  height: 3px;
+  height: 1px;
   background-color: #8080806b;
   opacity: 0.5;
   margin: 20px 0px 20px 0px;
+  margin-top: 0.3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 52, app/assets/stylesheets/pages/_show.scss */
+/* line 65, app/assets/stylesheets/pages/_show.scss */
 .tab-content {
   max-height: 500px;
   min-height: 500px;
 }
 
-/* line 57, app/assets/stylesheets/pages/_show.scss */
+/* line 70, app/assets/stylesheets/pages/_show.scss */
 .tabby {
   width: 33vw;
   text-align: center;
+}
+
+/* line 75, app/assets/stylesheets/pages/_show.scss */
+.back-to-category {
+  text-decoration: none !important;
+  color: #393e46;
+  opacity: 0.5;
+}
+
+/* line 81, app/assets/stylesheets/pages/_show.scss */
+.back-to-show {
+  text-decoration: none !important;
+  color: #393e46;
+  opacity: 0.5;
+}
+
+/* line 87, app/assets/stylesheets/pages/_show.scss */
+.container-articles {
+  margin-top: 37px;
+}
+
+/* line 91, app/assets/stylesheets/pages/_show.scss */
+.sort {
+  font-size: 12px;
+}
+
+/* line 95, app/assets/stylesheets/pages/_show.scss */
+.container-questions {
+  margin-top: 20px;
+}
+
+/* line 99, app/assets/stylesheets/pages/_show.scss */
+.like {
+  display: flex;
+}
+
+/* line 103, app/assets/stylesheets/pages/_show.scss */
+.title-question {
+  margin-bottom: 30px;
+  color: #393e46;
+}
+
+/* line 108, app/assets/stylesheets/pages/_show.scss */
+.source-like p {
+  opacity: 0.5;
+}
+
+/* line 112, app/assets/stylesheets/pages/_show.scss */
+.card-articles a {
+  text-decoration: none !important;
+  color: #393e46 !important;
+}
+
+/* line 117, app/assets/stylesheets/pages/_show.scss */
+.card-articles a:hover {
+  opacity: 0.6;
+  color: #1DDD88 !important;
+}
+
+/* line 122, app/assets/stylesheets/pages/_show.scss */
+.card-articles .tags-articles {
+  font-size: 10px;
+}
+
+/* line 126, app/assets/stylesheets/pages/_show.scss */
+.author {
+  opacity: 0.6;
+}
+
+/* line 131, app/assets/stylesheets/pages/_show.scss */
+.likes_count {
+  font-size: 8px;
+}
+
+/* line 135, app/assets/stylesheets/pages/_show.scss */
+.question-link {
+  margin-bottom: 30px;
+}
+
+/* line 139, app/assets/stylesheets/pages/_show.scss */
+.time-user p {
+  opacity: 0.5;
+  text-decoration: none !important;
+  color: #393e46;
+}
+
+/* line 145, app/assets/stylesheets/pages/_show.scss */
+.question-link a {
+  text-decoration: none !important;
+  color: #393e46;
+}
+
+/* line 151, app/assets/stylesheets/pages/_show.scss */
+.time-user {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 156, app/assets/stylesheets/pages/_show.scss */
+.answer_content {
+  width: 500px;
+}
+
+/* line 159, app/assets/stylesheets/pages/_show.scss */
+.btn-send {
+  width: 100%;
+}
+
+/* line 163, app/assets/stylesheets/pages/_show.scss */
+.btn-ask-question {
+  width: 100%;
+}
+
+/* line 168, app/assets/stylesheets/pages/_show.scss */
+.back-cate a:hover {
+  color: #1DDD88;
+  opacity: 1;
+}
+
+/* line 173, app/assets/stylesheets/pages/_show.scss */
+.answers {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  border-radius: 5px;
+}
+
+/* line 184, app/assets/stylesheets/pages/_show.scss */
+.ask-content {
+  margin-top: 90px;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+/* line 198, app/assets/stylesheets/pages/_show.scss */
+.ask-content label {
+  font-size: 14px;
+}
+
+/* line 202, app/assets/stylesheets/pages/_show.scss */
+.img-answer {
+  z-index: 1;
+  height: 650px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: -5px;
+  left: 60px;
+  z-index: -1;
+  width: 1000px;
+  opacity: 0.7;
+}
+
+/* line 214, app/assets/stylesheets/pages/_show.scss */
+.ask-form {
+  height: 380px;
+}
+
+/* line 218, app/assets/stylesheets/pages/_show.scss */
+.img-article img {
+  max-width: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  border-radius: 5px;
+  margin-left: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* line 228, app/assets/stylesheets/pages/_show.scss */
+.line-articles {
+  width: 90%;
+  margin-left: 0;
+}
+
+/* line 233, app/assets/stylesheets/pages/_show.scss */
+.text-left {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* line 241, app/assets/stylesheets/pages/_show.scss */
+.info-articles {
+  justify-content: space-between;
+}
+
+/* line 245, app/assets/stylesheets/pages/_show.scss */
+.info-articles p {
+  margin: 0 !important;
+}
+
+/* line 249, app/assets/stylesheets/pages/_show.scss */
+.source {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+/* line 254, app/assets/stylesheets/pages/_show.scss */
+.date-articles {
+  font-size: 10px;
+}
+
+/* line 258, app/assets/stylesheets/pages/_show.scss */
+.category-container {
+  margin-top: 50px;
+}
+
+/* line 261, app/assets/stylesheets/pages/_show.scss */
+.link {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
