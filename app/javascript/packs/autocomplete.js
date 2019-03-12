@@ -1,5 +1,6 @@
 const input = document.querySelector(".searchbar #query");
 const results = document.querySelector("#list-of-results");
+const container = document.querySelector(".container-banner");
 
 input.addEventListener("keyup", () => {
   console.log(input.value)
@@ -13,7 +14,7 @@ input.addEventListener("keyup", () => {
       })
     });
 })
-document.addEventListener("click", () => {
+container.addEventListener("mouseover", () => {
   if (results.children) {
     results.innerHTML = '';
   }

@@ -19,7 +19,6 @@
     caret-color: $brand-primary !important;
     line-height: 40px;
     transition: width 0.4s linear;
-    padding: 0 10px;
     width: 350px;
     caret-color: $brand-secondary;
     transition: width 0.4s linear;
@@ -27,7 +26,21 @@
     color: $brand-secondary;
 }
 
+ .search_input{
+    color: $brand-secondary;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    transition: left 300ms linear
+    }
+
 .searchbar:hover > .search_input{
+  padding: 0 10px;
+  width: 450px;
 }
 
 .searchbar:hover > .search_icon{
@@ -42,4 +55,36 @@
     align-items: center;
     border-radius: 50%;
     color: $brand-primary;
+}
+
+.search-menu-drop{
+  width: 486px;
+  right: 92px;
+box-shadow : 0 0 5px rgba(0,0,0,0.6);
+position: absolute;
+z-index: 1;
+border-radius: 8%;
+align-items: center;
+transition: 0.3s ease;
+list-style: none !important;
+padding-left: 0;
+background-color: white;
+transition: transform 300ms linear;
+will-change: transform;
+}
+
+.search-menu-drop li{
+  padding: 5px;
+}
+
+.search-menu-drop a{
+  color: $brand-primary;
+}
+
+.search{
+  margin-right: 30px;
+}
+
+.fa-search{
+  font-size: 24px;
 }

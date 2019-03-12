@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_03_11_213630) do
+=======
 ActiveRecord::Schema.define(version: 2019_03_11_122429) do
+>>>>>>> b49adc81ae97bae4390539368bda6e2486caf3e3
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +62,15 @@ ActiveRecord::Schema.define(version: 2019_03_11_122429) do
     t.string "photo"
     t.string "name_nyt"
     t.string "name_guardian"
+<<<<<<< HEAD
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+=======
+>>>>>>> b49adc81ae97bae4390539368bda6e2486caf3e3
   end
 
   create_table "liked_articles", force: :cascade do |t|
@@ -69,6 +82,14 @@ ActiveRecord::Schema.define(version: 2019_03_11_122429) do
     t.index ["user_id"], name: "index_liked_articles_on_user_id"
   end
 
+<<<<<<< HEAD
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+=======
+>>>>>>> b49adc81ae97bae4390539368bda6e2486caf3e3
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -120,9 +141,9 @@ ActiveRecord::Schema.define(version: 2019_03_11_122429) do
     t.string "last_name"
     t.string "location"
     t.text "bio"
-    t.boolean "admin", default: false, null: false
     t.float "latitude"
     t.float "longitude"
+    t.boolean "admin", default: false, null: false
     t.integer "upvote"
     t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
