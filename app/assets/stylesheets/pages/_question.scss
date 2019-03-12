@@ -6,9 +6,10 @@
 
 .back-to-show{
   text-decoration: none !important;
-  color: $brand-primary;
+  color: $brand-primary !important;
   margin-top: 8px;
   font-size: 12px;
+  opacity: 0.9;
 }
 
 .back-to-show:hover{
