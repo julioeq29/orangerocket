@@ -23,6 +23,7 @@ class UsersController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
       }
     end
+
     @points = user_ranking
   end
 
