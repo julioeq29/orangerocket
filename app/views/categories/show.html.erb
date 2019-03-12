@@ -32,10 +32,10 @@
     <h2>Articles</h2>
     <div class="container-articles">
         <div class="sort">
-          <p>Ordered by : relevance</p>
+          <p>ordered by : date</p>
         </div>
           <hr class="line-articles">
-          <% @articles.sample(10).each do |article| %>
+          <% @articles.first(10).each do |article| %>
             <div class="card-articles">
               <a class="link-article" href=<%= article.url %> target="_blank">
               </a>
@@ -70,7 +70,7 @@
 
       <div class="">
         <div class="sort">
-          <p>Ordered by : relevance</p>
+          <p>ordered by : relevance</p>
         </div>
 
           <hr class="line-articles">
@@ -106,6 +106,15 @@
 </script>
 
 
+<script>
+  var elem = document.querySelector('.container-articles');
+  var infScroll = new InfiniteScroll( elem, {
+    // options
+    path: '.pagination__next',
+    append: '.post',
+    history: false,
+  });
+</script>
 
 
 
