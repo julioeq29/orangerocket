@@ -24,20 +24,6 @@ class UsersController < ApplicationController
       }
     end
 
-
-
-    @all_replied_questions_ids = []
-    @user = User.find(params[:id])
-    @user.answers.each do |answer|
-      @all_replied_questions_ids << answer.question.id
-      @all_replied_questions_ids.uniq!
-    end
-
-    @users_id = user_location
-
-    @user = User.find(params[:id])
-    authorize @user
-
     @points = user_ranking
   end
 
