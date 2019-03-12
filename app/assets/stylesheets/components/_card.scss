@@ -164,7 +164,14 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   transform: scale(1.1);
 }
 
+.container-search {
+margin: 5%;
+margin-right: 10%;
+margin-top: 5%;
+margin-right: -120px;
+margin-left: 10%;
 
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {
