@@ -134,7 +134,10 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   text-decoration: none !important;
   color:white
 }
-
+.large {
+  width: 36% !important;
+  min-width: 360px !important;
+}
 
 
 .card-category-result {

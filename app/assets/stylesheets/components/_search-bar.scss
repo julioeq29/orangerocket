@@ -58,8 +58,7 @@
 }
 
 .search-menu-drop{
-width: 486px;
-right: 92px;
+width: 200px;
 box-shadow : 0 0 5px rgba(0,0,0,0.6);
 position: absolute;
 z-index: 1;
@@ -72,12 +71,14 @@ background-color: white;
 transition: transform 300ms linear;
 }
 
+
 .search-menu-drop li{
   padding: 5px;
 }
 
 .search-menu-drop a{
   color: $brand-primary;
+  margin-left:10px
 }
 
 .search{
