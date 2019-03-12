@@ -79,8 +79,9 @@
             <div class="question-link">
               <%= link_to question.content, question_path(question) %>
             </div>
-          <p class="source"><%= question.user.first_name %></p>
-          <p></p>
+            <div class="">
+              <p class="source ">@ <%= question.user.first_name %></p>
+            </div>
           </div>
           <% end  %>
       </div>
