@@ -1,7 +1,23 @@
 
 
-<div class = container-search style="margin: 5%;
-margin-right: 10%; margin-top: 5%; margin-right: -120px;" >
+
+
+
+
+
+
+<!--
+<% if @query!= @tag %>
+  <h4>Your keyword hasn't matched any subject yet. </h4>
+    <%= link_to "< Back to categories", root_path, class: "back-to-category" %>
+<% else  %>
+<% end %> -->
+
+
+
+
+
+<div class = "container-search">
   <div class="cards card-result">
     <% @categories.each_with_index do |category, index| %>
     <% if index%3 == 0 %>
@@ -18,6 +34,5 @@ margin-right: 10%; margin-top: 5%; margin-right: -120px;" >
     <% end %>
   </div>
   </div>
-
 
 
