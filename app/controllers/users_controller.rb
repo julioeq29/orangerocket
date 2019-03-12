@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 
   def show
     # users = User.where.not(latitude: nil, longitude: nil)
-    user_answers = current_user.answers
+    @user = User.find(params[:id])
+    authorize @user
+    user_answers = @user.answers
     answered_users = []
     user_answers.each do |answer|
       answered_users << answer.question.user
@@ -23,8 +25,6 @@ class UsersController < ApplicationController
 
       }
     end
-    @user = User.find(params[:id])
-    authorize @user
     @points = user_ranking
   end
 
