@@ -16,10 +16,11 @@ class CategoriesController < ApplicationController
     @questions = Question.all.where(category: @category).order(created_at: :desc)
     if params[:tag].nil?
       @articles = Article.all.where(category: @category)
-      @questions = Question.all.where(category: @category)
+      # while we solve the problem
+      # @questions = Question.all.where(category: @category)
     else
       @articles = Article.joins(:category).where(tag: params[:tag])
-      @questions = Question.joins(:category).where(tag: params[:tag])
+      # @questions = Question.joins(:category).where(tag: params[:tag])
     end
   end
 end
