@@ -13,7 +13,7 @@ const toggleTagButton = () => {
     dataholders.forEach(function(holder) {
       console.log(holder.dataset.tag == tag)
       if (holder.dataset.tag == tag) {
-        holder.firstElementChild.classList.add("clicked")
+        holder.firstElementChild.classList.toggle("clicked")
       }
     })
   }

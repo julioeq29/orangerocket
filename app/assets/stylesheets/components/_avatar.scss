@@ -24,24 +24,23 @@ img.card-img-top {
   width: 150px;
   border-radius: 50%;
   border: 0.1px solid gray;
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-div.ranking-icon {
+.ranking-icon {
   height: 35px;
   width: 35px;
-  position: absolute;
-  right: 55px;
-  top: 45px;
   border-radius: 50%;
   background: #FFD300;
   color: white;
   justify-content: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
   font-size: 20px;
+  position: relative;
+  bottom: 130px;
+  left: 120px;
 }

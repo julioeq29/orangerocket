@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :email, presence: true, format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-
+  validates_length_of :bio, minimum: 150, maximum: 500, allow_blank: true
   # def ranking_by_answers
   #   answers.map { |answer| answer.votes_for.count }.sum
   # end
