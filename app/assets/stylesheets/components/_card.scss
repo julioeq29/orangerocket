@@ -70,7 +70,8 @@
   border-radius: 10px;
   margin-bottom: 20px;
   margin-top: 10px;
-  width: 90%;
+  min-width: 90%;
+  max-width: 500px;
   font-size: 15px;
   overflow: hidden;
   background: rgba(232, 253, 244, 100);
