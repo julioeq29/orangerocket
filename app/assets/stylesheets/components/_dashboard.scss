@@ -1,3 +1,8 @@
+.container.second-container {
+  max-height: 100vh;
+  overflow: scroll;
+}
+
 .personal-data {
   margin-top: 30px;
 }
@@ -23,13 +28,21 @@
   font-weight: bold;
 }
 
-.user-location {
+p.user-location {
   font-weight: lighter;
+  font-size: 20px;
 }
 
 .update-button {
   display: flex;
   align-items: flex-end;
+  position: relative;
+  bottom: 35px;
+  left: 13px;
+}
+
+.btn-ask.btn-tags.btn-update {
+  height: 30px;
 }
 
 .nav {
