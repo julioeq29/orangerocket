@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
     @tags = Tag.all
     authorize @category
     @questions = Question.all.where(category: @category).order(created_at: :desc)
+    @params = params
     if params[:tag].nil?
       @articles = Article.all.where(category: @category)
       # while we solve the problem

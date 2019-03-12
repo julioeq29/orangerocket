@@ -12,7 +12,15 @@
     <% @category.tags.each do |tag| %>
         <!-- link to with param tag, link)to linked to this same page -->
       <div class="data-holder"  data-tag="<%= tag.id %>">
-        <%= link_to tag.name, category_path(@category, tag: tag), class: "btn-tags btn"%>
+        <% if @selected_tag %>
+          <% if @selected_tag.to_i == tag.id %>
+            <%= link_to tag.name, category_path(@category), class: "btn-tags btn"%>
+          <% else %>
+            <%= link_to tag.name, category_path(@category, tag: tag), class: "btn-tags btn"%>
+          <% end %>
+        <% else %>
+          <%= link_to tag.name, category_path(@category, tag: tag), class: "btn-tags btn"%>
+        <% end %>
       </div>
     <% end %>
   </div>
