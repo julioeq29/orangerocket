@@ -15,8 +15,13 @@
               <%= f.input :first_name,
                           required: true,
                           autofocus: true,
-                          placeholder: "Bob",
+                          placeholder: "Leo",
                           input_html: { autocomplete: "first_name" }%>
+              <%= f.input :last_name,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Dicaprio",
+                          input_html: { autocomplete: "last_name" }%>
               <%= f.input :email,
                           required: true,
                           autofocus: true,
@@ -38,7 +43,7 @@
               <%= f.input :bio,
                           required: false,
                           label: "About me",
-                          placeholder: "Type something about you",
+                          placeholder: "Type something about you. Max. 500 char.",
                           input_html: { autocomplete: "bio" } %>
               <%= f.input :photo %>
               <%= f.input :photo_cache, as: :hidden %>

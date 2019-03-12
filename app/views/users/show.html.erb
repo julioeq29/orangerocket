@@ -1,94 +1,64 @@
-<div class="line-1"></div>
-<!-- <div class = profile-box>
- <h1><%= @user.first_name%></h1>
- <div><h2><%=@user.location%></h2></div>
- <div ><p>bio</p></div>
-</div> -->
-<div class="card" style="width: 18rem ">
-  <div ><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
-    <div class=ranking-icon>
-    <% if @points <= 100 %>
-      <i class="fas fa-seedling ranking"></i>
-    <% elsif @points > 100 && @points <= 200 %>
-      <i class="fas fa-feather-alt ranking"></i>
-    <% elsif @points > 200 && @points <= 300 %>
-      <i class="fas fa-tree ranking"></i>
-    <% elsif @points > 400 && @points <= 500 %>
-      <i class="fas fa-star ranking"></i>
-    <% elsif @points > 500 %>
-      <i class="fas fa-award ranking"></i>
-    <% end %>
-  </div>
-</div>
-  <div class="card-body">
-    <p class="card-text"><h2><%= @user.first_name%></h2>
-      <p></p><%=@user.location%></p><p>bio</p>
-    </p>
-  </div>
-</div>
-<%= link_to edit_user_registration_path do %>
-  <div>
-    <p><i class="far fa-edit">Update my profile</i></p>
-  </div>
-<% end %>
 
-
-
-
-<!-- <div class="title-category">
-  <h1>My dashboard</h1>
-  <div class="container d-flex">
-    <div class="container dashboard-infos">
-      <p><%= @user.first_name %></p>
-    </div>
-    <div class="container dashboard-description">
-      <p>Here a description</p>
-    </div>
-    <div class="container dashboard-ranking">
-      <p>Here a ranking</p>
-    </div>
-  </div>
-</div> -->
-<div class = profile-bottm-box>
-  <div class="line-2"></div>
-  <nav>
-    <div class="nav nav-tabs " id="nav-tab" role="tablist">
-      <a class="nav-item nav-link tabby active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Liked articles</a>
-      <a class="nav-item nav-link tabby" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My questions</a>
-      <a class="nav-item nav-link tabby" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My answers</a>
-    </div>
-  </nav>
-
-
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
-    <div class="container">
-      <div class="content-backgroud">
-        <% liked_articles.each do |article| %>
-          <div id="article<%= article.id %>'}"class="card-question-profile-page">
-            <%= link_to article.title, article.url, target: :_blank %>
-            <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
-              <div>
-                <span><p><i class="far fa-thumbs-up"></i></p></span>
-              </div>
-            <% end %>
-            <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
-          </div>
+  <div class="personal-data">
+    <div class="profile-and-photo">
+      <div ><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
+        <div class=ranking-icon>
+        <% if @points <= 100 %>
+          <i class="fas fa-seedling ranking"></i>
+        <% elsif @points > 100 && @points <= 200 %>
+          <i class="fas fa-feather-alt ranking"></i>
+        <% elsif @points > 200 && @points <= 300 %>
+          <i class="fas fa-tree ranking"></i>
+        <% elsif @points > 400 && @points <= 500 %>
+          <i class="fas fa-star ranking"></i>
+        <% elsif @points > 500 %>
+          <i class="fas fa-award ranking"></i>
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    <div class="content-backgroud">
-      <% @user.questions.each do |question| %>
-        <div class="container card-question-profile-page">
-          <%= question.content %>
-        </div>
-      <% end %>
+    <div class="card-body">
+      <p class="card-text"><h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
+        <p><%= @user.location.capitalize %></p>
+        <p><%= @user.bio %></p>
+      </p>
     </div>
+    <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask btn-tags" %>
   </div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Liked articles</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My questions</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My answers</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
+    <% liked_articles.each do |article| %>
+      <div id="article<%= article.id %>'}"class="card-question-profile-page">
+        <%= link_to article.title, article.url, target: :_blank %>
+        <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
+          <div>
+            <span><p><i class="far fa-thumbs-up"></i></p></span>
+          </div>
+        <% end %>
+        <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <% @user.questions.each do |question| %>
+      <div class="container card-question-profile-page">
+        <%= question.content %>
+      </div>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <div
       id="map"
       style="width: 800px !important;
@@ -98,5 +68,4 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-</div>
 </div>
