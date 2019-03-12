@@ -22,9 +22,11 @@
             class: "search_input",
             placeholder: "Search..."
           %>
-          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+          <%= button_tag(type: "submit", class: "search_icon border-none") do %>
+              <i class="fas fa-search"></i>
+          <% end %>
 
-          <ul id="list-of-results">
+          <ul id="list-of-results" class= "search-menu-drop">
           </ul>
         <% end %>
       </div>
