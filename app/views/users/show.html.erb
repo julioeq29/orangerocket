@@ -1,5 +1,5 @@
 <hr>
-  <div class="container">
+  <div class="container first-container">
     <div class="personal-data">
       <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
       </div>
@@ -16,20 +16,20 @@
           <i class="fas fa-award ranking"></i>
         <% end %>
       </div>
+      <div class="update-button">
+        <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask btn-tags btn-update" %>
+      </div>
       <div class="card-body">
         <div class="card-text">
           <h2 class="user-name"><%= @user.first_name&.capitalize %> <%= @user.last_name&.capitalize %></h2>
-          <h2 class="user-location"><%= @user.location.capitalize %></h2>
+          <p class="user-location"><%= @user.location.capitalize %></p>
           <p><%= @user.bio %></p>
-        </div>
-        <div class="update-button">
-          <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask btn-tags" %>
         </div>
       </div>
     </div>
   </div>
 <hr>
-<div class="container">
+<div class="container second-container">
   <div class="user-tabs">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
@@ -45,25 +45,35 @@
 
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
         <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
         <% if liked_articles == [] %>
           <div class="card-articles">
             <p>You haven't liked any article yet</p>
           </div>
         <% else %>
-          <div class="card-articles">
             <% liked_articles.each do |article| %>
-              <div id="article<%= article.id %>'}"class="card-question-profile-page">
-                <%= link_to article.title, article.url, target: :_blank %>
-                <%= link_to like_article_path(article.id), class:"like-btn", method: :put, remote: :true do %>
-                  <div>
-                    <span><p><i class="far fa-thumbs-up"></i></p></span>
-                  </div>
-                <% end %>
-                <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+              <div class="card-articles">
+                <a class="link-article" href=<%= article.url %> target="_blank">
+                </a>
+                <div class="text-left">
+                    <p><%= article.title %></p>
+                    <div class="info-articles d-flex">
+                      <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
+                      <p class="">
+                          <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                              <span><i class="far fa-thumbs-up"></i></span>
+                          <% end %>
+                          <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+                      </p>
+                    </div>
+                </div>
+                <div class="img-article">
+                  <%= image_tag article.photo %>
+                </div>
+
               </div>
             <% end %>
-          </div>
         <% end %>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -89,6 +99,7 @@
               <%= link_to Question.find(id_question).content, question_path(id_question) %>
               <p><%= Question.find(id_question).user.location %></p>
             </div>
+              <div>
               <% if Time.now - Question.find(id_question).created_at < 86400 %>
                 <p><%= time_ago_in_words(Question.find(id_question).created_at) %></p>
               <% elsif Time.now - Question.find(id_question).created_at < 172800 %>
@@ -101,14 +112,14 @@
         <% end %>
       </div>
 
-        <div
+        <!-- <div
           id="map"
           style="width: 800px !important;
           float: right;
           height: 600px !important;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
