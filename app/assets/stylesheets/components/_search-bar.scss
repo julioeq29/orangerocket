@@ -35,7 +35,6 @@
     caret-color:transparent;
     line-height: 40px;
     transition: width 0.4s linear;
-    transition: left 300ms linear
     }
 
 .searchbar:hover > .search_input{
@@ -58,8 +57,6 @@
 }
 
 .search-menu-drop{
-  width: 486px;
-  right: 92px;
 box-shadow : 0 0 5px rgba(0,0,0,0.6);
 position: absolute;
 z-index: 1;
@@ -69,8 +66,7 @@ transition: 0.3s ease;
 list-style: none !important;
 padding-left: 0;
 background-color: white;
-transition: transform 300ms linear;
-will-change: transform;
+padding: 10px;
 }
 
 .search-menu-drop li{
