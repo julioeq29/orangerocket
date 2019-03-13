@@ -19,12 +19,12 @@
   background-position: center;
   width: 47%;
   padding: 0 !important;
-  height: 500px;
+  height: 520px;
 }
 
 .container-category{
   margin: -30px 120px 50px 120px;
-  margin-top: 140px;
+  margin-top: 180px;
   /* padding-top: 10px; */
 }
 
@@ -233,6 +233,7 @@
   opacity: 0.95;
   border-radius: 4px;
   margin-left: 50px;
+  margin-bottom: 60px;
 }
 
 .description-last-container {
@@ -255,7 +256,8 @@
 }
 
 .container-last{
-  margin-top: 180px;
+  margin-top: 100px;
+
 }
 
 
@@ -276,5 +278,19 @@
 .green-text-landing {
   color: $brand-secondary;
   font-weight: 400;
+}
+
+#myMenu {
+  text-align: right;
+  margin-right: 8px;
+}
+
+#myMenu a{
+  text-decoration: none;
+  color: $brand-secondary;
+}
+
+.active{
+  color: $brand-primary;
 }
 

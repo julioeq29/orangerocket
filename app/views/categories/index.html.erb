@@ -28,7 +28,9 @@
   <div class="container articles">
     <h2>Articles</h2>
     <p class = "search-state-article">Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
+
       <% if @articles %>
+
         <% if @articles.count == 1 %>
           <%= @articles.count %></strong>
           article here.</p>
@@ -88,6 +90,7 @@
 
 
 
+
         <%= link_to "Ask a new question", new_question_path, class: " btn-result btn-tags-search" %>
       </div>
     </div>
@@ -112,5 +115,12 @@
       </div>
     </div>
   </div>
-  </div>
+
+
+
+
+
+
+
+
 
