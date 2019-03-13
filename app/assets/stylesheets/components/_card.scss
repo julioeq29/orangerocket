@@ -140,7 +140,7 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   color:white
 }
 .large {
-  width: 36% !important;
+  width: 45% !important;
   min-width: 360px !important;
 }
 
@@ -163,6 +163,7 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   transition: 0.3s ease;
   text-decoration: none;
   margin: 10px;
+  margin-left: 97px;
 }
 .card-category-result:hover{
   transform: scale(1.1);
@@ -188,21 +189,28 @@ margin-left: -5%;
 // margin-left: -115px;
 box-shadow :0 0 15px rgba(0, 0, 0, 0.1);
 border-color :lightgrey;
-padding :12px;
+padding :8px;
 border-radius:10px;
 margin-left:95px;
+width: 77%;
 }
 .back-to {
-  margin-left: 96px !important;
+  margin-left: 101px !important;
   color: #393e46;
   opacity: 0.8 !important;
 }
 
+.back-to:hover{
+  color: $brand-secondary !important;
+}
 
 .search-state-article strong{
   color:$brand-secondary;
 }
 .search-state-question strong {
+  color:$brand-secondary;
+}
+.search-state strong {
   color:$brand-secondary;
 }
 // Smallest device

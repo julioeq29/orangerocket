@@ -7,7 +7,9 @@ class CategoriesController < ApplicationController
       @articles = policy_scope(Article).article_search(params[:query])
 
     else
-      @categories = policy_scope(Category).all
+      @categories = policy_scope(Category).global_search(params[:query])
+      @articles = []
+      @questions = []
     end
   end
 
