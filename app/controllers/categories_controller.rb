@@ -3,6 +3,9 @@ class CategoriesController < ApplicationController
   def index
     if params[:query].present?
       @categories = policy_scope(Category).global_search(params[:query])
+      @questions = policy_scope(Question).question_search(params[:query])
+      @articles = policy_scope(Article).article_search(params[:query])
+
     else
       @categories = policy_scope(Category).all
     end

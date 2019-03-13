@@ -1,16 +1,152 @@
-<div class = "banner-result"
+
+<div class="cards card-result">
+
+    <%= link_to "< Back to categories", root_path, class: "back back-to" %>
+
+    <% if @categories.empty? %>
+
+    <p class = "search-state" >Your keyword <strong><%= params[:query] %> </strong> hasn't matched any categories yet. </p>
+
+    <% else %> <p>Your keyword <strong> <%= params[:query] %> </strong> matched categories below. </p>
+    <% end %>
 
 
-
-
-
-  <div class="cards card-result">
     <% @categories.each_with_index do |category, index| %>
+    <% if index%3 == 0 %>
+      <div class=" card-category-result large" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
+        <%= link_to category.name, category_path(category) %>
+      </div>
+      <% else %>
       <div class=" card-category-result" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
         <%= link_to category.name, category_path(category) %>
       </div>
+      <% end %>
     <% end %>
   </div>
+
+
+
+<div class = "container-search-result">
+<div class="container d-flex category-container">
+
+
+
+  <div class="container articles">
+    <h2>Articles</h2>
+    <p class = "search-state-article">Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
+      <% if !@articles.empty? %>
+        <% if @articles.count == 1 %>
+          <%= @articles.count %></strong>
+          article here.</p>
+        <% else %>
+          <%= @articles.count %></strong>
+          <%= "article".pluralize %> here.</p>
+        <% end %>
+      <% else %>
+        <%= 0 %></strong>
+        articles here.</p>
+      <% end %>
+      <div class="sort">
+
+        <p>ordered by : date</p>
+
+      </div>
+        <div class="container-articles">
+          <hr class="line-articles">
+          <% @articles.each do |article| %>
+            <div class="card-articles">
+              <a class="link-article" href=<%= article.url %> target="_blank">
+              </a>
+              <div class="text-left">
+                  <p><%= article.title %></p>
+                  <div class="info-articles d-flex">
+                    <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
+                    <p class="">
+                        <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                            <span><i class="far fa-thumbs-up"></i></span>
+                        <% end %>
+                        <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+                    </p>
+                  </div>
+              </div>
+              <div class="img-article">
+
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+
+
+
+
+  <div class="container questions">
+    <h2>Questions</h2>
+    <% if @questions.empty? %>
+    <p class ="search-state-question">Your keyword <strong><%= params[:query] %></strong> hasn't matched any questions yet. </p>
+    <% else  %> <p class = "search-state-question" >Your keyword <strong ><%= params[:query] %> </strong> matched questions below. </p>
+    <% end %>
+
+      <div class="answer d-flex justify-content-between">
+
+        <%= link_to "Ask a new question", new_question_path, class: "btn-ask btn-tags" %>
+      </div>
+
+      <div class="">
+
+          <hr class="line-articles">
+
+          <% @questions.each do |question|%>
+          <div class="card-question">
+            <a class="link-question" href=<%= question_path(question) %> >
+            </a>
+            <div class="question-link">
+              <%= link_to question.content, question_path(question) %>
+            </div>
+            <div class="">
+              <p class="source ">@ <%= question.user.first_name %></p>
+            </div>
+          </div>
+          <% end  %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<!--
+  <% if @questions.empty? %>
+    <h4>Your keyword <%= params[:query] %> hasn't matched any questions yet. </h4>
+    <%= link_to "Back to categories", root_path, class: "back-to-category" %>
+    <% else  %> <p>Your keyword <%= params[:query] %>  matched questions below. </p>
+    <% end %>
+  <% @questions.each do |question| %>
+            <div class="card-question dashboard">
+              <div class="question-link">
+                <%= link_to question.content, question_path(question) %>
+              </div>
+              <div class="question-date">
+                <% if Time.now - question.created_at < 86400 %>
+                  <p><%= time_ago_in_words(question.created_at) %></p>
+                <% elsif Time.now - question.created_at < 172800 %>
+                  <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
+                <% else %>
+                  <p><%= question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end  %>
+</div>
+ -->
+
+
+
 
 
 

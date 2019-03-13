@@ -127,8 +127,11 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
  margin-left: 23px;
  margin-top: 60px;
  display: flex;
+ flex-direction: column;
+ width: 40vw;
+ justify-content: flex-start;
  flex-wrap: wrap;
- margin:45px
+ max-resolution: 45px;
 }
 
 
@@ -172,6 +175,35 @@ margin-top: 5%;
 margin-right: -120px;
 margin-left: 10%;
 
+}
+.container-search-result {
+margin: 5%;
+margin-right: 10%;
+margin-top: 5%;
+margin-right: -120px;
+margin-left: -5%;
+
+}
+.search-state {
+// margin-left: -115px;
+box-shadow :0 0 15px rgba(0, 0, 0, 0.1);
+border-color :lightgrey;
+padding :12px;
+border-radius:10px;
+margin-left:95px;
+}
+.back-to {
+  margin-left: 96px !important;
+  color: #393e46;
+  opacity: 0.8 !important;
+}
+
+
+.search-state-article strong{
+  color:$brand-secondary;
+}
+.search-state-question strong {
+  color:$brand-secondary;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
