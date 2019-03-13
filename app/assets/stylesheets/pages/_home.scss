@@ -226,7 +226,7 @@
 
 .img-last-container {
   width: 45vw;
-  opacity: 0.9;
+  opacity: 0.95;
   border-radius: 4px;
   margin-left: 50px;
 }
@@ -252,4 +252,9 @@
 
 .container-last{
   margin-top: 180px;
+}
+
+.green-text-landing {
+  color: $brand-secondary;
+  font-weight: 400;
 }
