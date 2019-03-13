@@ -40,6 +40,7 @@ puts "creating users"
 
 User.create!(
   first_name: "lily",
+  last_name: "lily",
   email: "l@l.com",
   password: "123456",
   location:"hoxton"
@@ -47,6 +48,7 @@ User.create!(
 
 User.create!(
   first_name: "gina",
+  last_name: "gina",
   email: "g@g.com",
   password: "123456",
   location:"Peckham"
@@ -54,6 +56,7 @@ User.create!(
 
 User.create!(
   first_name: "edoardo",
+  last_name: "edoardo",
   email: "e@e.com",
   password: "123456",
   location:"Boston"
@@ -61,6 +64,7 @@ User.create!(
 
 User.create!(
   first_name: "hector",
+  last_name: "hector",
   email: "h@h.com",
   password: "123456",
   location:"Stratford"
@@ -68,6 +72,7 @@ User.create!(
 
 User.create!(
   first_name: "nurcan",
+  last_name: "nurcan",
   email: "n@n.com",
   password: "123456",
   location:"San Francisco, US"
