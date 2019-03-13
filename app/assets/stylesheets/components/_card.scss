@@ -116,104 +116,10 @@
 width: 60%;
 padding: 30px;
 margin: 10px auto;
-box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
-}
-//from below is the card results---------------------
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.5
+ 
 
 
-
-.card-result {
-
- text-decoration: none;
- margin-left: 23px;
- display: flex;
- flex-direction: column;
- width: 40vw;
- justify-content: flex-start;
- flex-wrap: wrap;
- max-resolution: 45px;
-}
-
-
-.card-result a{
-  text-decoration: none !important;
-  color:white
-}
-.large {
-  width: 45% !important;
-  min-width: 360px !important;
-}
-
-
-.card-category-result {
-  background-size: cover !important;
-  background-position: center !important;
-  height: 179px;
-  width: 18%;
-  min-width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  transition: 0.3s ease;
-  text-decoration: none;
-  margin: 10px;
-  margin-left: 97px;
-}
-.card-category-result:hover{
-  transform: scale(1.1);
-}
-
-.container-search {
-margin: 5%;
-margin-right: 10%;
-margin-top: 5%;
-margin-right: -120px;
-margin-left: 10%;
-
-}
-.container-search-result {
-margin: 5%;
-margin-right: 10%;
-margin-top: 5%;
-margin-right: -120px;
-margin-left: -5%;
-
-}
-.search-state {
-// margin-left: -115px;
-box-shadow :0 0 15px rgba(0, 0, 0, 0.1);
-border-color :lightgrey;
-padding :8px;
-border-radius:10px;
-margin-left:95px;
-width: 77%;
-margin-top: 30px;
-}
-.back-to {
-  margin-left: 101px !important;
-  color: #393e46;
-  opacity: 0.8 !important;
-}
-
-.back-to:hover{
-  color: $brand-secondary !important;
-}
-
-.search-state-article strong{
-  color:$brand-secondary;
-}
-.search-state-question strong {
-  color:$brand-secondary;
-}
-.search-state strong {
-  color:$brand-secondary;
-}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {
@@ -248,3 +154,4 @@ margin-top: 30px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
+
