@@ -1,53 +1,63 @@
-<hr class="dashboard-hr">
-  <div class="container first-container">
-    <div class="personal-data">
-      <div class="photo-and-button">
-        <% if @user.photo.file.nil? %>
-          <div class="photo-rounded"><%= image_tag "nav-avatar.png", class: "card-img-top" %></div>
-        <% else %>
-          <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
-          </div>
+<div class="container first-container">
+  <div class="personal-data">
+    <div class="photo-and-button">
+      <% if @user.photo.file.nil? %>
+        <div class="photo-rounded"><%= image_tag "nav-avatar.png", class: "card-img-top" %></div>
+      <% else %>
+        <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
+        </div>
+      <% end %>
+      <div class=ranking-icon>
+        <% if @points <= 100 %>
+          <i class="fas fa-seedling ranking"></i>
+        <% elsif @points > 100 && @points <= 200 %>
+          <i class="fas fa-feather-alt ranking"></i>
+        <% elsif @points > 200 && @points <= 300 %>
+          <i class="fas fa-tree ranking"></i>
+        <% elsif @points > 400 && @points <= 500 %>
+          <i class="fas fa-star ranking"></i>
+        <% elsif @points > 500 %>
+          <i class="fas fa-award ranking"></i>
         <% end %>
-        <div class=ranking-icon>
-          <% if @points <= 100 %>
-            <i class="fas fa-seedling ranking"></i>
-          <% elsif @points > 100 && @points <= 200 %>
-            <i class="fas fa-feather-alt ranking"></i>
-          <% elsif @points > 200 && @points <= 300 %>
-            <i class="fas fa-tree ranking"></i>
-          <% elsif @points > 400 && @points <= 500 %>
-            <i class="fas fa-star ranking"></i>
-          <% elsif @points > 500 %>
-            <i class="fas fa-award ranking"></i>
-          <% end %>
-        </div>
-        <div class="update-button">
-          <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask   btn-tags btn-update" %>
-        </div>
       </div>
-      <div class="card-text-dashboard">
-        <h2 class="user-name-dashboard"><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> <%= @user.last_name&.split(' ').map {|w| w.capitalize }.join(' ') %></h2>
-        <p class="user-location"><%= @user.location.capitalize.split(' ').map {|w| w.capitalize }.join(' ') %></p>
-        <% if @user.bio.nil? || @user.bio.empty? %>
-          <p class="without-biography">Update your profile and add information about you! </p>
-        <% else %>
-          <p class="biography"><%= @user.bio %></p>
-        <% end %>
+      <div class="update-button">
+        <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask   btn-tags btn-update" %>
       </div>
     </div>
+    <div class="card-text-dashboard">
+      <h2 class="user-name-dashboard"><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> <%= @user.last_name&.split(' ').map {|w| w.capitalize }.join(' ') %></h2>
+      <p class="user-location"><%= @user.location.capitalize.split(' ').map {|w| w.capitalize }.join(' ') %></p>
+      <% if @user.bio.nil? || @user.bio.empty? %>
+        <p class="without-biography">Update your profile and add information about you! </p>
+      <% else %>
+        <p class="biography"><%= @user.bio %></p>
+      <% end %>
+    </div>
   </div>
-<hr class="dashboard-hr">
+</div>
 <div class="container second-container">
   <div class="user-tabs">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs sticky-top" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Liked articles</a>
+        <% if @user == current_user %>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Articles I like</a>
+        <% else %>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Liked articles</a>
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My questions</a>
+        <% if @user == current_user %>
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My questions</a>
+        <% else %>
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Questions asked</a>
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My answers</a>
+        <% if @user == current_user %>
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My answers</a>
+        <% else %>
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Solutions provided</a>
+        <% end %>
       </li>
     </ul>
 
