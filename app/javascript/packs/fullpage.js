@@ -4,4 +4,5 @@
 //   anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
 //   menu: '#myMenu'
 //   // navigationPosition: 'right'
+
 // });
