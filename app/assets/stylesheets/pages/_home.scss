@@ -2,6 +2,10 @@
   min-height: calc(100vh - 160px);
 }
 
+.each-home-container {
+  height: 100vh;
+}
+
 .container-banner{
   margin:10px;
 }
@@ -226,7 +230,7 @@
 
 .img-last-container {
   width: 45vw;
-  opacity: 0.9;
+  opacity: 0.95;
   border-radius: 4px;
   margin-left: 50px;
 }
@@ -253,3 +257,24 @@
 .container-last{
   margin-top: 180px;
 }
+
+
+
+
+// @media (max-width: 576px){
+//  .img-banner img{
+//     display: none;
+//   }
+//   .btn-flat{
+//     width:100%;
+//   }
+//   .three-cards-landing-page{
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+.green-text-landing {
+  color: $brand-secondary;
+  font-weight: 400;
+}
+

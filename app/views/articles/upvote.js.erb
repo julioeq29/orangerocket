@@ -1,7 +1,11 @@
-console.log('hello')
+currentLocation = window.location.href
 var upvote_span = document.querySelector(`#likes${'<%= @article.id %>'}`);
 upvote_span.innerHTML = '<%= @article.votes_for.size %>';
 
-// when we want to avoid reload we just dont mention it
-
-// location.reload(false);
+if (currentLocation.includes('user')) {
+  location.reload()
+} else if (currentLocation.includes('questions')) {
+  location.reload()
+} else {
+  console.log('I will not reload')
+}

@@ -53,9 +53,13 @@
 
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Update", class: "btn-login" %>
+
+          <div class="form-actions ">
+            <%= link_to user_path(current_user) do %>
+              <%= f.button :submit, "Update", class: "btn-login" %>
+            <% end %>
           </div>
+
         <% end %>
 
         <h3>Cancel my account</h3>
