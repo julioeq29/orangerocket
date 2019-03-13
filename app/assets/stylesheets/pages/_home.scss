@@ -253,3 +253,21 @@
 .container-last{
   margin-top: 180px;
 }
+
+.three-cards-landing-page{
+   display: grid;
+}
+
+
+// @media (max-width: 576px){
+//  .img-banner img{
+//     display: none;
+//   }
+//   .btn-flat{
+//     width:100%;
+//   }
+//   .three-cards-landing-page{
+//     grid-template-columns: 1fr;
+//   }
+// }
+
