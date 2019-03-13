@@ -1,12 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div id="categories">
-        <% @categories.each do |category| %>
-          <h4><%= category.name %></h4>
-          <%= link_to category.name, category_path(category) %>
-        <% end %>
+
+
+
+
+
+
+
+
+<!--
+<% if @query!= @tag %>
+  <h4>Your keyword hasn't matched any subject yet. </h4>
+    <%= link_to "< Back to categories", root_path, class: "back-to-category" %>
+<% else  %>
+<% end %> -->
+
+
+
+
+
+<div class = "container-search">
+  <div class="cards card-result">
+    <% @categories.each_with_index do |category, index| %>
+    <% if index%3 == 0 %>
+      <div class=" card-category-result large" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
+        <%= link_to category.name, category_path(category) %>
       </div>
-    </div>
+
+      <% else %>
+
+      <div class=" card-category-result" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
+        <%= link_to category.name, category_path(category) %>
+      </div>
+      <% end %>
+    <% end %>
   </div>
-</div>
+  </div>
+
+
