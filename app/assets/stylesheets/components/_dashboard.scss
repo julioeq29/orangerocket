@@ -2,9 +2,13 @@
   margin: 0;
 }
 
+.container.first-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
 .container.second-container {
   max-height: 100vh;
-  overflow: scroll;
 }
 
 .personal-data {
@@ -73,12 +77,21 @@ p.user-location {
   justify-content: space-around;
 }
 
+.tab-content {
+  overflow: scroll;
+}
+
 .nav-tabs .nav-link {
   color: $brand-secondary;
 }
 
 .nav-tabs .nav-link.active {
   color: $brand-primary;
+}
+
+.nav-tabs {
+  border-top: 1px solid #dee2e6;
+  background-color: white;
 }
 
 .card-articles.dashboard {
@@ -144,6 +157,7 @@ p.user-location {
 .location-date {
   opacity: 0.5;
   font-style: italic;
+  text-align: right;
   p {
     margin: 0;
   }
