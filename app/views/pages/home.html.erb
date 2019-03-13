@@ -1,39 +1,39 @@
-<!--   <ul id="myMenu">
-    <li><h1>sam</h1></li>
-    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
-    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
-    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
-    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
-  </ul> -->
-<!-- <div id="fullpage"> -->
-  <!-- <div class="container-banner banner d-flex section firstPage"> -->
-  <div class="container-banner banner d-flex each-home-container">
-        <div class="p-4 p-md-5 text-banner">
-          <div class="container">
-            <div class="col-md-6 px-0 text-right-image">
-              <h1 class="display-4">Worried about climate change?</h1>
-              <h3 class="landing-text">At the Green Rocket we are. Get started learning about it and <span class="green-text-landing">on how to tackle it</span>.</h3>
-              <p class="lead my-3">
-                <label class='placeholder'>
-                    <span id="banner-typed-text"></span>
-                </label>
-              </p>
-              <a class="btn btn-flat" href="#scroll-down" id="scroll">Start</a>
-            </div>
+<!-- <ul id="myMenu">
+  <ol data-menuanchor="firstPage" class="active"><a href="#firstPage" class="far fa-circle"></a></ol>
+  <ol data-menuanchor="secondPage"><a href="#secondPage" class="far fa-circle"></a></ol>
+  <ol data-menuanchor="thirdPage"><a href="#thirdPage" class="far fa-circle"></a></ol>
+  <ol data-menuanchor="fourthPage"><a href="#fourthPage" class="far fa-circle"></a></ol>
+</ul> -->
+
+<div id="fullpage">
+  <div class="section firstPage">
+    <div class="container-banner banner d-flex each-home-container">
+      <div class="p-4 p-md-5 text-banner">
+        <div class="container">
+          <div class="col-md-6 px-0 text-right-image">
+            <h1 class="display-4">Worried about climate change?</h1>
+            <h3 class="landing-text">At the Green Rocket we are. Get started learning about it and <span class="green-text-landing">on how to tackle it</span>.</h3>
+            <p class="lead my-3">
+              <label class='placeholder'>
+                  <span id="banner-typed-text"></span>
+              </label>
+            </p>
+            <a class="btn btn-flat" href="#scroll-down" id="scroll">Start</a>
           </div>
         </div>
-
-        <div class="p-4 p-md-5 img-banner">
-          <%=image_tag("park.png", alt: "Banner")%>
-        </div>
+      </div>
+      <div class="p-4 p-md-5 img-banner">
+        <%=image_tag("park.png", alt: "Banner")%>
+      </div>
+    </div>
   </div>
 
-  <!-- <div class="container-category section secondPage"> -->
-  <div class="container-category each-home-container">
-    <div class="description-cards text-center">
-      <h1>Start by selecting a category</h1>
-      <p>Topics with the largest impact</p>
-    </div>
+  <div class="section secondPage">
+    <div class="container-category each-home-container">
+      <div class="description-cards text-center">
+        <h1>Start by selecting a category</h1>
+        <p>Topics with the largest impact</p>
+      </div>
       <div class="cards card-home">
         <% @categories.each do |category| %>
           <%= link_to category_path(category) do %>
@@ -43,64 +43,62 @@
           <% end %>
         <% end %>
       </div>
+    </div>
   </div>
 
   <!-- <div class="container-activity section thirdPage"> -->
-  <div class="container-activity each-home-container">
-    <div class="description-cards text-center">
-      <h1>Join an active community</h1>
-      <p>There is always a starting point</p>
-    </div>
-
-
-    <div class="container d-flex three-cards-landing-page" id="scroll-down">
-
-      <%= link_to root_path do %>
-        <div class="col-lg-4 text-center three-card-landing" style="text-decoration: none;">
-          <h1>Articles.</h1>
-          <p>Curated content from trusted soruces</p>
-          <%= link_to category_path(2) do %>
-            <p class="btn btn-flat-card"><%= Article.count %></p>
-          <% end %>
-        </div><!-- /.col-lg-4 -->
-      <% end %>
-
-      <%= link_to root_path do %>
-        <div class="col-lg-4 text-center three-card-landing">
-          <h1>Questions.</h1>
-          <p>Thoughful questions from all around the world</p>
-          <%= link_to category_path(1) do%>
-            <p class="btn btn-flat-card"><%= Question.count %></p>
-          <% end %>
-        </div>
-      <% end %>
-            <!-- /.col-lg-4 -->
-      <%= link_to root_path do %>
-        <div class="col-lg-4 text-center three-card-landing">
-          <h1>Answers.</h1>
-          <p>Down-to-earth solutions from committed people</p>
-          <%= link_to question_path(1) do %>
-          <p class="btn btn-flat-card"><%= Answer.count %></p>
-          <% end %>
-        </div><!-- /.col-lg-4 -->
-      <% end %>
-
-
+  <div class="section thirdPage">
+    <div class="container-activity each-home-container">
+      <div class="description-cards text-center">
+        <h1>Join an active community</h1>
+        <p>There is always a starting point</p>
+      </div>
+      <div class="container d-flex three-cards-landing-page" id="scroll-down">
+        <%= link_to root_path do %>
+          <div class="col-lg-4 text-center three-card-landing" style="text-decoration: none;">
+            <h1>Articles.</h1>
+            <p>Curated content from trusted soruces</p>
+            <%= link_to category_path(2) do %>
+              <p class="btn btn-flat-card"><%= Article.count %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <%= link_to root_path do %>
+          <div class="col-lg-4 text-center three-card-landing">
+            <h1>Questions.</h1>
+            <p>Thoughful questions from all around the world</p>
+            <%= link_to category_path(1) do%>
+              <p class="btn btn-flat-card"><%= Question.count %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <%= link_to root_path do %>
+          <div class="col-lg-4 text-center three-card-landing">
+            <h1>Answers.</h1>
+            <p>Down-to-earth solutions from committed people</p>
+            <%= link_to question_path(1) do %>
+            <p class="btn btn-flat-card"><%= Answer.count %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
-    <div class="container-last d-flex each-home-container">
-
+  <!-- <div class="container-category section fourthPage"> -->
+  <div class="section fourthPage">
+    <div class="container-last d-flex">
       <div class="img-last-container">
-        <%= image_tag("collage landing.png", class: "img-last-container")%>
+          <%= image_tag("collage landing.png", class: "img-last-container")%>
       </div>
-
       <div class="description-last-container">
         <h1>There are always solutions</h1>
         <p>Most of the time they are there, someone somewhere might have had the same problem and found a way to solve it, <span class="green-text-landing">you just have to ask</span>.</p>
-      </div>
+       </div>
     </div>
+  </div>
 
+</div>
 
 
 <%= javascript_pack_tag "fullpage" %>
