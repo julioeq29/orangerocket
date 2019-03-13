@@ -16,19 +16,32 @@
       <% end %>
       <span>asked:</span>
     </div>
-    <div class="answer-question">
-      <% if policy(@question).edit?  %>
+    <div class="answer-question d-flex">
+
+      <div class="edit-delete d-flex">
+        <% if policy(@question).edit?  %>
             <% if @answers.any? == false %>
-              <%= link_to edit_question_path do %>
-                <div>
-                  <p><i class="far fa-edit">Edit</i></p>
-                </div>
-              <% end %>
+              <div class="edit">
+                <%= link_to edit_question_path do %>
+                    <div>
+                      <p><i class="far fa-edit icon-answer"></i></p>
+                    </div>
+                <% end %>
+              </div>
             <% end %>
-            <%= link_to "delete question", question_path(@question),
-            method: :delete,
-            data: {confirm: "are you sure?"} %>
-          <% end %>
+            <div class="delete">
+              <%= link_to  question_path(@question),
+                          method: :delete,
+                          data: {confirm: "are you sure?"} do %>
+              <div class="">
+                <i class="far fa-trash-alt icon-answer">
+                </i>
+              </div>
+              <% end %>
+            </div>
+        <% end %>
+        </div>
+
       <button type="button" class="btn btn-tags" data-toggle="modal" data-target="#exampleModal">
         + Add Answer
       </button>
