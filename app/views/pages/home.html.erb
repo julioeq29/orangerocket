@@ -51,7 +51,9 @@
       <div class="col-lg-4 text-center three-card-landing" style="text-decoration: none;">
         <h1>Articles.</h1>
         <p>Curated content from trusted soruces</p>
-        <p><a class="btn btn-flat-card" href="#" role="button"><%= Article.count %></a></p>
+        <%= link_to category_path(2) do %>
+          <p class="btn btn-flat-card"><%= Article.count %></p>
+        <% end %>
       </div><!-- /.col-lg-4 -->
     <% end %>
 
@@ -59,7 +61,9 @@
       <div class="col-lg-4 text-center three-card-landing">
         <h1>Questions.</h1>
         <p>Thoughful questions from all around the world</p>
-        <p><a class="btn btn-flat-card" href="#" role="button"><%= Question.count %></a></p>
+        <%= link_to category_path(1) do%>
+          <p class="btn btn-flat-card"><%= Question.count %></p>
+        <% end %>
       </div>
     <% end %>
           <!-- /.col-lg-4 -->
@@ -67,7 +71,9 @@
       <div class="col-lg-4 text-center three-card-landing">
         <h1>Answers.</h1>
         <p>Down-to-earth solutions from committed people</p>
-        <p><a class="btn btn-flat-card" href="#" role="button"><%= Answer.count %></a></p>
+        <%= link_to question_path(1) do %>
+        <p class="btn btn-flat-card"><%= Answer.count %></p>
+        <% end %>
       </div><!-- /.col-lg-4 -->
     <% end %>
 
@@ -81,7 +87,7 @@
 
     <div class="container-last d-flex">
 
-      <div class="p-md-5 img-last-container">
+      <div class="img-last-container">
         <%= image_tag("collage landing.png", class: "img-last-container")%>
       </div>
 
