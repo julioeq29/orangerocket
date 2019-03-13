@@ -129,6 +129,20 @@ p.user-location {
   height: 90%;
   position: relative;
   left: 190px;
+  color: $brand-primary;
+}
+
+span.question-creator {
+  color: black;
+}
+
+span.question-creator:hover {
+  color: #1DDD88;
+  text-decoration: none;
+}
+
+#profile a:hover {
+  text-decoration: none;
 }
 
 .without-card-question.dashboard {
@@ -161,4 +175,8 @@ p.user-location {
   p {
     margin: 0;
   }
+}
+
+.no-underline:hover {
+  text-decoration: none;
 }

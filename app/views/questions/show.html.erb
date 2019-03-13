@@ -18,8 +18,8 @@
     </div>
     <div class="answer-question d-flex">
 
-      <div class="edit-delete d-flex">
         <% if policy(@question).edit?  %>
+          <div class="edit-delete d-flex">
             <% if @answers.any? == false %>
               <div class="edit">
                 <%= link_to edit_question_path do %>
@@ -33,14 +33,15 @@
               <%= link_to  question_path(@question),
                           method: :delete,
                           data: {confirm: "are you sure?"} do %>
-              <div class="">
+              <div>
                 <i class="far fa-trash-alt icon-answer">
                 </i>
               </div>
               <% end %>
             </div>
+          </div>
         <% end %>
-        </div>
+
 
       <button type="button" class="btn btn-tags" data-toggle="modal" data-target="#exampleModal">
         + Add Answer
@@ -93,67 +94,68 @@
     <div class="answer-content">
       <!-- ITERATION TO DISPLAY THE ANSWERS OF A QUESTION -->
       <% @answers.each do |answer| %>
+        <div id="<%= answer.id %>">
+          <div class="content text-left">
+              <div id="delete<%= answer.id %>">
+                <p><%= answer.content %></p>
+              </div>
+          </div>
 
-        <div class="content text-left">
-            <div id="delete<%= answer.id %>">
-              <p><%= answer.content %></p>
+
+          <div class="info-questions d-flex justify-content-between content">
+            <!-- ANSWER BY @USER -->
+            <div class="answer-user-name">
+              <span class="source">
+                Answered by <%=link_to user_path(answer.user_id) do %>
+                  <span>@<%= answer.user.first_name&.capitalize %></span>
+                <% end %>
+               </span>
             </div>
-        </div>
 
-
-        <div class="info-questions d-flex justify-content-between content">
-          <!-- ANSWER BY @USER -->
-          <div class="answer-user-name">
-            <span class="source">
-              Answered by <%=link_to user_path(answer.user_id) do %>
-                <span>@<%= answer.user.first_name&.capitalize %></span>
+            <!-- TIMESTAMP FOR ANSWER -->
+            <div class="timestamp" >
+              <% if Time.now - answer.created_at < 86400 %>
+                <p><%= time_ago_in_words(answer.created_at) %></p>
+              <% elsif Time.now - answer.created_at < 172800 %>
+                <p>Yesterday at <%= answer.created_at.strftime("%H:%M") %></p>
+              <% else %>
+                <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
               <% end %>
-             </span>
+            </div>
           </div>
+          <div class="d-flex justify-content-center content">
+            <div class="like-question">
+              <!-- LIKE BUTTON & COUNTER FOR ANSWER ONLY TO BE DISPLAY WHEN A USER IS LOGGED IN -->
+              <% if current_user == nil %>
+                <%= display %>
+              <% else  %>
+                <%= link_to like_answer_path(answer), class:"like-btn m5", method: :put, remote: :true do %>
+                    <i class="fab fa-canadian-maple-leaf icon-answer"></i>
+                    <span class="likes_count count-like" id="likes<%= answer.id %>">(<%= answer.get_upvotes.size %>)</span>
+                <% end %>
+              <% end %>
+            </div>
+                  <!-- EDIT ANSWER BUTTON -->
+            <% if policy(answer).edit?  %>
+              <%= link_to edit_answer_path(answer) do %>
+                <div class="m5">
+                  <i class="far fa-edit icon-answer"></i>
+                </div>
+              <% end %>
 
-          <!-- TIMESTAMP FOR ANSWER -->
-          <div class="timestamp" >
-            <% if Time.now - answer.created_at < 86400 %>
-              <p><%= time_ago_in_words(answer.created_at) %></p>
-            <% elsif Time.now - answer.created_at < 172800 %>
-              <p>Yesterday at <%= answer.created_at.strftime("%H:%M") %></p>
-            <% else %>
-              <p><%= answer.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-            <% end %>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center content">
-          <div class="like-question">
-            <!-- LIKE BUTTON & COUNTER FOR ANSWER ONLY TO BE DISPLAY WHEN A USER IS LOGGED IN -->
-            <% if current_user == nil %>
-              <%= display %>
-            <% else  %>
-              <%= link_to like_answer_path(answer), class:"like-btn m5", method: :put, remote: :true do %>
-                  <i class="fab fa-canadian-maple-leaf"></i>
-                  <span class="likes_count count-like" id="likes<%= answer.id %>">(<%= answer.get_upvotes.size %>)</span>
+              <!-- DELETE ANSWER BUTTON -->
+              <%= link_to answer_path(answer), class:"delete-btn", method: :delete, data: {confirm: "are you sure?"}, remote: true do %>
+                <div class="m5">
+                  <i class="far fa-trash-alt icon-answer"></i>
+                </div>
               <% end %>
             <% end %>
+
+                <!-- CONDITION TO ALLOW TO DELETE & EDIT THE QUESTION ONLY IF IT HAS BEEN CREATED BY THE CURRENT USER -->
+
           </div>
-                <!-- EDIT ANSWER BUTTON -->
-          <% if policy(answer).edit?  %>
-            <%= link_to edit_answer_path(answer) do %>
-              <div class="m5">
-                <i class="far fa-edit icon-answer"></i>
-              </div>
-            <% end %>
-
-            <!-- DELETE ANSWER BUTTON -->
-            <%= link_to answer_path(answer), class:"delete-btn", method: :delete, data: {confirm: "are you sure?"}, remote: :true do %>
-              <div class="m5">
-                <i class="far fa-trash-alt icon-answer"></i>
-              </div>
-            <% end %>
-          <% end %>
-
-              <!-- CONDITION TO ALLOW TO DELETE & EDIT THE QUESTION ONLY IF IT HAS BEEN CREATED BY THE CURRENT USER -->
-
+          <hr style="width:100%;">
         </div>
-        <hr style="width:100%;">
       <% end %>
     </div>
   </div>

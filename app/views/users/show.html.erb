@@ -101,20 +101,22 @@
           </div>
         <% else %>
           <% @user.questions.each do |question| %>
-            <div class="card-question dashboard">
-              <div class="question-link">
-                <%= link_to question.content, question_path(question) %>
+            <%= link_to question_path(question) do %>
+              <div class="card-question dashboard">
+                <div class="question-link">
+                  <p><%= question.content %></p>
+                </div>
+                <div class="question-date">
+                  <% if Time.now - question.created_at < 86400 %>
+                    <p><%= time_ago_in_words(question.created_at) %></p>
+                  <% elsif Time.now - question.created_at < 172800 %>
+                    <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
+                  <% else %>
+                    <p><%= question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+                  <% end %>
+                </div>
               </div>
-              <div class="question-date">
-                <% if Time.now - question.created_at < 86400 %>
-                  <p><%= time_ago_in_words(question.created_at) %></p>
-                <% elsif Time.now - question.created_at < 172800 %>
-                  <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
-                <% else %>
-                  <p><%= question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-                <% end %>
-              </div>
-            </div>
+            <% end %>
           <% end  %>
         <% end %>
       </div>
@@ -132,8 +134,8 @@
               <div class="question-data">
                 <div class="question-user-name">
                   <span class="source">
-                    Asked by <%=link_to user_path(Question.find(id_question).user_id) do %>
-                      <span>@<%= Question.find(id_question).user.first_name&.split(' ').map {|w| w.   capitalize }.join(' ') %></span>
+                    @ <%=link_to user_path(Question.find(id_question).user_id), class: "no-underline" do %>
+                      <span class="question-creator"><%= Question.find(id_question).user.first_name&.split(' ').map {|w| w.   capitalize }.join(' ') %></span>
                     <% end %>
                    </span>
                 </div>
