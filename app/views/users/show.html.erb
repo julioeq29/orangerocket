@@ -4,7 +4,7 @@
       <% if @user.photo.file.nil? %>
         <div class="photo-rounded"><%= image_tag "nav-avatar.png", class: "card-img-top" %></div>
       <% else %>
-        <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
+        <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", width: 250, height: 250, crop: :fill, gravity: :face %>
         </div>
       <% end %>
       <div class=ranking-icon>
