@@ -29,25 +29,25 @@
 }
 
 .btn-flat{
-  width: 50%;
+  width: 25%;
 }
 
 .btn-flat {
   position: relative;
-  left: -164px;
-  top: 150px;
-  color: $brand-secondary;
+  // left: -164px;
+  top: 50px;
+  color: white;
+  background: $brand-secondary;
   padding: 8px 24px;
   border-radius: 50px;
-  background: transparent;
   border: 1px solid $brand-secondary;
   transition: background 0.3s ease;
-  width: 50%;
+  width: 33%;
 }
 
 .btn-flat:hover {
-  background: $brand-secondary;
-  color: white;
+  background: white;
+  color: $brand-secondary;
 }
 
 .clicked {
