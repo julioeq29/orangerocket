@@ -2,16 +2,21 @@
 <div class="cards card-result">
 
     <%= link_to "< Back to categories", root_path, class: "back back-to" %>
-      <% if @categories.empty? %>
-        <p class = "search-state" >Your keyword <strong><%= params[:query] %> </strong> hasn't matched any categories yet. </p>
-          <% else %>
-            <% @categories.each_with_index do |category, index| %>
-        <div class=" card-category-result large" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
+
+    <% if @categories.empty? %>
+
+    <p class = "search-state" >Your keyword <strong><%= params[:query] %> </strong> hasn't matched any categories yet. </p>
+
+    <% else %>
+
+    <% @categories.each_with_index do |category, index| %>
+
+      <div class=" card-category-result large" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
         <%= link_to category.name, category_path(category) %>
-        </div>
-          <% end %>
-          <% end %>
-        </div>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
 
 
 
@@ -22,8 +27,8 @@
 
   <div class="container articles">
     <h2>Articles</h2>
-    <p class="search-state-article keyword-text">Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
-      <% if @articles&.empty? %>
+    <p class = "search-state-article">Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
+      <% if @articles %>
         <% if @articles.count == 1 %>
           <%= @articles.count %></strong>
           article here.</p>
@@ -40,6 +45,8 @@
         <p>ordered by : date</p>
 
       </div>
+
+
         <div class="container-articles">
           <hr class="line-articles">
           <% @articles.each do |article| %>
@@ -59,7 +66,6 @@
                   </div>
               </div>
               <div class="img-article">
-                   <%= image_tag article.photo %>
 
               </div>
             </div>
@@ -72,16 +78,21 @@
 
   <div class="container questions">
     <h2>Questions</h2>
+    <div class="question-result">
     <% if @questions.empty? %>
-    <div id="flex-questions">
-      <p class ="search-state-question">Your keyword <strong><%= params[:query] %></strong> hasn't matched any questions yet. </p>
+    <p class ="search-state-question">Your keyword <strong><%= params[:query] %></strong> hasn't matched any questions yet. </p>
     <% else  %> <p class = "search-state-question" >Your keyword <strong ><%= params[:query] %> </strong> matched questions below. </p>
     <% end %>
 
       <div class="answer d-flex justify-content-between">
-       <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags question-btn" %>
+
+
+
+        <%= link_to "Ask a new question", new_question_path, class: " btn-result btn-tags-search" %>
       </div>
     </div>
+
+
       <div class="">
 
           <hr class="line-articles">
@@ -101,9 +112,5 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-
+  </div>
 
