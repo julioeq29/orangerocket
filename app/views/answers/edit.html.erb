@@ -1,6 +1,6 @@
 <div class="page-container">
-  <div class="container">
-    <div class="d-flex justify-content-around form-login">
+  <div class="container d-flex justify-content-center">
+    <div class="d-flex justify-content-around form-edit-answer text-center">
       <%= simple_form_for [@answer] do |f| %>
         <%= f.input :content %>
         <%= f.submit "update the answer", class: "btn btn-primary" %>

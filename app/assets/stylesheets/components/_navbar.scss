@@ -69,23 +69,28 @@
 
 .alert-info{
   background-color: $brand-secondary;
+  color: white;
 }
 
 .alert-warning{
-  background-color: $brand-info;
-  color: $brand-primary;
+  background-color: $brand-primary;
+  color: white;
+  opacity: 0.8;
 }
 
 .alert-primary{
   background-color: $brand-secondary;
+  color: white;
 }
 
 .alert-secondary{
   background-color: $brand-secondary;
+  color: white;
 }
 
 .alert-success{
   background-color: $brand-secondary;
+  color: white;
 }
 // Search icon
 
@@ -94,6 +99,9 @@
   font:bold
 }
 
+.dropdown-item{
+  padding: 0.22rem 0.5rem !important;
+}
 
 
 //

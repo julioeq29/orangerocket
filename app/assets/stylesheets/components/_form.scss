@@ -12,6 +12,24 @@
   }
 }
 
+.form-edit-answer{
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  width: 50%;
+  height: auto;
+}
+
+.form-login a{
+  color: $brand-primary;
+}
+
+.form-login a:hover{
+  color: $brand-secondary;
+}
+
 .signup-form{
   width: 100%;
   background: white;
@@ -27,6 +45,14 @@
   }
 }
 
+.signup-form a{
+  color: $brand-primary;
+}
+
+.signup-form a:hover{
+  color: $brand-secondary;
+}
+
 .box-log{
   width: 400px;
 }
@@ -36,4 +62,26 @@
   position: relative;
   top: 110px;
   margin-right: 50px;
+}
+
+.ask-form{
+  height: 380px;
+}
+
+.ask-content{
+  height: auto;
+  margin-top: 90px;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: white;
+}
+
+.ask-content label{
+  font-size: 14px;
 }

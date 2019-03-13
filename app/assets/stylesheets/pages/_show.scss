@@ -22,7 +22,6 @@
 
 
 .answer{
-  margin-bottom: 30px;
   width: 90%;
 }
 
@@ -81,7 +80,7 @@
 }
 
 .container-articles{
-  margin-top: 37px;
+  margin-top: 10px;
   overflow-y: scroll;
   height: 80vh;
 }
@@ -95,7 +94,11 @@
   overflow-y: scroll;
   height: 80vh;
 }
-
+.container-questions{
+  margin-top: 10px;
+  overflow-y: scroll;
+  height: 80vh;
+}
 .like{
   display: flex;
 }
@@ -157,6 +160,7 @@
 
 .btn-ask-question{
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .answers{
@@ -168,25 +172,6 @@
   align-items: center;
   padding: 40px;
   border-radius: 5px;
-}
-
-.ask-content{
-  height: 450px;
-  margin-top: 90px;
-  width: 40%;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background-color: white;
-
-}
-
-.ask-content label{
-  font-size: 14px;
 }
 
 span.select2-selection.select2-selection--multiple {
@@ -216,9 +201,7 @@ span.select2-selection.select2-selection--multiple {
   width: 1000px;
   opacity: 0.7;
 }
-.ask-form{
-  height: 380px;
-}
+
 
 .img-article img{
   max-width: 100px;
@@ -231,7 +214,7 @@ span.select2-selection.select2-selection--multiple {
 }
 
 .line-articles{
-  width: 90%;
+  width: 95%;
   margin-left: 0;
 }
 
