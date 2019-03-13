@@ -45,7 +45,7 @@
                   <div class="info-articles d-flex">
                     <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
                     <p class="">
-                        <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                        <%= link_to like_article_path(article), class:"like-btn", method: :put, remote:true do %>
                             <span><i class="far fa-thumbs-up"></i></span>
                         <% end %>
                         <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>

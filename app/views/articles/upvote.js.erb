@@ -1,3 +1,7 @@
+console.log('hello')
 var upvote_span = document.querySelector(`#likes${'<%= @article.id %>'}`);
 upvote_span.innerHTML = '<%= @article.votes_for.size %>';
-location.reload(false);
+
+// when we want to avoid reload we just dont mention it
+
+// location.reload(false);
