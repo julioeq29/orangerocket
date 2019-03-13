@@ -17,6 +17,18 @@
       <span>asked:</span>
     </div>
     <div class="answer-question">
+      <% if policy(@question).edit?  %>
+            <% if @answers.any? == false %>
+              <%= link_to edit_question_path do %>
+                <div>
+                  <p><i class="far fa-edit">Edit</i></p>
+                </div>
+              <% end %>
+            <% end %>
+            <%= link_to "delete question", question_path(@question),
+            method: :delete,
+            data: {confirm: "are you sure?"} %>
+          <% end %>
       <button type="button" class="btn btn-tags" data-toggle="modal" data-target="#exampleModal">
         + Add Answer
       </button>
@@ -104,7 +116,7 @@
               <%= display %>
             <% else  %>
               <%= link_to like_answer_path(answer), class:"like-btn m5", method: :put, remote: :true do %>
-                  <i class="far fa-thumbs-up icon-answer"></i>
+                  <i class="fab fa-canadian-maple-leaf"></i>
                   <span class="likes_count count-like" id="likes<%= answer.id %>">(<%= answer.get_upvotes.size %>)</span>
               <% end %>
             <% end %>
@@ -126,18 +138,7 @@
           <% end %>
 
               <!-- CONDITION TO ALLOW TO DELETE & EDIT THE QUESTION ONLY IF IT HAS BEEN CREATED BY THE CURRENT USER -->
-          <% if policy(@question).edit?  %>
-            <% if @answers.any? == false %>
-              <%= link_to edit_question_path do %>
-                <div>
-                  <p><i class="far fa-edit">Edit</i></p>
-                </div>
-              <% end %>
-            <% end %>
-            <%= link_to "delete question", question_path(@question),
-            method: :delete,
-            data: {confirm: "are you sure?"} %>
-          <% end %>
+
         </div>
         <hr style="width:100%;">
       <% end %>
