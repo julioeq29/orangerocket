@@ -6,4 +6,10 @@ class Question < ApplicationRecord
   has_many :tags, through: :question_tags
 
   validates :content, presence: true
+  include PgSearch
+  pg_search_scope :question_search,
+      against: [ :content ],
+      using: {
+        tsearch: { prefix: true }
+      }
 end
