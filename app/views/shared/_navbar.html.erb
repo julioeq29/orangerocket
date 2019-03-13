@@ -47,7 +47,7 @@
           </li>
         <% else %>
           <li class="nav-item dropdown">
-            <%= cl_image_tag(current_user.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+            <%= cl_image_tag(current_user.photo, width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <div class="dropdown-menu dropdown-menu-right avatar-menu" aria-labelledby="navbarDropdown">
               <%= link_to "My dashboard", user_path(current_user), class: "nav-link dropdown-item avatar-items" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link dropdown-item avatar-items dropdown-avatar" %>
