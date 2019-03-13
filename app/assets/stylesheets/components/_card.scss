@@ -128,8 +128,11 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
  margin-left: 23px;
  margin-top: 60px;
  display: flex;
+ flex-direction: column;
+ width: 40vw;
+ justify-content: flex-start;
  flex-wrap: wrap;
- margin:45px
+ max-resolution: 45px;
 }
 
 
@@ -138,7 +141,7 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   color:white
 }
 .large {
-  width: 36% !important;
+  width: 45% !important;
   min-width: 360px !important;
 }
 
@@ -161,6 +164,7 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   transition: 0.3s ease;
   text-decoration: none;
   margin: 10px;
+  margin-left: 97px;
 }
 .card-category-result:hover{
   transform: scale(1.1);
@@ -173,6 +177,42 @@ margin-top: 5%;
 margin-right: -120px;
 margin-left: 10%;
 
+}
+.container-search-result {
+margin: 5%;
+margin-right: 10%;
+margin-top: 5%;
+margin-right: -120px;
+margin-left: -5%;
+
+}
+.search-state {
+// margin-left: -115px;
+box-shadow :0 0 15px rgba(0, 0, 0, 0.1);
+border-color :lightgrey;
+padding :8px;
+border-radius:10px;
+margin-left:95px;
+width: 77%;
+}
+.back-to {
+  margin-left: 101px !important;
+  color: #393e46;
+  opacity: 0.8 !important;
+}
+
+.back-to:hover{
+  color: $brand-secondary !important;
+}
+
+.search-state-article strong{
+  color:$brand-secondary;
+}
+.search-state-question strong {
+  color:$brand-secondary;
+}
+.search-state strong {
+  color:$brand-secondary;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
