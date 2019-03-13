@@ -116,19 +116,18 @@ padding: 30px;
 margin: 10px auto;
 box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
 }
-//from below is the card results
+//from below is the card results---------------------
 
 
 
 .card-result {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
-  // grid-gap: 25px;
+
  text-decoration: none;
  margin-left: 23px;
  margin-top: 60px;
  display: flex;
  flex-wrap: wrap;
+ margin:45px
 }
 
 
@@ -136,7 +135,10 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   text-decoration: none !important;
   color:white
 }
-
+.large {
+  width: 36% !important;
+  min-width: 360px !important;
+}
 
 
 .card-category-result {
@@ -162,7 +164,14 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   transform: scale(1.1);
 }
 
+.container-search {
+margin: 5%;
+margin-right: 10%;
+margin-top: 5%;
+margin-right: -120px;
+margin-left: 10%;
 
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .card-home {

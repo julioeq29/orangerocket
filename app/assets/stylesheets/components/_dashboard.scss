@@ -1,3 +1,7 @@
+.dashboard-hr {
+  margin: 0;
+}
+
 .container.second-container {
   max-height: 100vh;
   overflow: scroll;
@@ -5,6 +9,7 @@
 
 .personal-data {
   margin-top: 30px;
+  display: flex;
 }
 
 .profile-and-photo {
@@ -12,25 +17,44 @@
   flex-direction: column;
 }
 
-.card-body {
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.card-text {
+.card-text-dashboard {
   display: flex;
   width: 50%;
+  margin-left: 60px;
   flex-direction: column;
+  justify-content: space-around;
 }
 
-.user-name {
-  font-weight: bold;
+.user-name-dashboard {
+  position: relative;
+  bottom: 20px;
+}
+
+h2.user-name-dashboard {
+  color: $brand-primary;
 }
 
 p.user-location {
   font-weight: lighter;
-  font-size: 20px;
+  font-size: 17px;
+  position: relative;
+  bottom: 25px;
+}
+
+.biography {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 27px;
+}
+
+.without-biography {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 27px;
+  font-style: italic;
+  color: $brand-primary;
 }
 
 .update-button {
@@ -47,4 +71,80 @@ p.user-location {
 
 .nav {
   justify-content: space-around;
+}
+
+.nav-tabs .nav-link {
+  color: $brand-secondary;
+}
+
+.nav-tabs .nav-link.active {
+  color: $brand-primary;
+}
+
+.card-articles.dashboard {
+  padding: 16px 8px 16px 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 67%;
+  font-size: 15px;
+  overflow: hidden;
+  height: 135px;
+  background: transparent;
+  display: flex;
+  position: relative;
+  left: 190px;
+}
+
+.without-card-articles.dashboard {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100px;
+}
+
+.card-question.dashboard {
+  padding: 16px 8px 16px 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  min-width: 67%;
+  max-width: 500px;
+  font-size: 15px;
+  overflow: hidden;
+  background: #e8fdf4;
+  height: 90%;
+  position: relative;
+  left: 190px;
+}
+
+.without-card-question.dashboard {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100px;
+}
+
+.question-date {
+  display: flex;
+  justify-content: flex-end;
+  p {
+    margin: 0;
+    opacity: 0.5;
+    font-style: italic;
+  }
+}
+
+.question-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.location-date {
+  opacity: 0.5;
+  font-style: italic;
+  p {
+    margin: 0;
+  }
 }

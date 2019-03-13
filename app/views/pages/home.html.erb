@@ -1,23 +1,27 @@
 <div class="container-banner banner d-flex">
+
+      <div class="p-4 p-md-5 text-banner">
+        <div class="container">
+          <div class="col-md-6 px-0 text-right-image">
+            <h1 class="display-4">Worried about climate change?</h1>
+            <h3 class="landing-text">At the Green Rocket we are. Get started learning about it and tackling climate chage.</h3>
+            <p class="lead my-3">
+              <label class='placeholder'>
+                  <span id="banner-typed-text"></span>
+              </label>
+            </p>
+            <a class="btn btn-flat" href="#scroll-down" id="scroll">Start</a>
+          </div>
+        </div>
+      </div>
+
       <div class="p-4 p-md-5 img-banner">
         <%=image_tag("park.png", alt: "Banner")%>
       </div>
-
-      <div class="p-4 p-md-5 text-banner">
-              <div class="container">
-                <div class="col-md-6 px-0 text-right-image">
-                  <h1 class="display-4 font-italic">Worried about <strong>climate change ?</strong></h1>
-                  <p class="lead my-3">
-                    <label class='placeholder'>
-                        <span id="banner-typed-text"></span>
-                    </label>
-                  </p>
-
-                  <a class="btn btn-flat" href="#scroll-down" id="scroll">Start</a>
-                </div>
-              </div>
-      </div>
 </div>
+
+
+
   <div class="container-category">
     <div class="description-cards text-center">
       <h1>Start by selecting a category</h1>
@@ -34,6 +38,12 @@
       </div>
   </div>
 
+
+  <div class="container-activity">
+    <div class="description-cards text-center">
+      <h1>Join an active community</h1>
+      <p>There is always a starting point</p>
+    </div>
 
   <div class="container d-flex three-cards-landing-page" id="scroll-down">
 
@@ -64,20 +74,25 @@
     </div>
 
 
-
-  <div class="container last-container">
-          <div class="row featurette">
-            <div class="col-md-7">
-              <div class="box-text-banner2">
-                <h2 class="featurette-heading"><span class="text-muted">Trustworthy information.</span><span class="featurette-heading">Global effort.</span></h2>
-                <p class=""> Most of the solutions to the climate problem already exist. Join a community of people who learn and share these solutions. Also get informed with curated and reliable content from trusted sources!</p>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <%= image_tag("banner-2.png", class: "featurette-image")%>
-            </div>
-          </div>
   </div>
+
+
+
+
+    <div class="container-last d-flex">
+
+      <div class="p-md-5 img-last-container">
+        <%= image_tag("collage landing.png", class: "img-last-container")%>
+      </div>
+
+      <div class="description-last-container">
+        <h1>There are always solutions</h1>
+        <p>Most of the time they are there, someone somewhere might have had the same problem and found a way to solve it, you just have to ask.</p>
+      </div>
+
+    </div>
+
+
 
 <script>
   document.getElementById('scroll').addEventListener('click', function (e) {

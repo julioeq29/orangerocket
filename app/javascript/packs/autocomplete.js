@@ -14,7 +14,7 @@ input.addEventListener("keyup", () => {
       })
     });
 })
-container.addEventListener("click", () => {
+container.addEventListener("mouseover", () => {
   if (results.children) {
     results.innerHTML = '';
   }
