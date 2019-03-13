@@ -1,9 +1,8 @@
-
   <footer>
     <div class="footer1">
       <div class="footer-container1">
         <!-- Grid row-->
-        <div class="row py-4 d-flex justify-content">
+        <div class="row d-flex justify-content align-items-center">
           <!-- Grid column -->
           <div class="col-md-6 col-lg-5 text-center text-md-left">
             <p class="mb-0">Get connected with us on social networks!</p>
@@ -32,13 +31,13 @@
           </div>
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
             <p>More info</p>
-            <p><a href="#!">Features</a></p>
-            <p><a href="#!">Community</a></p>
+            <p><%= link_to("Features", "#") %></p>
+            <p><%= link_to("Community", "#") %></p>
           </div>
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
             <p>Useful links</p>
-            <p><a href="#!">My Dashboard</a></p>
-            <p><a href="#!">Categories</a></p>
+            <p><%= link_to("My Dashboard", "#" ) %></p>
+            <p><%= link_to("Categories", categories_path ) %></p>
           </div>
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
             <p>Contact</p>

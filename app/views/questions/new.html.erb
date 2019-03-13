@@ -1,5 +1,8 @@
 <div class="container page-container ask-form ">
     <div class="container ask-content">
+      <div class="title-ask-a-question">
+        <h3>Ask a Question</h3>
+      </div>
       <%= simple_form_for [@question] do |f| %>
         <%= f.association :category, :class => "category-menu", collection: Category.all  %>
         <%= f.simple_fields_for :question_tag do |c| %>

@@ -34,8 +34,9 @@
       <div class="sort">
         <p>ordered by : date</p>
       </div>
+      <hr class="line-articles">
         <div class="container-articles">
-          <hr class="line-articles">
+
           <% @articles.each do |article| %>
             <div class="card-articles">
               <a class="link-article" href=<%= article.url %> target="_blank">
@@ -69,11 +70,9 @@
         <div class="sort">
           <p>ordered by : relevance</p>
         </div>
+      <hr class="line-articles">
 
-      <div class="">
-
-          <hr class="line-articles">
-
+      <div class="container-questions">
           <% @questions.each do |question|%>
           <div class="card-question">
             <a class="link-question" href=<%= question_path(question) %> >
@@ -86,8 +85,6 @@
             </div>
           </div>
           <% end  %>
-
-
       </div>
   </div>
 
