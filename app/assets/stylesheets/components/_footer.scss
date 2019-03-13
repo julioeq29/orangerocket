@@ -1,8 +1,6 @@
 .footer1 {
   background: $brand-secondary;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 80px;
   padding: 0px 50px;
   margin-top: 120px;
@@ -31,9 +29,7 @@
 
 .footer2 {
   background: $brand-primary;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   color: white;
   height: 280px;
   padding-top: 16px;
@@ -42,3 +38,20 @@
 .footer2 a {
   text-decoration: none !important;
 }
+
+.footer-container2{
+  margin: 26px;
+}
+
+.mx-auto a{
+  color: $brand-secondary;
+}
+
+.mx-auto a:hover{
+  color: white;
+
+}
+// .footer-container1{
+//   display: flex;
+//   justify-content: space-between;
+// }

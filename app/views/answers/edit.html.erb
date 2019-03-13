@@ -1,4 +1,10 @@
-<%= simple_form_for [@answer] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "update the answer", class: "btn btn-primary" %>
-<% end %>
+<div class="page-container">
+  <div class="container">
+    <div class="d-flex justify-content-around form-login">
+      <%= simple_form_for [@answer] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit "update the answer", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

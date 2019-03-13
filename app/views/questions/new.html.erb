@@ -1,4 +1,4 @@
-<div class="container ask-form">
+<div class="container page-container ask-form ">
     <div class="container ask-content">
       <%= simple_form_for [@question] do |f| %>
         <%= f.association :category, :class => "category-menu", collection: Category.all  %>
