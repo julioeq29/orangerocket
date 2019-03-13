@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @user = User.find(params[:id])
     authorize @user
     user_answers = @user.answers
@@ -24,6 +23,17 @@ class UsersController < ApplicationController
       }
     end
 
+    @all_replied_questions_ids = []
+    @user = User.find(params[:id])
+    @user.answers.each do |answer|
+      @all_replied_questions_ids << answer.question.id
+      @all_replied_questions_ids.uniq!
+    end
+
+    @users_id = all_replied_questions_ids
+
+    @user = User.find(params[:id])
+    authorize @user
     @points = user_ranking
   end
 
@@ -38,11 +48,10 @@ class UsersController < ApplicationController
     return num_answers + likes_counter
   end
 
-  def user_location
+  def all_replied_questions_ids
     @users_id = []
     @all_replied_questions_ids.each do |id|
       @users_id << Question.find(id).user_id
-      @users_id
     end
     return @users_id
   end

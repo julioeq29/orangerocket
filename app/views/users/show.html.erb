@@ -1,34 +1,42 @@
-<hr>
+<hr class="dashboard-hr">
   <div class="container first-container">
     <div class="personal-data">
-      <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
-      </div>
-      <div class=ranking-icon>
-        <% if @points <= 100 %>
-          <i class="fas fa-seedling ranking"></i>
-        <% elsif @points > 100 && @points <= 200 %>
-          <i class="fas fa-feather-alt ranking"></i>
-        <% elsif @points > 200 && @points <= 300 %>
-          <i class="fas fa-tree ranking"></i>
-        <% elsif @points > 400 && @points <= 500 %>
-          <i class="fas fa-star ranking"></i>
-        <% elsif @points > 500 %>
-          <i class="fas fa-award ranking"></i>
+      <div class="photo-and-button">
+        <% if @user.photo.file.nil? %>
+          <div class="photo-rounded"><%= image_tag "nav-avatar.png", class: "card-img-top" %></div>
+        <% else %>
+          <div class="photo-rounded"><%= cl_image_tag @user.photo, class: "card-img-top", crop: :fill %>
+          </div>
         <% end %>
-      </div>
-      <div class="update-button">
-        <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask btn-tags btn-update" %>
-      </div>
-      <div class="card-body">
-        <div class="card-text">
-          <h2 class="user-name"><%= @user.first_name&.capitalize %> <%= @user.last_name&.capitalize %></h2>
-          <p class="user-location"><%= @user.location.capitalize %></p>
-          <p><%= @user.bio %></p>
+        <div class=ranking-icon>
+          <% if @points <= 100 %>
+            <i class="fas fa-seedling ranking"></i>
+          <% elsif @points > 100 && @points <= 200 %>
+            <i class="fas fa-feather-alt ranking"></i>
+          <% elsif @points > 200 && @points <= 300 %>
+            <i class="fas fa-tree ranking"></i>
+          <% elsif @points > 400 && @points <= 500 %>
+            <i class="fas fa-star ranking"></i>
+          <% elsif @points > 500 %>
+            <i class="fas fa-award ranking"></i>
+          <% end %>
         </div>
+        <div class="update-button">
+          <%= link_to "Update my profile", edit_user_registration_path, class: "btn-ask   btn-tags btn-update" %>
+        </div>
+      </div>
+      <div class="card-text-dashboard">
+        <h2 class="user-name-dashboard"><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> <%= @user.last_name&.split(' ').map {|w| w.capitalize }.join(' ') %></h2>
+        <p class="user-location"><%= @user.location.capitalize.split(' ').map {|w| w.capitalize }.join(' ') %></p>
+        <% if @user.bio.nil? || @user.bio.empty? %>
+          <p class="without-biography">Update your profile and add information about you! </p>
+        <% else %>
+          <p class="biography"><%= @user.bio %></p>
+        <% end %>
       </div>
     </div>
   </div>
-<hr>
+<hr class="dashboard-hr">
 <div class="container second-container">
   <div class="user-tabs">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -47,13 +55,13 @@
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
         <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
-        <% if liked_articles == [] %>
-          <div class="card-articles">
+        <% if liked_articles.empty? %>
+          <div class="without-card-articles dashboard">
             <p>You haven't liked any article yet</p>
           </div>
         <% else %>
             <% liked_articles.each do |article| %>
-              <div class="card-articles">
+              <div class="card-articles dashboard">
                 <a class="link-article" href=<%= article.url %> target="_blank">
                 </a>
                 <div class="text-left">
@@ -62,7 +70,7 @@
                       <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
                       <p class="">
                           <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
-                              <span><i class="far fa-thumbs-up"></i></span>
+                              <span><i class="fab fa-canadian-maple-leaf"></i></span>
                           <% end %>
                           <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
                       </p>
@@ -77,38 +85,61 @@
         <% end %>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <% @user.questions.each do |question| %>
-          <div class="card-question">
-            <div class="question-link">
-              <%= link_to question.content, question_path(question) %>
-            </div>
-          <% if Time.now - question.created_at < 86400 %>
-            <p><%= time_ago_in_words(question.created_at) %></p>
-          <% elsif Time.now - question.created_at < 172800 %>
-            <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
-          <% else %>
-            <p><%= question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
-          <% end %>
+        <% if @user.questions.empty? %>
+          <div class="without-card-question dashboard">
+            <p>You haven't asked anything yet</p>
           </div>
-        <% end  %>
+        <% else %>
+          <% @user.questions.each do |question| %>
+            <div class="card-question dashboard">
+              <div class="question-link">
+                <%= link_to question.content, question_path(question) %>
+              </div>
+              <div class="question-date">
+                <% if Time.now - question.created_at < 86400 %>
+                  <p><%= time_ago_in_words(question.created_at) %></p>
+                <% elsif Time.now - question.created_at < 172800 %>
+                  <p>Yesterday at <%= question.created_at.strftime("%H:%M") %></p>
+                <% else %>
+                  <p><%= question.created_at.strftime("%e, %B %Y at %k:%M") %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end  %>
+        <% end %>
       </div>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <% @all_replied_questions_ids.each do |id_question| %>
-          <div class="card-question">
-            <div class="question-link">
-              <%= link_to Question.find(id_question).content, question_path(id_question) %>
-              <p><%= Question.find(id_question).user.location %></p>
-            </div>
-              <div>
-              <% if Time.now - Question.find(id_question).created_at < 86400 %>
-                <p><%= time_ago_in_words(Question.find(id_question).created_at) %></p>
-              <% elsif Time.now - Question.find(id_question).created_at < 172800 %>
-                <p>Yesterday at <%= Question.find(id_question).created_at.strftime("%H:%M") %></p>
-              <% else %>
-                <p><%= Question.find(id_question).created_at.strftime("%e, %B %Y at %k:%M") %></p>
-              <% end %>
-              </div>
+        <% if @all_replied_questions_ids.empty? %>
+          <div class="without-card-question dashboard">
+            <p>You haven't write answer yet</p>
           </div>
+        <% else %>
+          <% @all_replied_questions_ids.each do |id_question| %>
+            <div class="card-question dashboard">
+              <div class="question-link">
+                <%= link_to Question.find(id_question).content, question_path(id_question) %>
+              </div>
+              <div class="question-data">
+                <div class="question-user-name">
+                  <span class="source">
+                    Asked by <%=link_to user_path(Question.find(id_question).user_id) do %>
+                      <span>@<%= Question.find(id_question).user.first_name&.split(' ').map {|w| w.   capitalize }.join(' ') %></span>
+                    <% end %>
+                   </span>
+                </div>
+                <div class="location-date">
+                  <p><%= Question.find(id_question).user.location.split(' ').map {|w| w.  capitalize   }.join(' ') %></p>
+                  <% if Time.now - Question.find(id_question).created_at < 86400 %>
+                    <p><%= time_ago_in_words(Question.find(id_question).created_at) %></p>
+                  <% elsif Time.now - Question.find(id_question).created_at < 172800 %>
+                    <p>Yesterday at <%= Question.find(id_question).created_at.strftime("%H:%M") %></  p>
+                  <% else %>
+                    <p><%= Question.find(id_question).created_at.strftime("%e, %B %Y at %k:%M") %></  p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
@@ -124,3 +155,9 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
