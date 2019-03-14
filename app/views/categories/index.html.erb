@@ -40,9 +40,14 @@
             <div class="info-articles d-flex">
               <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
               <p class="">
-                <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                <%= link_to like_article_path(article), class:"like-btn", method: :put, remote:true do %>
+
+
+
+
                   <span><i class="far fa-thumbs-up"></i></span>
                 <% end %>
+
                 <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
                 </p>
             </div>
@@ -61,7 +66,7 @@
     <div class="question-result">
       <% if @questions.empty? %>
         <p class ="search-state-question">Your keyword <strong><%= params[:query] %></strong> hasn't matched any questions yet. </p>
-      <% else  %> <p class = "search-state-question" >Your keyword <strong ><%= params[:query] %> </strong> matched questions below. </p>
+      <% else  %> <p class = "search-state-question" >Your keyword <strong ><%= params[:query] %> </strong> matched <strong><%= @questions.count %> </strong>questions here. </p>
       <% end %>
       <div class="answer d-flex justify-content-between">
         <%= link_to "Ask a new question", new_question_path, class: " btn-result btn-tags-search" %>
