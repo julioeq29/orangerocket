@@ -1,79 +1,57 @@
 
 <div class="cards card-result">
-
-    <%= link_to "< Back to categories", root_path, class: "back back-to" %>
-
-    <% if @categories.empty? %>
-
+  <%= link_to "< Back to categories", root_path, class: "back back-to" %>
+  <% if @categories.empty? %>
     <p class = "search-state" >Your keyword <strong><%= params[:query] %> </strong> hasn't matched any categories yet. </p>
-
-    <% else %>
-
+  <% else %>
     <% @categories.each_with_index do |category, index| %>
-
       <div class=" card-category-result large" style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
-        <%= link_to category.name, category_path(category) %>
+      <%= link_to category.name, category_path(category) %>
       </div>
     <% end %>
-    <% end %>
-  </div>
-
-
+  <% end %>
+</div>
 
 <div class = "container-search-result">
-<div class="container d-flex category-container">
-
-
-
-  <div class="container articles">
-    <h2>Articles</h2>
-    <p class = "search-state-article">Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
-
+  <div class="container d-flex category-container">
+    <div class="container articles">
+      <h2>Articles</h2>
+      <p class = "search-state-article">Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
       <% if @articles %>
-
         <% if @articles.count == 1 %>
-          <%= @articles.count %></strong>
-          article here.</p>
+          <%= @articles.count %></strong>article here.</p>
         <% else %>
           <%= @articles.count %></strong>
           <%= "article".pluralize %> here.</p>
         <% end %>
       <% else %>
-        <%= 0 %></strong>
-        articles here.</p>
+        <%= 0 %></strong>articles here.</p>
       <% end %>
       <div class="sort">
-
         <p>ordered by : date</p>
-
       </div>
-
-
-        <div class="container-articles">
-          <hr class="line-articles">
-          <% @articles.each do |article| %>
-            <div class="card-articles">
-              <a class="link-article" href=<%= article.url %> target="_blank">
-              </a>
-              <div class="text-left">
-                  <p><%= article.title %></p>
-                  <div class="info-articles d-flex">
-                    <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
-                    <p class="">
-                        <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
-                            <span><i class="far fa-thumbs-up"></i></span>
-                        <% end %>
-                        <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
-                    </p>
-                  </div>
-              </div>
-              <div class="img-article">
-
-              </div>
+      <div class="container-articles">
+      <hr class="line-articles">
+      <% @articles.each do |article| %>
+        <div class="card-articles">
+          <a class="link-article" href="<%= article.url %>" target="_blank"></a>
+          <div class="text-left">
+            <p><%= article.title %></p>
+            <div class="info-articles d-flex">
+              <p class="source"><%= article.source%><p class="date-articles source"><%= article.pub_date.strftime("%e, %B %Y") %></p></p>
+              <p class="">
+                <%= link_to like_article_path(article), class:"like-btn", method: :put, remote: :true do %>
+                  <span><i class="far fa-thumbs-up"></i></span>
+                <% end %>
+                <span class="likes_count" id="likes<%= article.id %>"><%= article.get_upvotes.size %></span>
+                </p>
             </div>
-          <% end %>
+          </div>
+          <div class="img-article"></div>
         </div>
+      <% end %>
     </div>
+  </div>
 
 
 
@@ -81,46 +59,30 @@
   <div class="container questions">
     <h2>Questions</h2>
     <div class="question-result">
-    <% if @questions.empty? %>
-    <p class ="search-state-question">Your keyword <strong><%= params[:query] %></strong> hasn't matched any questions yet. </p>
-    <% else  %> <p class = "search-state-question" >Your keyword <strong ><%= params[:query] %> </strong> matched questions below. </p>
-    <% end %>
-
+      <% if @questions.empty? %>
+        <p class ="search-state-question">Your keyword <strong><%= params[:query] %></strong> hasn't matched any questions yet. </p>
+      <% else  %> <p class = "search-state-question" >Your keyword <strong ><%= params[:query] %> </strong> matched questions below. </p>
+      <% end %>
       <div class="answer d-flex justify-content-between">
-
-
-
-
         <%= link_to "Ask a new question", new_question_path, class: " btn-result btn-tags-search" %>
       </div>
     </div>
 
-
-      <div class="">
-
-          <hr class="line-articles">
-
-          <% @questions.each do |question|%>
-          <div class="card-question">
-            <a class="link-question" href=<%= question_path(question) %> >
-            </a>
-            <div class="question-link">
-              <%= link_to question.content, question_path(question) %>
-            </div>
-            <div class="">
-              <p class="source ">@ <%= question.user.first_name %></p>
-            </div>
+    <div class="">
+      <hr class="line-articles">
+      <% @questions.each do |question|%>
+        <div class="card-question">
+          <a class="link-question" href=<%= (question) %> >
+          </a>indent
+          <div class="question-link">
+            <%= link_to question.content, question_path(question) %>
           </div>
-          <% end  %>
-      </div>
+          <div class="">
+            <p class="source ">@ <%= question.user.first_name %></p>
+          </div>
+        </div>
+      <% end  %>
     </div>
   </div>
-
-
-
-
-
-
-
-
+</div>
 
