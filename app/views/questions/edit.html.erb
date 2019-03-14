@@ -1,5 +1,14 @@
-<%= simple_form_for [@question] do |f| %>
-  <%= f.input :content %>
-  <%= f.association :category, collection: Category.all %>
-  <%= f.submit "update the question", class: "btn btn-primary" %>
-<% end %>
+<div class="container page-container">
+  <div class="row d-flex  justify-content-center mt-5">
+    <div class="form-edit-question  " >
+      <%= simple_form_for [@question] do |f| %>
+        <%= f.input :content %>
+        <%= f.association :category, collection: Category.all %>
+        <div class="btn-edit-question d-flex justify-content-center">
+          <%= f.submit "update the question", class: "btn btn-login" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

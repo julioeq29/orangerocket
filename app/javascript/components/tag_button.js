@@ -1,10 +1,10 @@
 // Buttons to change color when clicked
 const buttons = document.querySelectorAll(".btn-tags");
 const slider = document.querySelector(".slider");
-const tag = slider.dataset.tag
+if (slider) {
+  const tag = slider.dataset.tag;
+}
 const dataholders = document.querySelectorAll(".data-holder");
-console.log(tag)
-
 
 
 
