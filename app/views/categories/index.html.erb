@@ -5,9 +5,11 @@
     <p class = "search-state" >Your keyword <strong><%= params[:query] %> </strong> hasn't matched any categories. </p>
   <% else %>
     <% @categories.each_with_index do |category, index| %>
-      <div class=" card-category-result large " style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
+    <div class="container d-flex justify-content-center">
+      <div class=" card-category-result " style="background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= category.photo %>);">
       <%= link_to category.name, category_path(category) %>
       </div>
+    </div>
     <% end %>
   <% end %>
 
@@ -16,9 +18,6 @@
 
   <div class="container articles">
     <h2>Articles</h2>
-        <div class="sort">
-        <p>ordered by : date</p>
-        </div>
       <p >Your keyword <strong> <%= params[:query] %> </strong> matched <strong>
       <% if @articles %>
         <% if @articles.count == 1 %>
@@ -28,6 +27,9 @@
           <%= "article".pluralize %> here.</p>
         <% end %>
         <% end %>
+        <div class="sort">
+        <p>ordered by : date</p>
+        </div>
 
       <hr class="line-articles">
         <div class="container-articles">
