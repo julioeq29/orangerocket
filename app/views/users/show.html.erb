@@ -60,11 +60,12 @@
       <p class="user-location"><%= @user.location.capitalize.split(' ').map {|w| w.capitalize }.join(' ') %></p>
       <% if @user.bio.nil? || @user.bio.empty? %>
         <% if @user == current_user %>
-        <p class="without-biography">Update your profile and add information about you! </p>
-      <% else %>
-        <p class="without-biography">No profile bio available</p>
-        <p class="biography"><%= @user.bio %></p>
+          <p class="without-biography">Update your profile and add information about you! </p>
+        <% else %>
+          <p class="without-biography">No profile bio available</p>
         <% end %>
+      <% else %>
+        <p class="biography"><%= @user.bio %></p>
       <% end %>
     </div>
   </div>
