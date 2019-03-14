@@ -70,7 +70,7 @@
   <div class="title-question">
     <!-- QUESTION'S TITLE -->
     <div class="text-center">
-      <h1><%= @question.content %></h1>
+      <h1 style="white-space: pre-line"><%= @question.content %></h1>
       <% @question.tags.each do |tag| %>
       <% end %>
     </div>
@@ -97,7 +97,7 @@
         <div id="<%= answer.id %>">
           <div class="content text-left">
               <div id="delete<%= answer.id %>">
-                <p><%= answer.content %></p>
+                <p style="white-space: pre-line"><%= answer.content %></p>
               </div>
           </div>
 
