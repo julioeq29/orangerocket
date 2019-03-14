@@ -14,6 +14,8 @@
   }
 }
 
+
+
 .card-category-home {
   background-size: cover !important;
   background-position: center !important;
@@ -162,5 +164,13 @@ box-shadow: 0 0 8px rgba(0, 0, 0, 0.57);
   .card-home {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
+}
+.container-for-articles-questions{
+
+}
+
+.flexboxbtn {
+display: flex;
+margin-bottom: -16px;
 }
 
