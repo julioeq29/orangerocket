@@ -131,8 +131,12 @@
         <% if @user.questions.empty? %>
           <div class="without-card-question dashboard">
             <% if @user == current_user %>
-              <p>What are you waiting for? Ask now to the GreenRocket's community and let's find a solution together!</p>
-              <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
+              <div class="no-questions-text">
+                <p>The GreenRocket's community grows by sharing knowledge, contribute with answers at the user's questions!</p>
+              </div>
+              <div class="ask-question-dashboard">
+                <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags btn-dashboard" %>
+              </div>
             <% else %>
               <p><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> haven't asked anything yet.</p>
             <% end %>
@@ -162,8 +166,9 @@
         <% if @all_replied_questions_ids.empty? %>
           <div class="without-card-question dashboard">
             <% if @user == current_user %>
-              <p>The GreenRocket's community grows by sharing knowledge, contribute with answers at the user's questions!</p>
-              <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
+              <div class="no-questions-text">
+                <p>The GreenRocket's community grows by sharing knowledge, contribute with answers at the user's questions!</p>
+              </div>
             <% else %>
               <p><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> haven't contribute yet.</p>
             <% end %>
