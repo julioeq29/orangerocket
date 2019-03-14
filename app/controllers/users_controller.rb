@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     @all_replied_questions_ids = []
     @user = User.find(params[:id])
+    authorize @user
     @user.answers.each do |answer|
       @all_replied_questions_ids << answer.question.id
       @all_replied_questions_ids.uniq!

@@ -8,16 +8,45 @@
         </div>
       <% end %>
       <div class=ranking-icon>
-        <% if @points <= 100 %>
-          <i class="fas fa-seedling ranking"></i>
-        <% elsif @points > 100 && @points <= 200 %>
-          <i class="fas fa-feather-alt ranking"></i>
-        <% elsif @points > 200 && @points <= 300 %>
-          <i class="fas fa-tree ranking"></i>
-        <% elsif @points > 300 && @points <= 500 %>
-          <i class="fas fa-star ranking"></i>
-        <% elsif @points > 500 %>
-          <i class="fas fa-award ranking"></i>
+        <% if @user == current_user %>
+          <% if @points <= 100 %>
+            <i class="fas fa-seedling ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong><br/>
+                          Keep on like that!<br/>
+                          ----------- 🌱 -----------<br/>
+                          Next level in <strong><%= 100 - @points %></strong> points" data-html="true"></i>
+          <% elsif @points > 100 && @points <= 200 %>
+            <i class="fab fa-canadian-maple-leaf" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong><br/>
+                          Don't stop now!<br/>
+                          ----------- 🍁 -----------<br/>
+                          Next level in <strong><%= 200 - @points %></strong> points" data-html="true"></i>
+          <% elsif @points > 200 && @points <= 300 %>
+            <i class="fas fa-tree ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong><br/>
+                          You look great!<br/>
+                          ----------- 🌲 -----------<br/>
+                          Next level in <strong><%= 300 - @points %></strong> points" data-html="true"></i>
+          <% elsif @points > 300 && @points <= 500 %>
+            <i class="fas fa-star ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong><br/>
+                          You are rocketing it!<br/>
+                          ----------- ⭐ -----------<br/>
+                          Next level in <strong><%= 500 - @points %></strong> points" data-html="true"></i>
+          <% elsif @points > 500 %>
+            <i class="fas fa-rocket ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong><br/>
+                          Congratulations<br/>
+                          ----------- 🚀 -----------<br/>
+                          You are a GreenRocket!" data-html="true"></i>
+          <% end %>
+        <% else %>
+          <% if @points <= 100 %>
+            <i class="fas fa-seedling ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong>" data-html="true"></i>
+          <% elsif @points > 100 && @points <= 200 %>
+            <i class="fab fa-canadian-maple-leaf" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong>" data-html="true"></i>
+          <% elsif @points > 200 && @points <= 300 %>
+            <i class="fas fa-tree ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong>"data-html="true"></i>
+          <% elsif @points > 300 && @points <= 500 %>
+            <i class="fas fa-star ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong>" data-html="true"></i>
+          <% elsif @points > 500 %>
+            <i class="fas fa-rocket ranking" data-toggle="tooltip" data-placement="top" html="true" title="Contributor Level: <strong><%= @points %></strong>" data-html="true"></i>
+          <% end %>
         <% end %>
       </div>
       <div class="update-button">
@@ -67,7 +96,11 @@
         <% liked_articles = @user.find_voted_items.select {|item| item.is_a?(Article)} %>
         <% if liked_articles.empty? %>
           <div class="without-card-articles dashboard">
-            <p>You haven't liked any article yet</p>
+            <% if @user == current_user %>
+              <p>If you've liked an article, click in the maple leaf 🍁 to save it for your records and share it whith the GreenRocket's community!</p>
+            <% else %>
+              <p><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> haven't saved any article yet.</p>
+            <% end %>
           </div>
         <% else %>
             <% liked_articles.each do |article| %>
@@ -97,7 +130,12 @@
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <% if @user.questions.empty? %>
           <div class="without-card-question dashboard">
-            <p>You haven't asked anything yet</p>
+            <% if @user == current_user %>
+              <p>What are you waiting for? Ask now to the GreenRocket's community and let's find a solution together!</p>
+              <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
+            <% else %>
+              <p><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> haven't asked anything yet.</p>
+            <% end %>
           </div>
         <% else %>
           <% @user.questions.each do |question| %>
@@ -123,7 +161,12 @@
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <% if @all_replied_questions_ids.empty? %>
           <div class="without-card-question dashboard">
-            <p>You haven't write answer yet</p>
+            <% if @user == current_user %>
+              <p>The GreenRocket's community grows by sharing knowledge, contribute with answers at the user's questions!</p>
+              <%= link_to "Ask a question", new_question_path, class: "btn-ask btn-tags" %>
+            <% else %>
+              <p><%= @user.first_name&.split(' ').map {|w| w.capitalize }.join(' ') %> haven't contribute yet.</p>
+            <% end %>
           </div>
         <% else %>
           <% @all_replied_questions_ids.each do |id_question| %>
@@ -168,8 +211,3 @@
   </div>
 </div>
 
-<script>
-  $(function () {
-  $('[data-toggle="popover"]').popover()
-})
-</script>
