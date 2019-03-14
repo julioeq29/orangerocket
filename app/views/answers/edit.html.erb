@@ -1,10 +1,13 @@
 <div class="page-container">
+      <%= link_to "< Back to question", question_path(@answer.question), class: "back" %>
   <div class="container d-flex justify-content-center">
     <div class="d-flex justify-content-around form-edit-answer text-center">
       <%= simple_form_for [@answer] do |f| %>
         <%= f.input :content %>
-        <%= f.submit "update the answer", class: "btn btn-login" %>
+        <%= f.submit "update the answer", class: "btn btn-answer-edit" %>
       <% end %>
     </div>
   </div>
 </div>
+
+
