@@ -4,25 +4,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    authorize @user
-    user_answers = @user.answers
-    answered_users = []
-    user_answers.each do |answer|
-      answered_users << answer.question.user
-    end
-    located_answered_users = answered_users.reject do |user|
-      user.latitude.nil? || user.longitude.nil?
-    end
+    # authorize @user
+    # user_answers = @user.answers
+    # answered_users = []
+    # user_answers.each do |answer|
+    #   answered_users << answer.question.user
+    # end
+    # located_answered_users = answered_users.reject do |user|
+    #   user.latitude.nil? || user.longitude.nil?
+    # end
 
-    @markers = located_answered_users.map do |user|
-      {
-        lng: user.longitude,
-        lat: user.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
-      }
-    end
-
+    # @markers = located_answered_users.map do |user|
+    #   {
+    #     lng: user.longitude,
+    #     lat: user.latitude,
+    #     infoWindow: render_to_string(partial: "infowindow", locals: { user: user })
+    #   }
+    # end
     @all_replied_questions_ids = []
     @user = User.find(params[:id])
     authorize @user
@@ -39,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def user_ranking
-    num_answers = @user.answers.count * 10
+    num_answers = @user.answers.count * 50
     likes_counter = 0
     @user.answers.each do |answer|
       likes_counter += answer.cached_votes_up

@@ -52,7 +52,7 @@
             <div class="modal-header">
               <div class="container d-flex justify-content-center">
                 <%= simple_form_for [@question, @answer] do |f| %>
-                <h3 style="white-space: pre-line" class= "d-flex justify-content-center text-center"><%= @question.content %></h3>
+                <h3 class= "d-flex justify-content-center question-title text-center"><%= @question.content %></h3>
                   <div class="modal-body">
                     <%= f.input :content, label: false, placeholder: "Your answer here", class: "form-answer" %>
                   </div>
