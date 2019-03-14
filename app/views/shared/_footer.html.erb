@@ -37,7 +37,7 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
             <p>Useful links</p>
             <p class="font-weight-light"><%= link_to("My Dashboard", "#" ) %></p>
-            <p class="font-weight-light"><%= link_to("Categories", categories_path ) %></p>
+            <p class="font-weight-light" id="scroll-categories"><%= link_to("Categories", categories_path ) %></p>
           </div>
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
             <p>Contact</p>
@@ -48,6 +48,19 @@
         </div>
       </div>
     </div>
-<% end %>
-  </footer>
+  <% end %>
+
+  <script>
+  var thing = document.getElementById('scroll-categories');
+  if (thing) {
+    thing.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector('.container-category').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  }
+</script>
+
+</footer>
 
