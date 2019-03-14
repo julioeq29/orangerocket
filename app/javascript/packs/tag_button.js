@@ -6,7 +6,7 @@ const dataholders = document.querySelectorAll(".data-holder");
 
 
 const toggleTagButton = () => {
-  if (dataholders) {
+  if (slider) {
     const tag = slider.dataset.tag;
     dataholders.forEach(function(holder) {
       // console.log(holder.dataset.tag)
@@ -19,4 +19,4 @@ const toggleTagButton = () => {
 
 
 toggleTagButton();
-// export { toggleTagButton };
+export { toggleTagButton };
