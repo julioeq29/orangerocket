@@ -54,7 +54,7 @@
         <p>There is always a starting point</p>
       </div>
       <div class="container d-flex three-cards-landing-page" id="scroll-down">
-        <%= link_to root_path do %>
+        <%= link_to category_path(2) do %>
           <div class="col-lg-4 text-center three-card-landing" style="text-decoration: none;">
             <h1>Articles.</h1>
             <p>Curated content from trusted soruces</p>
@@ -63,7 +63,7 @@
             <% end %>
           </div>
         <% end %>
-        <%= link_to root_path do %>
+        <%= link_to category_path(1) do %>
           <div class="col-lg-4 text-center three-card-landing">
             <h1>Questions.</h1>
             <p>Thoughful questions from all around the world</p>
@@ -72,7 +72,7 @@
             <% end %>
           </div>
         <% end %>
-        <%= link_to root_path do %>
+        <%= link_to question_path(1) do %>
           <div class="col-lg-4 text-center three-card-landing">
             <h1>Answers.</h1>
             <p>Down-to-earth solutions from committed people</p>

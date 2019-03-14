@@ -95,3 +95,18 @@
 .ask-content label{
   font-size: 14px;
 }
+
+
+textarea#answer_content.form-control.is-valid.text.required {
+  height: 225px;
+  color: $brand-primary;
+  opacity: 0.8;
+}
+
+textarea#answer_content.form-control.text.required {
+  height: 225px;
+  color: $brand-primary;
+  opacity: 0.8;
+}
+
+
