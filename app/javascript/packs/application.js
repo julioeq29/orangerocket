@@ -9,8 +9,8 @@ import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
 
 // lines for tag buttons in Category pages to work
-import { toggleTagButton } from '../components/tag_button';
-toggleTagButton();
+// import { toggleTagButton } from '../components/tag_button';
+// toggleTagButton();
 
 import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';

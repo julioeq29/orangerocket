@@ -17,4 +17,6 @@ const toggleTagButton = () => {
   }
 }
 
-export { toggleTagButton };
+
+toggleTagButton();
+// export { toggleTagButton };
