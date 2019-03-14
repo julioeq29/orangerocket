@@ -73,20 +73,20 @@
       </div>
     </div>
 
-    <div class="">
+    <div>
       <hr class="line-articles">
       <% @questions.each do |question|%>
-        <div class="card-question">
-          <a class="link-question" href=<%= (question) %> >
-          </a>indent
-          <div class="question-link">
-            <%= link_to question.content, question_path(question) %>
+        <%= link_to question_path(question), class: "link-style" do %>
+          <div class="card-question">
+            <div class="question-link">
+              <%= question.content %>
+            </div>
+            <div class="">
+              <p class="source">@ <%= question.user.first_name %></p>
+            </div>
           </div>
-          <div class="">
-            <p class="source ">@ <%= question.user.first_name %></p>
-          </div>
-        </div>
-      <% end  %>
+        <% end %>
+      <% end %>
     </div>
   </div>
  </div>

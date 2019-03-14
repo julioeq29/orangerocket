@@ -78,6 +78,8 @@
   background: rgba(232, 253, 244, 100);
   max-height: 90%;
   position: relative;
+  text-decoration: none !important;
+  color: black;
 }
 
 .card-question:hover{
@@ -87,6 +89,13 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   background-color: white;
   margin-left: 10px;
+  text-decoration: none !important;
+  color: black;
+}
+
+.link-style {
+  text-decoration: none !important;
+  color: black;
 }
 
 .card-question-profile-page{
